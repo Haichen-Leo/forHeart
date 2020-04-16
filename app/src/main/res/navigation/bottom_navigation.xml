@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.forheart.ui.home.HomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/home_fragment" />
+    <fragment
+        android:id="@+id/navigation_food"
+        android:name="com.example.forheart.ui.food.FoodFragment"
+        android:label="@string/title_food"
+        tools:layout="@layout/food_fragment" />
+    <fragment
+        android:id="@+id/navigation_fitness"
+        android:name="com.example.forheart.ui.fitness.FitnessFragment"
+        android:label="@string/title_fitness"
+        tools:layout="@layout/fitness_fragment" />
+</navigation>
