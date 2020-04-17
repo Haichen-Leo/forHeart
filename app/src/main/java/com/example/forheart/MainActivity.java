@@ -9,9 +9,14 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
+import com.example.forheart.db.FoodDao;
+import com.example.forheart.db.FoodTestDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    //to delete
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
