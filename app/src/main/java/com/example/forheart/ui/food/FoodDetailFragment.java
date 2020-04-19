@@ -1,6 +1,5 @@
-package com.example.forheart.ui.home;
+package com.example.forheart.ui.food;
 
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -14,28 +13,28 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.forheart.R;
-import com.example.forheart.db.FoodGroupRepository;
+import com.example.forheart.databinding.FoodDetailFragmentBinding;
 
-public class HomeFragment extends Fragment {
+public class FoodDetailFragment extends Fragment {
 
-    private HomeViewModel mViewModel;
+    private FoodDetailFragmentBinding binding;
+    private FoodDetailViewModel mViewModel;
 
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
+    public static FoodDetailFragment newInstance() {
+        return new FoodDetailFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        return inflater.inflate(R.layout.food_detail_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(FoodDetailViewModel.class);
         // TODO: Use the ViewModel
-
     }
 
 }

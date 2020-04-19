@@ -27,4 +27,7 @@ public interface FoodDao {
     @Query("SELECT * FROM Food WHERE food_item_name LIKE :pattern ORDER BY food_item_name")
     LiveData<List<Food>> findFoodsWithPattern(String pattern);
 
+    @Query("SELECT * FROM Food WHERE food_group_id = :groupId ORDER BY food_item_name")
+    LiveData<List<Food>> findFoodsWithGroup(int groupId);
+
 }

@@ -3,4 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_food">Nutrition</string>
     <string name="title_fitness">Fitness</string>
+    <string name="nav_food_id">food_id</string>
+    <string name="title_list">Food List</string>
 </resources>

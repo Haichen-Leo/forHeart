@@ -14,10 +14,19 @@
         android:id="@+id/navigation_food"
         android:name="com.example.forheart.ui.food.FoodFragment"
         android:label="@string/title_food"
-        tools:layout="@layout/food_fragment" />
+        tools:layout="@layout/food_group_fragment" >
+        <action
+            android:id="@+id/action_navigation_food_to_foodListFragment"
+            app:destination="@id/foodListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_fitness"
         android:name="com.example.forheart.ui.fitness.FitnessFragment"
         android:label="@string/title_fitness"
         tools:layout="@layout/fitness_fragment" />
+    <fragment
+        android:id="@+id/foodListFragment"
+        android:name="com.example.forheart.ui.food.FoodListFragment"
+        android:label="@string/title_list"
+        tools:layout="@layout/food_list_fragment" />
 </navigation>

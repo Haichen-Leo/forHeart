@@ -25,6 +25,12 @@ public interface FoodGroupDao {
     @Query("SELECT * FROM FoodGroup WHERE food_group_id = :foodGroupId")
     FoodGroup findFoodGroupById(int foodGroupId);
 
-    @Query("SELECT * FROM FoodGroup ORDER BY food_group_id DESC")
-    LiveData<List<FoodGroup>> getAllFoodGroups();
+    @Query("SELECT * FROM FoodGroup ORDER BY food_group_name")
+    LiveData<List<FoodGroup>> getAllFoodGroupsLive();
+
+    @Query("SELECT * FROM FoodGroup ORDER BY food_group_name")
+    List<FoodGroup> getAllFoodGroups();
+
+    @Query("DELETE FROM FoodGroup WHERE food_group_id = 0")
+    void deleteZero();
 }

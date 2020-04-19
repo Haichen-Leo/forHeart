@@ -1,4 +1,4 @@
-package com.example.forheart.service;
+package com.example.forheart.db;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -19,16 +19,25 @@ public class FoodRepository {
     public FoodRepository(Context context) {
         FoodDatabase foodDatabase = FoodDatabase.getINSTANCE(context.getApplicationContext());
         foodDao = foodDatabase.getFoodDao();
-        allFoodsLive = foodDao.getAllFoods();
+//        allFoodsLive = foodDao.getAllFoods();
     }
 
+//    public LiveData<List<Food>> getAllFoodsLive() {
+//        return allFoodsLive;
+//    }
+
     public LiveData<List<Food>> getAllFoodsLive() {
+        allFoodsLive = foodDao.getAllFoods();
         return allFoodsLive;
     }
 
     // return a list of food matching a certain pattern
     public LiveData<List<Food>> findFoodsWithPattern(String pattern) {
         return foodDao.findFoodsWithPattern("%" + pattern + "%");
+    }
+
+    public LiveData<List<Food>> findFoodsWithGroup(int groupId) {
+        return foodDao.findFoodsWithGroup(groupId);
     }
 
 //    public void insertFoods(Food...foods) {

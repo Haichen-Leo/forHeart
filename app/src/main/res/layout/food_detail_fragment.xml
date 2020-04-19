@@ -3,4 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.food.FoodFragment"/>
+    tools:context=".ui.food.FoodDetailFragment">
+
+    <TextView
+        android:id="@+id/textView_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+</FrameLayout>
