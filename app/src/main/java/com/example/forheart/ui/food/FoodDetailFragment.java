@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.FoodDetailFragmentBinding;
+import com.navigation.androidx.AwesomeFragment;
 
-public class FoodDetailFragment extends Fragment {
+public class FoodDetailFragment extends AwesomeFragment {
 
     private FoodDetailFragmentBinding binding;
     private FoodDetailViewModel mViewModel;

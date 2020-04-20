@@ -4,25 +4,32 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.FoodGroupFragmentBinding;
+import com.navigation.androidx.AwesomeFragment;
+import com.navigation.androidx.DrawerFragment;
+import com.navigation.androidx.FragmentHelper;
+import com.navigation.androidx.ToolbarButtonItem;
 
-public class FoodFragment extends Fragment {
+
+public class FoodFragment extends AwesomeFragment {
 
     private FoodGroupFragmentBinding binding;
     private FoodViewModel mViewModel;
     private RecyclerView recyclerView;
     private FoodGroupAdapter mAdapter;
+
+    public static String fromCharCode(int... codePoints) {
+        return new String(codePoints, 0, codePoints.length);
+    }
 
     public static FoodFragment newInstance() {
         return new FoodFragment();
@@ -32,29 +39,46 @@ public class FoodFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        binding = FoodGroupFragmentBinding.inflate(getLayoutInflater());
+        View root = inflater.inflate(R.layout.food_group_fragment, container, false);
+        binding = FoodGroupFragmentBinding.bind(root);
         return binding.getRoot();
+
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setTitle("Nutrition");
+        if (isNavigationRoot()) {
+            String iconUri = "font://FontAwesome/" + fromCharCode(61641) + "/24";
+            ToolbarButtonItem.Builder builder = new ToolbarButtonItem.Builder();
+            builder.icon(iconUri).listener(view -> {
+                DrawerFragment drawerFragment = getDrawerFragment();
+                if (drawerFragment != null) {
+                    drawerFragment.toggleMenu();
+                }
+            });
+            setLeftBarButtonItem(builder.build());
+        }
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(FoodViewModel.class);
-        mAdapter = new FoodGroupAdapter();
+        mAdapter = new FoodGroupAdapter(getContext(), getNavigationFragment());
         mAdapter.setAllFoodGroups(mViewModel.getAllFoodGroups());
         recyclerView = binding.recyclerViewFoodGroup;
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         recyclerView.setAdapter(mAdapter);
-        binding.textViewAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                int id = 0;
-                bundle.putInt(String.valueOf(R.string.nav_food_id), id);
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.action_navigation_food_to_foodListFragment, bundle);
-            }
+        TextView textViewAll = binding.textViewAll;
+        // nav - view all foods
+        textViewAll.setOnClickListener(v -> {
+            FoodListFragment allFoodList = new FoodListFragment();
+            Bundle args = FragmentHelper.getArguments(allFoodList);
+            int id = 0;
+            args.putInt(String.valueOf(R.string.nav_food_group_id), id);
+            getNavigationFragment().pushFragment(allFoodList);
         });
 
     }

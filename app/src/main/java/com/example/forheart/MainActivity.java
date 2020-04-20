@@ -1,39 +1,80 @@
 package com.example.forheart;
 
 
-import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.inputmethod.InputMethodManager;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.annotation.NonNull;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.forheart.ui.drawer.MenuFragment;
+import com.example.forheart.ui.fitness.FitnessFragment;
+import com.example.forheart.ui.food.FoodFragment;
+import com.example.forheart.ui.home.HomeFragment;
+import com.navigation.androidx.AwesomeActivity;
+import com.navigation.androidx.DrawerFragment;
+import com.navigation.androidx.NavigationFragment;
+import com.navigation.androidx.Style;
+import com.navigation.androidx.TabBarFragment;
+import com.navigation.androidx.TabBarItem;
 
-public class MainActivity extends AppCompatActivity {
-    private NavController navController;
+public class MainActivity extends AwesomeActivity {
 
+    // This activity base on androidx and awesomenavigation library for navigation configures
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        // ui - set translucent status bar
+        setStatusBarTranslucent(false);
+
+        // ui - set navigation structure
+        if (savedInstanceState == null) {
+            HomeFragment homeFragment = new HomeFragment();
+            NavigationFragment homeNavigation = new NavigationFragment();
+            homeNavigation.setRootFragment(homeFragment);
+            homeNavigation.setTabBarItem(new TabBarItem("Home", R.drawable.ic_home_black_24dp));
+
+            FoodFragment foodFragment = new FoodFragment();
+            NavigationFragment foodNavigation = new NavigationFragment();
+            foodNavigation.setRootFragment(foodFragment);
+            foodNavigation.setTabBarItem(new TabBarItem("Food", R.drawable.ic_search_black_24dp));
+
+            FitnessFragment fitnessFragment = new FitnessFragment();
+            NavigationFragment fitnessNavigation = new NavigationFragment();
+            fitnessNavigation.setRootFragment(fitnessFragment);
+            fitnessNavigation.setTabBarItem(new TabBarItem("Fitness", R.drawable.ic_fitness_center_black_24dp));
+
+            TabBarFragment tabBarFragment = new TabBarFragment();
+            tabBarFragment.setChildFragments(homeNavigation, foodNavigation,fitnessNavigation);
+
+            DrawerFragment drawerFragment = new DrawerFragment();
+            drawerFragment.setMenuFragment(new MenuFragment());
+            drawerFragment.setContentFragment(tabBarFragment);
+            drawerFragment.setMaxDrawerWidth(300); // set menu width
+
+            setActivityRootFragment(tabBarFragment);
+        }
+
         // set bottom navigation
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        AppBarConfiguration configuration = new AppBarConfiguration.Builder(
-                bottomNavigationView.getMenu())
-                .build();
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, configuration);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//        AppBarConfiguration configuration = new AppBarConfiguration.Builder(
+//                bottomNavigationView.getMenu())
+//                .build();
+//        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        NavigationUI.setupActionBarWithNavController(this, navController, configuration);
+//        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
     }
 
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        navController.navigateUp();
+//        return super.onSupportNavigateUp();
+//    }
+
+    // custom navigation util styles
     @Override
-    public boolean onSupportNavigateUp() {
-        navController.navigateUp();
-        return super.onSupportNavigateUp();
+    protected void onCustomStyle(@NonNull Style style) {
+        style.setSwipeBackEnabled(true);
+        style.setNavigationBarColor(Color.WHITE);
     }
 }

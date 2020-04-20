@@ -14,11 +14,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.forheart.R;
+import com.example.forheart.databinding.HomeFragmentBinding;
 import com.example.forheart.db.FoodGroupRepository;
+import com.navigation.androidx.AwesomeFragment;
+import com.navigation.androidx.DrawerFragment;
+import com.navigation.androidx.ToolbarButtonItem;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends AwesomeFragment {
 
     private HomeViewModel mViewModel;
+    private HomeFragmentBinding binding;
+
+    public static String fromCharCode(int... codePoints) {
+        return new String(codePoints, 0, codePoints.length);
+    }
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -27,14 +36,35 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        View root = inflater.inflate(R.layout.home_fragment, container, false);
+        binding = HomeFragmentBinding.bind(root);
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setTitle("forHEART");
+
+        if (isNavigationRoot()) {
+            String iconUri = "font://FontAwesome/" + fromCharCode(61641) + "/24";
+            ToolbarButtonItem.Builder builder = new ToolbarButtonItem.Builder();
+            builder.icon(iconUri).listener(view -> {
+                DrawerFragment drawerFragment = getDrawerFragment();
+                if (drawerFragment != null) {
+                    drawerFragment.toggleMenu();
+                }
+            });
+            setLeftBarButtonItem(builder.build());
+        } else {
+            ToolbarButtonItem.Builder builder = new ToolbarButtonItem.Builder();
+            builder.title("关闭").listener(view -> dismissFragment());
+            setLeftBarButtonItem(builder.build());
+        }
+
+
         mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        // TODO: Use the ViewModel
+        binding.textViewTest.setText("Home fragment");
 
     }
 

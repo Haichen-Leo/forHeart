@@ -13,16 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.FoodListFragmentBinding;
 import com.example.forheart.model.Food;
+import com.navigation.androidx.AwesomeFragment;
 
 import java.util.List;
 
-public class FoodListFragment extends Fragment {
+public class FoodListFragment extends AwesomeFragment {
 
     private FoodListFragmentBinding binding;
     private FoodListViewModel mViewModel;
@@ -40,27 +43,6 @@ public class FoodListFragment extends Fragment {
         return binding.getRoot();
     }
 
-//    @Override
-//    public void onViewCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        mViewModel = new ViewModelProvider(this).get(FoodListViewModel.class);
-//        foodListAdapter = new FoodListAdapter();
-//        int id = getArguments().getInt(String.valueOf(R.string.nav_food_id));
-////        binding.textViewTest.setText(String.valueOf(id));
-//        recyclerView = binding.recyclerViewFood;
-//        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-//        recyclerView.setAdapter(foodListAdapter);
-//
-//        mViewModel.findFoodsWithGroup(id).observe(requireActivity(), new Observer<List<Food>>() {
-//            @Override
-//            public void onChanged(List<Food> foods) {
-//                foodListAdapter.setAllFoods(foods);
-//
-//            }
-//        });
-//
-//    }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -69,7 +51,7 @@ public class FoodListFragment extends Fragment {
         recyclerView.setAdapter(foodListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         mViewModel = new ViewModelProvider(this).get(FoodListViewModel.class);
-        int id = getArguments().getInt(String.valueOf(R.string.nav_food_id));
+        int id = getArguments().getInt(String.valueOf(R.string.nav_food_group_id));
         if (id == 0) {
             mViewModel.getAllFoodsLive().observe(getViewLifecycleOwner(), new Observer<List<Food>>() {
                 @Override
@@ -87,4 +69,5 @@ public class FoodListFragment extends Fragment {
         }
 
     }
+
 }

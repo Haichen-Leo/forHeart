@@ -1,5 +1,6 @@
 package com.example.forheart.ui.food;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,26 +8,32 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
 import com.example.forheart.model.FoodGroup;
+import com.navigation.androidx.FragmentHelper;
+import com.navigation.androidx.NavigationFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.GroupViewHolder> {
-    private List<FoodGroup> allFoodGroups = new ArrayList<>();
-//    private FoodViewModel foodViewModel;
+    private List<FoodGroup> allFoodGroups;
+    private final LayoutInflater layoutInflater;
+    private Context mContext;
+    private NavigationFragment navigationFragment;
 
 
-    public FoodGroupAdapter() {
+    public FoodGroupAdapter(Context context, NavigationFragment navigationFragment) {
+        layoutInflater = LayoutInflater.from(context);
+        mContext = context;
+        this.navigationFragment = navigationFragment;
     }
 
     public void setAllFoodGroups(List<FoodGroup> allFoodGroups) {
         this.allFoodGroups = allFoodGroups;
+//        notifyDataSetChanged();
     }
 
     /**
@@ -44,11 +51,13 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
                 int id = (int) holder.itemView.getTag(R.id.food_group_in_view_holder);
-                bundle.putInt(String.valueOf(R.string.nav_food_id), id);
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.action_navigation_food_to_foodListFragment,bundle);
+                FoodListFragment listFragment = new FoodListFragment();
+                Bundle args = FragmentHelper.getArguments(listFragment);
+                args.putInt(String.valueOf(R.string.nav_food_group_id),id);
+                navigationFragment.pushFragment(listFragment);
+
+
             }
         });
         return holder;
