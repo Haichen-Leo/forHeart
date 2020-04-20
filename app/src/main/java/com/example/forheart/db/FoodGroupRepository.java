@@ -1,7 +1,6 @@
 package com.example.forheart.db;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
@@ -16,11 +15,28 @@ public class FoodGroupRepository {
     public FoodGroupRepository(Context context) {
         FoodDatabase foodDatabase = FoodDatabase.getINSTANCE(context.getApplicationContext());
         foodGroupDao = foodDatabase.getFoodGroupDao();
-//        allFoodGroupsLive = foodGroupDao.getAllFoodGroupsLive();
     }
 
     public LiveData<List<FoodGroup>> getAllFoodGroupsLive() {
+        allFoodGroupsLive = foodGroupDao.getAllFoodGroupsLive();
         return allFoodGroupsLive;
     }
 
+//    public void deleteFoodGroup(FoodGroup... foodGroups) {
+//        new DeleteAsyncTaskFood(foodGroupDao).execute(foodGroups);
+//    }
+
+//    static class DeleteAsyncTaskFood extends AsyncTask<FoodGroup, Void, Void> {
+//        private FoodGroupDao foodGroupDao;
+//
+//        DeleteAsyncTaskFood(FoodGroupDao foodGroupDao){
+//            this.foodGroupDao = foodGroupDao;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(FoodGroup... foodGroups) {
+//            foodGroupDao.deleteFoodGroup(foodGroups);
+//            return null;
+//        }
+//    }
 }

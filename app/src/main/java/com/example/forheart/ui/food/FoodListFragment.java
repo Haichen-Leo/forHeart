@@ -22,10 +22,6 @@ public class FoodListFragment extends BaseFragment {
     private RecyclerView recyclerView;
     private FoodListAdapter foodListAdapter;
 
-    public static FoodListFragment newInstance() {
-        return new FoodListFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -37,15 +33,15 @@ public class FoodListFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = binding.recyclerViewFood;
-        foodListAdapter = new FoodListAdapter(getContext());
+        foodListAdapter = new FoodListAdapter(getContext(),getNavigationFragment());
         recyclerView.setAdapter(foodListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         mViewModel = new ViewModelProvider(this).get(FoodListViewModel.class);
-        int id = getArguments().getInt(String.valueOf(R.string.nav_food_group_id));
-        if (id == 0) {
+        int groupId = getArguments().getInt(String.valueOf(R.string.nav_food_group_id));
+        if (groupId == 0) {
             mViewModel.getAllFoodsLive().observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
         } else {
-            mViewModel.findFoodsWithGroup(id).observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
+            mViewModel.findFoodsWithGroup(groupId).observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
         }
 
     }

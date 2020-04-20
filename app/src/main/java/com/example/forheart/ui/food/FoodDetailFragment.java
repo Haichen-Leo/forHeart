@@ -1,41 +1,37 @@
 package com.example.forheart.ui.food;
 
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.forheart.R;
 import com.example.forheart.databinding.FoodDetailFragmentBinding;
-import com.navigation.androidx.AwesomeFragment;
+import com.example.forheart.ui.BaseFragment;
 
-public class FoodDetailFragment extends AwesomeFragment {
+public class FoodDetailFragment extends BaseFragment {
 
     private FoodDetailFragmentBinding binding;
     private FoodDetailViewModel mViewModel;
 
-    public static FoodDetailFragment newInstance() {
-        return new FoodDetailFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.food_detail_fragment, container, false);
+        binding = FoodDetailFragmentBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(FoodDetailViewModel.class);
-        // TODO: Use the ViewModel
+        mViewModel = new ViewModelProvider(this).get(FoodDetailViewModel.class);
+
+        String foodId = getArguments().getString(String.valueOf(R.string.nav_food_id));
+        binding.textViewTest.setText(foodId);
     }
 
 }

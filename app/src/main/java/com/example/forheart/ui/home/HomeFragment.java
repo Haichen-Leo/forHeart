@@ -1,19 +1,16 @@
 package com.example.forheart.ui.home;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.forheart.ui.BaseFragment;
-import com.example.forheart.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.forheart.databinding.HomeFragmentBinding;
+import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
 
@@ -33,8 +30,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.home_fragment, container, false);
-        binding = HomeFragmentBinding.bind(root);
+        binding = HomeFragmentBinding.inflate(inflater);
         return binding.getRoot();
     }
 

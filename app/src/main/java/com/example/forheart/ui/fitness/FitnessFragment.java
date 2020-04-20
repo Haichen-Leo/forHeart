@@ -1,19 +1,16 @@
 package com.example.forheart.ui.fitness;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.forheart.ui.BaseFragment;
-import com.example.forheart.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.forheart.databinding.FitnessFragmentBinding;
+import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
 
@@ -26,15 +23,11 @@ public class FitnessFragment extends BaseFragment {
         return new String(codePoints, 0, codePoints.length);
     }
 
-    public static FitnessFragment newInstance() {
-        return new FitnessFragment();
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fitness_fragment, container, false);
-        binding = FitnessFragmentBinding.bind(root);
+        binding = FitnessFragmentBinding.inflate(getLayoutInflater());
         return binding.getRoot();
     }
 

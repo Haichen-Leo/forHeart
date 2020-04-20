@@ -1,6 +1,7 @@
 package com.example.forheart.ui.food;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
 import com.example.forheart.model.Food;
+import com.navigation.androidx.FragmentHelper;
+import com.navigation.androidx.NavigationFragment;
 
 import java.util.List;
 
@@ -18,23 +21,27 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     private List<Food> allFoods;
     private final LayoutInflater layoutInflater;
     private Context mContext;
+    private NavigationFragment navigationFragment;
 
-    public FoodListAdapter(Context context) {
+    FoodListAdapter(Context context, NavigationFragment fragment) {
         layoutInflater = LayoutInflater.from(context);
         mContext = context;
+        navigationFragment = fragment;
     }
 
+    // Method navigate to food detail page
     @NonNull
     @Override
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.cell_normal_food, parent, false);
         FoodViewHolder holder = new FoodViewHolder(itemView);
-//        holder.textView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        holder.textView.setOnClickListener(v -> {
+            FoodDetailFragment fragment = new FoodDetailFragment();
+            String foodId = (String) holder.itemView.getTag(R.id.food_in_view_holder);
+            Bundle args = FragmentHelper.getArguments(fragment);
+            args.putString(String.valueOf(R.string.nav_food_id), foodId);
+            navigationFragment.pushFragment(fragment);
+        });
         return holder;
     }
 
@@ -43,11 +50,11 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         if (allFoods!=null) {
             Food food = allFoods.get(position);
             holder.setData(food.getFoodName(),position);
+            holder.itemView.setTag(R.id.food_in_view_holder,food.getFoodId());
+            holder.textView.setText(food.getFoodName());
         } else {
             holder.textView.setText("loading");
         }
-//        holder.itemView.setTag(R.id.food_in_view_holder,food);
-//        holder.textView.setText(food.getFoodName());
     }
 
     @Override
@@ -57,10 +64,9 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         } else {
             return 0;
         }
-
     }
 
-    public void setAllFoods(List<Food> allFood) {
+    void setAllFoods(List<Food> allFood) {
         allFoods = allFood;
         notifyDataSetChanged();
     }

@@ -2,6 +2,7 @@ package com.example.forheart.db;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -18,6 +19,9 @@ public interface FoodGroupDao {
 
     @Update
     void updateFoodGroup(FoodGroup... foodGroups);
+
+    @Delete
+    void deleteFoodGroup(FoodGroup... foodGroups);
 
     @Query("DELETE FROM FoodGroup")
     void deleteAllFoodGroups();

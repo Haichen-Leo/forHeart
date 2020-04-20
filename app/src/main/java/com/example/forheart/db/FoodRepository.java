@@ -1,12 +1,9 @@
 package com.example.forheart.db;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.forheart.db.FoodDao;
-import com.example.forheart.db.FoodDatabase;
 import com.example.forheart.model.Food;
 
 import java.util.List;
@@ -19,16 +16,15 @@ public class FoodRepository {
     public FoodRepository(Context context) {
         FoodDatabase foodDatabase = FoodDatabase.getINSTANCE(context.getApplicationContext());
         foodDao = foodDatabase.getFoodDao();
-//        allFoodsLive = foodDao.getAllFoods();
     }
-
-//    public LiveData<List<Food>> getAllFoodsLive() {
-//        return allFoodsLive;
-//    }
 
     public LiveData<List<Food>> getAllFoodsLive() {
         allFoodsLive = foodDao.getAllFoods();
         return allFoodsLive;
+    }
+
+    public LiveData<List<Food>> findFoodsWithGroup(int groupId) {
+        return foodDao.findFoodsWithGroup(groupId);
     }
 
     // return a list of food matching a certain pattern
@@ -36,8 +32,9 @@ public class FoodRepository {
         return foodDao.findFoodsWithPattern("%" + pattern + "%");
     }
 
-    public LiveData<List<Food>> findFoodsWithGroup(int groupId) {
-        return foodDao.findFoodsWithGroup(groupId);
+    // return a list of food matching a certain pattern within a food category
+    public LiveData<List<Food>> findFoodsWithPattern(int groupId, String pattern) {
+        return foodDao.findFoodsWithPattern(groupId,"%" + pattern + "%");
     }
 
 //    public void insertFoods(Food...foods) {

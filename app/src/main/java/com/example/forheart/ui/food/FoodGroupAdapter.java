@@ -15,7 +15,6 @@ import com.example.forheart.model.FoodGroup;
 import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.NavigationFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.GroupViewHolder> {
@@ -24,56 +23,55 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
     private Context mContext;
     private NavigationFragment navigationFragment;
 
-
-    public FoodGroupAdapter(Context context, NavigationFragment navigationFragment) {
+    FoodGroupAdapter(Context context, NavigationFragment navigationFragment) {
         layoutInflater = LayoutInflater.from(context);
         mContext = context;
         this.navigationFragment = navigationFragment;
     }
 
-    public void setAllFoodGroups(List<FoodGroup> allFoodGroups) {
+    void setAllFoodGroups(List<FoodGroup> allFoodGroups) {
         this.allFoodGroups = allFoodGroups;
-//        notifyDataSetChanged();
+        notifyDataSetChanged();
     }
 
     /**
      * Method to configure view holder for food group
-     * @param parent
-     * @param viewType
-     * @return
      */
     @NonNull
     @Override
     public GroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+//        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.cell_card_foodgroup, parent, false);
-        final GroupViewHolder holder = new GroupViewHolder(itemView);
-        holder.textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int id = (int) holder.itemView.getTag(R.id.food_group_in_view_holder);
-                FoodListFragment listFragment = new FoodListFragment();
-                Bundle args = FragmentHelper.getArguments(listFragment);
-                args.putInt(String.valueOf(R.string.nav_food_group_id),id);
-                navigationFragment.pushFragment(listFragment);
-
-
-            }
+        GroupViewHolder holder = new GroupViewHolder(itemView);
+        holder.textView.setOnClickListener(v -> {
+            int id = (int) holder.itemView.getTag(R.id.food_group_in_view_holder);
+            FoodListFragment listFragment = new FoodListFragment();
+            Bundle args = FragmentHelper.getArguments(listFragment);
+            args.putInt(String.valueOf(R.string.nav_food_group_id),id);
+            navigationFragment.pushFragment(listFragment);
         });
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull GroupViewHolder holder, int position) {
-        final FoodGroup foodGroup = allFoodGroups.get(position);
-        // save foodgroup object in tag for navigation
-        holder.itemView.setTag(R.id.food_group_in_view_holder,foodGroup.getFoodGroupId());
-        holder.textView.setText(foodGroup.getFoodGroupName());
+        if (allFoodGroups!=null){
+            FoodGroup foodGroup = allFoodGroups.get(position);
+            holder.setData(foodGroup.getFoodGroupName(), position);
+            holder.itemView.setTag(R.id.food_group_in_view_holder,foodGroup.getFoodGroupId());
+            holder.textView.setText(foodGroup.getFoodGroupName());
+        } else {
+            holder.textView.setText("loading");
+        }
     }
 
     @Override
     public int getItemCount() {
-        return allFoodGroups.size();
+        if (allFoodGroups != null) {
+            return allFoodGroups.size();
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -81,9 +79,14 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
      */
     static class GroupViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+        private int mPosition;
         GroupViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textViewGroupName);
+        }
+        void setData(String foodGroupName, int position){
+            textView.setText(foodGroupName);
+            mPosition = position;
         }
     }
 }

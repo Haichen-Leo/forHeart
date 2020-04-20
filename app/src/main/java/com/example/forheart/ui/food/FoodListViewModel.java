@@ -23,11 +23,15 @@ public class FoodListViewModel extends AndroidViewModel {
         return foodRepository.getAllFoodsLive();
     }
 
+    LiveData<List<Food>> findFoodsWithGroup(int groupId) {
+        return foodRepository.findFoodsWithGroup(groupId);
+    }
+
     LiveData<List<Food>> findFoodsWithPattern(String pattern) {
         return foodRepository.findFoodsWithPattern(pattern);
     }
 
-    LiveData<List<Food>> findFoodsWithGroup(int groupId) {
-        return foodRepository.findFoodsWithGroup(groupId);
+    LiveData<List<Food>> findFoodsWithGroup(int groupId, String pattern) {
+        return foodRepository.findFoodsWithPattern(groupId, pattern);
     }
 }

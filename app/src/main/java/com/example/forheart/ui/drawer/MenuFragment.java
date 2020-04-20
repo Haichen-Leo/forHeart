@@ -28,8 +28,7 @@ public class MenuFragment extends AwesomeFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.menu_fragment, container, false);
-        binding = MenuFragmentBinding.bind(root);
+        binding = MenuFragmentBinding.inflate(getLayoutInflater());
 
         // nav - to contact page
         binding.buttonContact.setOnClickListener(v -> {
