@@ -19,7 +19,7 @@ import com.navigation.androidx.TabBarItem;
 
 public class MainActivity extends AwesomeActivity {
 
-    // This activity base on androidx and awesomenavigation library for navigation configures
+    // This activity base on Androidx and AwesomeNavigation library for navigation configures
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,25 +51,10 @@ public class MainActivity extends AwesomeActivity {
             drawerFragment.setContentFragment(tabBarFragment);
             drawerFragment.setMaxDrawerWidth(300); // set menu width
 
-            setActivityRootFragment(tabBarFragment);
+            setActivityRootFragment(drawerFragment);
         }
 
-        // set bottom navigation
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-//        AppBarConfiguration configuration = new AppBarConfiguration.Builder(
-//                bottomNavigationView.getMenu())
-//                .build();
-//        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, configuration);
-//        NavigationUI.setupWithNavController(bottomNavigationView, navController);
-
     }
-
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        navController.navigateUp();
-//        return super.onSupportNavigateUp();
-//    }
 
     // custom navigation util styles
     @Override

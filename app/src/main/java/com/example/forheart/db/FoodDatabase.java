@@ -32,14 +32,6 @@ public abstract class FoodDatabase extends RoomDatabase {
         }
     };
 
-//    static final Migration MIGRATION_2_3 = new Migration(2,3) {
-//        @Override
-//        public void migrate(@NonNull SupportSQLiteDatabase database) {
-//            database.execSQL("DELETE FROM foodgroup WHERE food_group_id = 0");
-//        }
-//    };
-
-
     public abstract FoodDao getFoodDao();
     public abstract FoodGroupDao getFoodGroupDao();
 }
