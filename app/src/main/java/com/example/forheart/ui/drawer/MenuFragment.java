@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.forheart.R;
+import com.example.forheart.databinding.MenuFragmentBinding;
 import com.navigation.androidx.AwesomeFragment;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.NavigationFragment;
@@ -20,9 +21,7 @@ import com.navigation.androidx.TabBarFragment;
  */
 public class MenuFragment extends AwesomeFragment {
 
-//    public MenuFragment() {
-//        // Required empty public constructor
-//    }
+    private MenuFragmentBinding binding;
 
     @Nullable
     @Override
@@ -30,7 +29,15 @@ public class MenuFragment extends AwesomeFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.menu_fragment, container, false);
-        return root;
+        binding = MenuFragmentBinding.bind(root);
+
+        // nav - to contact page
+        binding.buttonContact.setOnClickListener(v -> {
+            requireNavigationFragment().pushFragment(new ContactFragment());
+            requireDrawerFragment().closeMenu();
+        });
+
+        return binding.getRoot();
     }
 
     @Override

@@ -36,7 +36,7 @@ public class MainActivity extends AwesomeActivity {
             FoodFragment foodFragment = new FoodFragment();
             NavigationFragment foodNavigation = new NavigationFragment();
             foodNavigation.setRootFragment(foodFragment);
-            foodNavigation.setTabBarItem(new TabBarItem("Food", R.drawable.ic_search_black_24dp));
+            foodNavigation.setTabBarItem(new TabBarItem("Nutrition", R.drawable.ic_search_black_24dp));
 
             FitnessFragment fitnessFragment = new FitnessFragment();
             NavigationFragment fitnessNavigation = new NavigationFragment();

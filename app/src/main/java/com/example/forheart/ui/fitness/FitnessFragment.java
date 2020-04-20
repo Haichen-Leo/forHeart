@@ -1,31 +1,28 @@
 package com.example.forheart.ui.fitness;
 
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelStoreOwner;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.R;
 import com.example.forheart.databinding.FitnessFragmentBinding;
-import com.navigation.androidx.AwesomeFragment;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
 
-public class FitnessFragment extends AwesomeFragment {
+public class FitnessFragment extends BaseFragment {
 
     private FitnessViewModel mViewModel;
     private FitnessFragmentBinding binding;
 
-    public static String fromCharCode(int... codePoints) {
+    private static String fromCharCode(int... codePoints) {
         return new String(codePoints, 0, codePoints.length);
     }
 

@@ -1,31 +1,28 @@
 package com.example.forheart.ui.home;
 
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.R;
 import com.example.forheart.databinding.HomeFragmentBinding;
-import com.example.forheart.db.FoodGroupRepository;
-import com.navigation.androidx.AwesomeFragment;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
 
-public class HomeFragment extends AwesomeFragment {
+public class HomeFragment extends BaseFragment {
 
     private HomeViewModel mViewModel;
     private HomeFragmentBinding binding;
 
-    public static String fromCharCode(int... codePoints) {
+    private static String fromCharCode(int... codePoints) {
         return new String(codePoints, 0, codePoints.length);
     }
 
@@ -55,10 +52,6 @@ public class HomeFragment extends AwesomeFragment {
                     drawerFragment.toggleMenu();
                 }
             });
-            setLeftBarButtonItem(builder.build());
-        } else {
-            ToolbarButtonItem.Builder builder = new ToolbarButtonItem.Builder();
-            builder.title("关闭").listener(view -> dismissFragment());
             setLeftBarButtonItem(builder.build());
         }
 
