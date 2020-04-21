@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
 import com.example.forheart.model.Food;
+import com.example.forheart.model.FoodBean;
 import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.NavigationFragment;
 
@@ -58,9 +59,11 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         FoodViewHolder holder = new FoodViewHolder(itemView);
         holder.textView.setOnClickListener(v -> {
             FoodDetailFragment fragment = new FoodDetailFragment();
-            String foodId = (String) holder.itemView.getTag(R.id.food_in_view_holder);
+//            String foodId = (String) holder.itemView.getTag(R.id.food_in_view_holder);
+            FoodBean foodBean = (FoodBean) holder.itemView.getTag(R.id.food_in_view_holder);
             Bundle args = FragmentHelper.getArguments(fragment);
-            args.putString(String.valueOf(R.string.nav_food_id), foodId);
+            args.putParcelable(String.valueOf(R.string.nav_food_id), foodBean);
+//            args.putString(String.valueOf(R.string.nav_food_id), foodId);
             navigationFragment.pushFragment(fragment);
         });
         return holder;
@@ -71,8 +74,11 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         if (allFoods!=null) {
             Food food = allFoods.get(position);
             holder.setData(food.getFoodName(),position);
-            holder.itemView.setTag(R.id.food_in_view_holder,food.getFoodId());
             holder.textView.setText(food.getFoodName());
+//            holder.itemView.setTag(R.id.food_in_view_holder,food.getFoodId());\
+            FoodBean foodBean = new FoodBean();
+            foodBean.createFoodBean(food);
+            holder.itemView.setTag(R.id.food_in_view_holder, foodBean);
         } else {
             holder.textView.setText("loading");
         }
