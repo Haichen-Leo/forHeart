@@ -23,6 +23,27 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     private Context mContext;
     private NavigationFragment navigationFragment;
 
+//    public FoodListAdapter(Context context, NavigationFragment navigationFragment) {
+
+//        super(new DiffUtil.ItemCallback<Food>() {
+//            @Override
+//            public boolean areItemsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
+//                return oldItem.getFoodId() == newItem.getFoodId();
+//            }
+//
+//            @Override
+//            public boolean areContentsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
+//                return (oldItem.getFoodName().equals(newItem.getFoodName())
+//                        && oldItem.getFolicAcid() == (newItem.getFolicAcid())
+//                        && oldItem.getLycopene() == newItem.getLycopene());
+//            }
+//        });
+
+//        layoutInflater = LayoutInflater.from(context);
+//        mContext = context;
+//        this.navigationFragment = navigationFragment;
+//    }
+
     FoodListAdapter(Context context, NavigationFragment fragment) {
         layoutInflater = LayoutInflater.from(context);
         mContext = context;
