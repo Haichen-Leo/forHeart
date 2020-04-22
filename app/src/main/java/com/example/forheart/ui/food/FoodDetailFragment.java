@@ -1,5 +1,6 @@
 package com.example.forheart.ui.food;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +14,17 @@ import com.example.forheart.R;
 import com.example.forheart.databinding.FoodDetailFragmentBinding;
 import com.example.forheart.model.FoodBean;
 import com.example.forheart.ui.BaseFragment;
+import com.navigation.androidx.FragmentHelper;
+
+import java.text.DecimalFormat;
+
 
 public class FoodDetailFragment extends BaseFragment {
 
     private FoodDetailFragmentBinding binding;
-    private FoodDetailViewModel mViewModel;
+//    private FoodDetailViewModel mViewModel;
+
+    private static DecimalFormat df = new DecimalFormat("0.0");
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -29,17 +36,38 @@ public class FoodDetailFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(FoodDetailViewModel.class);
+//        mViewModel = new ViewModelProvider(this).get(FoodDetailViewModel.class);
 
 //        String foodId = getArguments().getString(String.valueOf(R.string.nav_food_id));
         assert getArguments() != null;
         FoodBean foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
         String foodId = foodBean.getFoodId();
-        Double foodScore = foodBean.getTotalScore();
+        String foodScore = df.format(foodBean.getTotalScore());
+
         int foodGroupId = foodBean.getFoodGroupId();
         binding.textViewTest.setText(foodId);
         binding.textViewTest2.setText(foodBean.getFoodName());
-        binding.textViewTest3.setText(String.valueOf(foodScore));
+        binding.textViewTest3.setText(foodScore);
+
+        binding.buttonNavTest.setOnClickListener(v -> {
+            int groupId = foodBean.getFoodGroupId();
+            RecommandFragment dialog = RecommandFragment.newInstance(groupId);
+            showDialog(dialog,0);
+        });
+    }
+
+    @Override
+    public void onFragmentResult(int requestCode, int resultCode, @Nullable Bundle data) {
+        super.onFragmentResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                FoodDetailFragment fragment = new FoodDetailFragment();
+                FoodBean foodBean = data.getParcelable(RecommandFragment.KEY_VALUE);
+                Bundle args = FragmentHelper.getArguments(fragment);
+                args.putParcelable(String.valueOf(R.string.nav_food_id), foodBean);
+                getNavigationFragment().redirectToFragment(fragment);
+            }
+        }
     }
 
 }

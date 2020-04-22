@@ -3,6 +3,7 @@ package com.example.forheart.db;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Query;
 
 import com.example.forheart.model.Food;
 
@@ -35,6 +36,16 @@ public class FoodRepository {
     // return a list of food matching a certain pattern within a food category
     public LiveData<List<Food>> findFoodsWithPattern(int groupId, String pattern) {
         return foodDao.findFoodsWithPattern(groupId,"%" + pattern + "%");
+    }
+
+    // recommendation
+    public LiveData<List<Food>> findBestFoods() {
+        return foodDao.findBestFoods();
+    }
+
+    // recommendation within certain food group
+    public LiveData<List<Food>> findBestFoodsWithGroup(int groupId) {
+        return foodDao.findFoodsWithGroup(groupId);
     }
 
 //    public void insertFoods(Food...foods) {

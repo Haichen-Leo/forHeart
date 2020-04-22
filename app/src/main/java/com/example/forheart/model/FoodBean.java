@@ -18,9 +18,6 @@ public class FoodBean implements Parcelable {
     private double totalScore;
     private int foodGroupId;
 
-//    protected FoodBean(Parcel in) {
-//    }
-
     public void createFoodBean (Food food) {
         this.foodId = food.getFoodId();
         this.foodName = food.getFoodName();
