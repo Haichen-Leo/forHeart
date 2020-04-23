@@ -18,8 +18,11 @@ public abstract class FoodDatabase extends RoomDatabase {
     private static FoodDatabase INSTANCE;
     public static synchronized FoodDatabase getINSTANCE(Context context) {
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database")
-                    .addMigrations(MIGRATION_1_2)
+//            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database")
+//                    .addMigrations(MIGRATION_1_2)
+//                    .build();
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database_2")
+                    .createFromAsset("database/food_database_v2")
                     .build();
         }
         return INSTANCE;
