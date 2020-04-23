@@ -14,6 +14,7 @@ import com.example.forheart.R;
 import com.example.forheart.databinding.FoodDetailFragmentBinding;
 import com.example.forheart.model.FoodBean;
 import com.example.forheart.ui.BaseFragment;
+import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.FragmentHelper;
 
 import java.text.DecimalFormat;
@@ -23,6 +24,11 @@ public class FoodDetailFragment extends BaseFragment {
 
     private FoodDetailFragmentBinding binding;
 //    private FoodDetailViewModel mViewModel;
+
+    @Override
+    protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
+        return null;
+    }
 
     private static DecimalFormat df = new DecimalFormat("0.0");
 
@@ -43,13 +49,18 @@ public class FoodDetailFragment extends BaseFragment {
         FoodBean foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
         String foodId = foodBean.getFoodId();
         String foodScore = df.format(foodBean.getTotalScore());
+        binding.foodName.setText(foodBean.getFoodName());
+        binding.foodScoreNumber.setText(foodScore + " / 5");
+        binding.dietaryFibreNumber.setText(String.valueOf(foodBean.getTotalDietaryFibre()));
+        binding.totalFolatesNumber.setText(String.valueOf(foodBean.getTotalFolates()));
+        binding.potassiumNumber.setText(String.valueOf(foodBean.getPotassium()));
 
-        int foodGroupId = foodBean.getFoodGroupId();
-        binding.textViewTest.setText(foodId);
-        binding.textViewTest2.setText(foodBean.getFoodName());
-        binding.textViewTest3.setText(foodScore);
+        if(foodBean.getTotalScore() < 1 )
+        binding.foodType.setText("No help for heart!");
+        binding.foodTypeMessage.setText("This food is not good enough for heart health, find other food in our database.");
 
-        binding.buttonNavTest.setOnClickListener(v -> {
+
+        binding.recomBt.setOnClickListener(v -> {
             int groupId = foodBean.getFoodGroupId();
             RecommandFragment dialog = RecommandFragment.newInstance(groupId);
             showDialog(dialog,0);

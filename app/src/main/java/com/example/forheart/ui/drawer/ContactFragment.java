@@ -2,6 +2,7 @@ package com.example.forheart.ui.drawer;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import com.example.forheart.R;
 import com.example.forheart.databinding.ContactFragmentBinding;
 import com.example.forheart.ui.BaseFragment;
+import com.navigation.androidx.AwesomeToolbar;
+import com.navigation.androidx.Style;
 
 /**
  * Fragment Class for Contact Page
@@ -19,6 +22,11 @@ import com.example.forheart.ui.BaseFragment;
 public class ContactFragment extends BaseFragment {
 
     private ContactFragmentBinding binding;
+
+    @Override
+    protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
+        return null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +41,5 @@ public class ContactFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setTitle("Contact Us");
-        binding.textViewTest.setText("Contact Us");
     }
 }
