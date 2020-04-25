@@ -74,7 +74,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         if (allFoods!=null) {
             Food food = allFoods.get(position);
             holder.setData(food.getFoodName(),position);
-            holder.textView.setText(food.getFoodName());
+//            holder.textView.setText(food.getFoodName());
 //            holder.itemView.setTag(R.id.food_in_view_holder,food.getFoodId());\
             FoodBean foodBean = new FoodBean();
             foodBean.createFoodBean(food);

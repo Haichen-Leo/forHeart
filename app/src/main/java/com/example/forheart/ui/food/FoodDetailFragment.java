@@ -54,12 +54,13 @@ public class FoodDetailFragment extends BaseFragment {
         binding.dietaryFibreNumber.setText(String.valueOf(foodBean.getTotalDietaryFibre()));
         binding.totalFolatesNumber.setText(String.valueOf(foodBean.getTotalFolates()));
         binding.potassiumNumber.setText(String.valueOf(foodBean.getPotassium()));
+        binding.Magnesium.setText(String.valueOf(foodBean.getMagnesium()));
 
-        if(foodBean.getTotalScore() < 1 )
-        binding.foodType.setText("No help for heart!");
-        binding.foodTypeMessage.setText("This food is not good enough for heart health, find other food in our database.");
-
-
+        if(foodBean.getTotalScore() < 1 ) {
+            binding.foodType.setText("No help for heart!");
+            binding.foodTypeMessage.setText("This food is not good enough for heart health, find other food in our database.");
+        }
+        
         binding.recomBt.setOnClickListener(v -> {
             int groupId = foodBean.getFoodGroupId();
             RecommandFragment dialog = RecommandFragment.newInstance(groupId);

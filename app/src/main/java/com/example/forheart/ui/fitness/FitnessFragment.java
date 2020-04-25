@@ -7,17 +7,26 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.databinding.FitnessFragmentBinding;
+import com.example.forheart.model.Plan;
 import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
 
+import java.util.List;
+
 public class FitnessFragment extends BaseFragment {
 
-    private FitnessViewModel mViewModel;
+    private PlanViewModel mViewModel;
     private FitnessFragmentBinding binding;
+    private RecyclerView recyclerView;
+    private PlanAdapter adapter;
+    private LiveData<List<Plan>> allPlans;
 
     private static String fromCharCode(int... codePoints) {
         return new String(codePoints, 0, codePoints.length);
@@ -29,6 +38,18 @@ public class FitnessFragment extends BaseFragment {
                              @Nullable Bundle savedInstanceState) {
         binding = FitnessFragmentBinding.inflate(getLayoutInflater());
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(root, savedInstanceState);
+        adapter = new PlanAdapter(getContext(), getNavigationFragment());
+        recyclerView = binding.recyclerViewPlan;
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        mViewModel = new ViewModelProvider(this).get(PlanViewModel.class);
+        allPlans = mViewModel.getAllPlansLive();
+        allPlans.observe(getViewLifecycleOwner(), plans -> adapter.setAllPlans(plans));
     }
 
     @Override
@@ -47,8 +68,10 @@ public class FitnessFragment extends BaseFragment {
             });
             setLeftBarButtonItem(builder.build());
         }
-        mViewModel = new ViewModelProvider(this).get(FitnessViewModel.class);
-        binding.textViewTest.setText("Fitness fragment");
+        binding.buttonNewPlan.setOnClickListener(v -> {
+            PlanSetFragment fragment = new PlanSetFragment();
+            getNavigationFragment().pushFragment(fragment);
+        });
 
     }
 
