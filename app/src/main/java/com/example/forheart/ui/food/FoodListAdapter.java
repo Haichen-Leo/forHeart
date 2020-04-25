@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
@@ -57,7 +58,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.cell_normal_food, parent, false);
         FoodViewHolder holder = new FoodViewHolder(itemView);
-        holder.textView.setOnClickListener(v -> {
+        holder.constraintLayout.setOnClickListener(v -> {
             FoodDetailFragment fragment = new FoodDetailFragment();
 //            String foodId = (String) holder.itemView.getTag(R.id.food_in_view_holder);
             FoodBean foodBean = (FoodBean) holder.itemView.getTag(R.id.food_in_view_holder);
@@ -100,10 +101,12 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
     static class FoodViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
+        private ConstraintLayout constraintLayout;
         private int mPosition;
         FoodViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textViewFoodName);
+            constraintLayout = itemView.findViewById(R.id.constraint_food);
         }
         void setData(String foodName, int position){
             textView.setText(foodName);

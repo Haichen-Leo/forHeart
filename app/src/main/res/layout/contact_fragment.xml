@@ -69,7 +69,7 @@
             android:hint="@string/edittext_hint"
             android:inputType="textMultiLine"
             android:minLines="6"
-            android:visibility="invisible" />
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/buttonSend"
@@ -105,18 +105,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/left"
-                    android:layout_width="746dp"
+                    android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <RelativeLayout
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <TextView
@@ -140,15 +139,6 @@
                             android:textSize="16dp" />
 
                     </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/right"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
 
                 </LinearLayout>
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
@@ -43,7 +44,7 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
 //        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.cell_card_foodgroup, parent, false);
         GroupViewHolder holder = new GroupViewHolder(itemView);
-        holder.textView.setOnClickListener(v -> {
+        holder.cardView.setOnClickListener(v -> {
             int id = (int) holder.itemView.getTag(R.id.food_group_in_view_holder);
             FoodListFragment listFragment = new FoodListFragment();
             Bundle args = FragmentHelper.getArguments(listFragment);
@@ -59,7 +60,7 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
             FoodGroup foodGroup = allFoodGroups.get(position);
             holder.setData(foodGroup.getFoodGroupName(), position);
             holder.itemView.setTag(R.id.food_group_in_view_holder,foodGroup.getFoodGroupId());
-            holder.textView.setText(foodGroup.getFoodGroupName());
+//            holder.textView.setText(foodGroup.getFoodGroupName());
         } else {
             holder.textView.setText("loading");
         }
@@ -78,11 +79,13 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
      *  Self-defined view holder for food group
      */
     static class GroupViewHolder extends RecyclerView.ViewHolder {
+        private CardView cardView;
         TextView textView;
         private int mPosition;
         GroupViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textViewGroupName);
+            cardView = itemView.findViewById(R.id.cardView_foodgroup);
         }
         void setData(String foodGroupName, int position){
             textView.setText(foodGroupName);

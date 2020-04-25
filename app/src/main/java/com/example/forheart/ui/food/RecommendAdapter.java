@@ -50,7 +50,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.Reco
         if (recommendFoods!=null) {
             Food food = recommendFoods.get(position);
             holder.setData(food.getFoodName(),position);
-            holder.textView.setText(food.getFoodName());
+//            holder.textView.setText(food.getFoodName());
             FoodBean foodBean = new FoodBean();
             foodBean.createFoodBean(food);
             holder.itemView.setTag(R.id.food_in_view_holder, foodBean);
