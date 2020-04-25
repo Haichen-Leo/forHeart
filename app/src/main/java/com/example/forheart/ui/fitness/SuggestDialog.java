@@ -33,9 +33,9 @@ public class SuggestDialog extends AwesomeFragment {
         String type = getArguments().getString(KEY_TYPE);
         Bundle result = new Bundle();
         if (type.equals("moderate")){
-            activites = new CharSequence[]{"walking", "yoga", "dancing", "hiking"};
+            activites = new CharSequence[]{"Walking", "Yoga", "Dancing", "Hiking"};
         } else {
-            activites = new CharSequence[]{"bicycling", "swimming", "running", "basketball", "football"};
+            activites = new CharSequence[]{"Bicycling", "Swimming", "Running", "Basketball", "Football"};
         }
         AlertDialog dialog =new AlertDialog.Builder(requireContext())
                 .setTitle("Suggested activities")

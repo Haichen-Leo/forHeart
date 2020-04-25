@@ -66,9 +66,10 @@
             android:layout_marginRight="40dp"
 
             android:fontFamily="sans-serif-light"
-            android:inputType="textMultiLine"
             android:hint="@string/edittext_hint"
-            android:minLines="6" />
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/buttonSend"
@@ -76,11 +77,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/formText"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:background="#4FC07F"
             android:text="Send"
-            android:layout_marginTop="20dp"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="invisible" />
 
 
         <RelativeLayout
@@ -107,14 +109,14 @@
 
                 <LinearLayout
                     android:id="@+id/left"
-                    android:layout_width="match_parent"
+                    android:layout_width="746dp"
                     android:layout_height="fill_parent"
+                    android:layout_margin="20dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_margin="20dp">
+                    android:orientation="vertical">
 
                     <RelativeLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="350dp"
                         android:layout_height="match_parent">
 
                         <TextView
@@ -133,7 +135,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/cardText1"
                             android:gravity="center"
-                            android:text="XXXX@gmail.com"
+                            android:text="forHEARTb1@gmail.com"
                             android:textColor="#FFFFFF"
                             android:textSize="16dp" />
 

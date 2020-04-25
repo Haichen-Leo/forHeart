@@ -1,11 +1,12 @@
 package com.example.forheart.ui.fitness;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -13,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
 import com.example.forheart.model.Plan;
+import com.example.forheart.util.DateTimeUtils;
+import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.NavigationFragment;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder> {
@@ -36,8 +37,13 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     public PlanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.cell_card_plan, parent, false);
         PlanViewHolder holder = new PlanViewHolder(itemView);
+
         holder.cardView.setOnClickListener(v -> {
-            Toast.makeText(mContext, "success", Toast.LENGTH_SHORT).show();
+            int planId = (int) holder.itemView.getTag(R.id.plan_in_view_holder);
+            ActionFragment fragment = new ActionFragment();
+            Bundle args = FragmentHelper.getArguments(fragment);
+            args.putInt(String.valueOf(R.string.nav_plan_id), planId);
+            navigationFragment.pushFragment(fragment);
         });
         return holder;
     }
@@ -48,9 +54,14 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             Plan plan = allPlans.get(position);
             String duration = plan.getDuration() + " min";
             String datetime = plan.getDay() + " " + plan.getMonth() + " " + plan.getHour() + " " + plan.getMinute();
+            holder.setData(plan.getActivity(),duration, DateTimeUtils.parseDateTimeFormat(datetime), position);
+            holder.itemView.setTag(R.id.plan_in_view_holder, plan.getId());
 
-            holder.setData(plan.getActivity(),duration, parseDateFormat(datetime), position);
-
+            if(plan.isDone()) {
+                holder.cardView.setBackgroundColor(Color.parseColor("#4CAF50"));
+            } else {
+                holder.cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+            }
         }
     }
 
@@ -78,24 +89,11 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             durationView = itemView.findViewById(R.id.textView_card_duration);
             dateTimeView = itemView.findViewById(R.id.textView_card_datetime);
         }
-        void setData(String planActivity, String planDuration, String datetime,int position) {
+        void setData(String planActivity, String planDuration, String datetime, int position) {
             activityView.setText(planActivity);
             durationView.setText(planDuration);
             dateTimeView.setText(datetime);
             mPosition = position;
         }
-    }
-
-    // parse date format
-    private String parseDateFormat(String input) {
-        SimpleDateFormat fromFormat = new SimpleDateFormat("d M HH mm");
-        SimpleDateFormat toFormat = new SimpleDateFormat("d MMM HH:mm");
-        try {
-            String reformattedStr = toFormat.format(fromFormat.parse(input));
-            return reformattedStr;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return "Null";
     }
 }

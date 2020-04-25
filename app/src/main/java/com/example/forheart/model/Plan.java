@@ -31,6 +31,8 @@ public class Plan {
     @ColumnInfo(name = "plan_is_done")
     private boolean isDone;
 
+    public Plan(){}
+
     public Plan(String activity, String type, int year, int month, int day, int hour, int minute, int duration, String description, boolean isDone) {
         this.activity = activity;
         this.type = type;

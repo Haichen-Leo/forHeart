@@ -2,4 +2,6 @@
 <resources>
     <item name="food_group_in_view_holder" type="id"/>
     <item name="food_in_view_holder" type="id" />
+    <item name="plan_in_view_holder" type="id" />
+    <item name="plan_is_done" type="id" />
 </resources>

@@ -24,6 +24,10 @@ public class PlanRepository {
         return allPlansLive;
     }
 
+    public LiveData<Plan> findPlanById(int planId) {
+        return planDao.findPlanById(planId);
+    }
+
     public void insertPlans(Plan... plans) {
         new InsertAsyncTask(planDao).execute(plans);
     }

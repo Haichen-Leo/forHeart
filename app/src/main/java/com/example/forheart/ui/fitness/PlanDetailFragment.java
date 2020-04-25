@@ -88,13 +88,13 @@ public class PlanDetailFragment extends BaseFragment {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH) + 1;
         day = calendar.get(Calendar.DATE);
-        hour = calendar.get(Calendar.HOUR);
-        minute = calendar.get(Calendar.MINUTE);
+        hour = 19;
+        minute = 0;
 
         theDay = year + "-" + month + "-" + day;
-        theTime = "19:00";
+        theTime = hour + ":" + minute;
         binding.editTextDate.setText(parseDateFormat(theDay));
-        binding.editTextWhen.setText(theTime);
+        binding.editTextWhen.setText(parseTimeFormat(theTime));
 
 
         // date pick button
@@ -120,7 +120,7 @@ public class PlanDetailFragment extends BaseFragment {
                     theTime = hour + ":" + minute;
                     binding.editTextWhen.setText(parseTimeFormat(theTime));
                 }
-            },hour,minute,true);
+            },calendar.get(Calendar.HOUR),calendar.get(Calendar.MINUTE),true);
             dialog.show();
         });
 
@@ -144,9 +144,7 @@ public class PlanDetailFragment extends BaseFragment {
                     int duration = Integer.valueOf(text);
                     if (duration > 300) {
                         binding.editTextDuration.setText("300");
-                        Toast toast = Toast.makeText(getContext(),"That is too long!", Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+                        ToastUtil.centerToast(getContext(),"That is too long!");
                     }
                 }
             }
@@ -176,10 +174,16 @@ public class PlanDetailFragment extends BaseFragment {
                 binding.editTextDuration.requestFocus();
                 ToastUtil.centerToast(getContext(),"Please set the duration!");
             } else {
+                // insert plan
                 duration = Integer.parseInt(durationStr);
                 description = binding.editTextDes.getText().toString();
                 Plan plan = new Plan(activity,type,year,month,day,hour,minute,duration,description,false);
                 new PlanRepository(getContext()).insertPlans(plan);
+
+                // set alarm
+
+
+                // nav - root
                 getNavigationFragment().popToRootFragment();
             }
         });
