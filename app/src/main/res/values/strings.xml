@@ -10,10 +10,15 @@
     <string name="activity_type">activity_type</string>
     <string name="contact_information">If you cannot find the food you want or have any comments on us, please contact us through the following form.</string>
     <string name="healthy_message">This food is very healthy for your cardiovascular system and can be consumed regularly.</string>
-
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edittext_hint">Tell us something here</string>
     <string name="plan_step_1">Step 1 - Select your prefer style</string>
     <string name="plan_step_2">Step 2 - Set details</string>
+    <string name="food_type_good">Good for Heart !</string>
+    <string name="food_type_normal">Not bad !</string>
+    <string name="food_type_bad">No help for heart !</string>
+    <string name="food_message_good">This food is very healthy for your cardiovascular system and can be consumed regularly.</string>
+    <string name="food_message_normal">This food is good for heart. You may find more healthy food in recommendation below.</string>
+    <string name="food_message_bad">This food is not good enough for heart health, find other food in our database.</string>
+
 </resources>

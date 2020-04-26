@@ -23,7 +23,6 @@ import java.text.DecimalFormat;
 public class FoodDetailFragment extends BaseFragment {
 
     private FoodDetailFragmentBinding binding;
-//    private FoodDetailViewModel mViewModel;
 
     @Override
     protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
@@ -42,11 +41,9 @@ public class FoodDetailFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        mViewModel = new ViewModelProvider(this).get(FoodDetailViewModel.class);
-//        String foodId = getArguments().getString(String.valueOf(R.string.nav_food_id));
         assert getArguments() != null;
         FoodBean foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
-        String foodId = foodBean.getFoodId();
+//        String foodId = foodBean.getFoodId();
         String foodScore = df.format(foodBean.getTotalScore());
         binding.foodName.setText(foodBean.getFoodName());
         binding.foodScoreNumber.setText(foodScore + " / 5");
@@ -59,12 +56,13 @@ public class FoodDetailFragment extends BaseFragment {
         binding.totalFolatesNumber.setText(String.valueOf(foodBean.getTotalFolates()));
         binding.potassiumNumber.setText(String.valueOf(foodBean.getPotassium()));
 
+        // present
         if(foodBean.getTotalScore() < 1 ) {
-            binding.foodType.setText("No help for heart!");
-            binding.foodTypeMessage.setText("This food is not good enough for heart health, find other food in our database.");
+            binding.foodType.setText(R.string.food_type_bad);
+            binding.foodTypeMessage.setText(R.string.food_message_bad);
         } else if (foodBean.getTotalScore() < 2) {
-            binding.foodType.setText("Not bad");
-            binding.foodTypeMessage.setText("You may find more healthy food in recommendation.");
+            binding.foodType.setText(R.string.food_type_normal);
+            binding.foodTypeMessage.setText(R.string.food_message_normal);
         }
         
         binding.recomBt.setOnClickListener(v -> {
@@ -74,6 +72,7 @@ public class FoodDetailFragment extends BaseFragment {
         });
     }
 
+    // handle result from recommend dialog, redirect to recommended food detail page
     @Override
     public void onFragmentResult(int requestCode, int resultCode, @Nullable Bundle data) {
         super.onFragmentResult(requestCode, resultCode, data);

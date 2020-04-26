@@ -3,7 +3,6 @@ package com.example.forheart.db;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Query;
 
 import com.example.forheart.model.Food;
 

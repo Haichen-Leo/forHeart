@@ -33,6 +33,7 @@ public class RecommandFragment extends AwesomeFragment {
     private LiveData<List<Food>> recommend;
     static final String KEY_VALUE = "groupId";
 
+    // get new recommend dialog instance with group id
     public static RecommandFragment newInstance(int num) {
 
         RecommandFragment fragment = new RecommandFragment();
