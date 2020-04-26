@@ -45,7 +45,7 @@ public class FoodRepository {
 
     // recommendation within certain food group
     public LiveData<List<Food>> findBestFoodsWithGroup(int groupId) {
-        return foodDao.findFoodsWithGroup(groupId);
+        return foodDao.findBestFoodsWithGroup(groupId);
     }
 
 //    public void insertFoods(Food...foods) {
