@@ -44,6 +44,10 @@ public class PlanRepository {
         new DeleteAllAsyncTask(planDao).execute();
     }
 
+    public LiveData<Plan> getLastPlan() {
+        return planDao.getLastPlan();
+    }
+
 
     static class InsertAsyncTask extends AsyncTask<Plan, Void, Void> {
         private PlanDao planDao;
@@ -92,4 +96,5 @@ public class PlanRepository {
             return null;
         }
     }
+
 }

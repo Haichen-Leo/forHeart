@@ -27,6 +27,11 @@
                     android:scheme="nav" />
             </intent-filter>
         </activity>
+        <receiver android:name=".util.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.example.forheart.TIMER_ACTION"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

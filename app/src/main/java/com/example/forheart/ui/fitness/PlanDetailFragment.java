@@ -1,49 +1,43 @@
 package com.example.forheart.ui.fitness;
 
-import androidx.annotation.RequiresApi;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.DatePicker;
-import android.widget.RelativeLayout;
 import android.widget.TimePicker;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.PlanDetailFragmentBinding;
 import com.example.forheart.db.PlanRepository;
 import com.example.forheart.model.Plan;
 import com.example.forheart.ui.BaseFragment;
+import com.example.forheart.util.AlarmManagerUtils;
 import com.example.forheart.util.ToastUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class PlanDetailFragment extends BaseFragment {
 
     private PlanDetailFragmentBinding binding;
-    private PlanRepository planRepository;
+    private PlanDetailViewModel viewModel;
+    private AlarmManagerUtils alarmManagerUtils;
     private static final int REQUEST_CODE_SUGGEST = 1;
     private static final String KEY_TYPE = "activity_type";
     private Calendar calendar;
@@ -75,6 +69,7 @@ public class PlanDetailFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(PlanDetailViewModel.class);
 
         // activity suggest button
         type = getArguments().getString(String.valueOf(R.string.activity_type));
@@ -178,13 +173,26 @@ public class PlanDetailFragment extends BaseFragment {
                 duration = Integer.parseInt(durationStr);
                 description = binding.editTextDes.getText().toString();
                 Plan plan = new Plan(activity,type,year,month,day,hour,minute,duration,description,false);
-                new PlanRepository(getContext()).insertPlans(plan);
+                viewModel.insertPlans(plan);
 
                 // set alarm
-
+////                viewModel.getLastPlan().observe(getViewLifecycleOwner(),lastPlan ->{
+//
+//                    calendar.set(Calendar.YEAR,year);
+//                    calendar.set(Calendar.MONTH,month-1);
+//                    calendar.set(Calendar.DATE,day);
+//                    calendar.set(Calendar.HOUR,hour);
+//                    calendar.set(Calendar.MINUTE,minute);
+//                    long startTime = calendar.getTimeInMillis();
+////                    int lastPlanId = lastPlan.getId();
+//
+//                    alarmManagerUtils = AlarmManagerUtils.getINSTANCE(getContext());
+////                    alarmManagerUtils.setAlarm(lastPlanId, startTime);
+//                    alarmManagerUtils.setAlarm(0, startTime);
+////                });
 
                 // nav - root
-                getNavigationFragment().popToRootFragment();
+               getNavigationFragment().popToRootFragment();
             }
         });
     }
@@ -234,7 +242,6 @@ public class PlanDetailFragment extends BaseFragment {
         return "Null";
     }
 
-
     // get InputMethodManager to close soft keyboard
     private void hideKeyboard(View v) {
 
@@ -243,4 +250,5 @@ public class PlanDetailFragment extends BaseFragment {
             imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
         }
     }
+
 }

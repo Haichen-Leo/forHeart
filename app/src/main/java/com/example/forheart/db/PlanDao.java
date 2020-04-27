@@ -1,7 +1,6 @@
 package com.example.forheart.db;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -33,4 +32,6 @@ public interface PlanDao {
     @Query("SELECT * FROM `Plan` WHERE plan_id = :planId")
     LiveData<Plan> findPlanById(int planId);
 
+    @Query("SELECT * FROM `Plan` ORDER BY plan_id DESC LIMIT 1")
+    LiveData<Plan> getLastPlan();
 }
