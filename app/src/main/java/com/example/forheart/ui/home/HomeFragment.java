@@ -1,6 +1,7 @@
 package com.example.forheart.ui.home;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.forheart.databinding.HomeFragmentBinding;
@@ -16,6 +18,8 @@ import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.ToastUtil;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
+
+import java.util.Calendar;
 
 public class HomeFragment extends BaseFragment {
 
@@ -41,6 +45,8 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
+
+        // first login page
         userProfile = Preference_UserProfile.getInstance(getContext());
         if (userProfile.getLogin() == false) {
             LoginFragment fragment = new LoginFragment();
@@ -50,7 +56,23 @@ public class HomeFragment extends BaseFragment {
             binding.welcome.setText("Hello, " + nickname);
         }
 
+        // setup weekly exercise count
+        Calendar calendar = Calendar.getInstance();
+        int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
+        if (userProfile.getWeekOfYear() != weekOfYear) {
+            userProfile.putWeekOfYear(weekOfYear);
+            userProfile.putWeekModerateCount(0);
+            userProfile.putWeekVigorousCount(0);
+        }
+
+        // setup weekly exercise count
+        binding.textViewModerateMin.setText(userProfile.getWeekModerateCount() + "min");
+        binding.textViewVigorousMin.setText(userProfile.getWeekVigorousCount() + "min");
+        userProfile.addWeekModerateCountOnChangedListener(weekmoderatecount -> binding.textViewModerateMin.setText(weekmoderatecount + "min"));
+        userProfile.addWeekVigorousCountOnChangedListener(weekvigorouscount -> binding.textViewVigorousMin.setText(weekvigorouscount + "min"));
+
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -68,7 +90,9 @@ public class HomeFragment extends BaseFragment {
             });
             setLeftBarButtonItem(builder.build());
         }
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+//        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
+
 
     }
 

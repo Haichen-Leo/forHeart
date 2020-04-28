@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.forheart.R;
 import com.example.forheart.databinding.ActionFragmentBinding;
 import com.example.forheart.model.Plan;
+import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.DateTimeUtils;
 import com.example.forheart.util.ToastUtil;
@@ -120,6 +121,22 @@ public class ActionFragment extends BaseFragment {
                 aPlan.setDone(true);
                 mViewModel.updatePlans(aPlan);
                 getNavigationFragment().popToRootFragment();
+                // count exercise time
+                Preference_UserProfile profile = Preference_UserProfile.getInstance(getContext());
+                int duration = aPlan.getDuration();
+                int weekCount = 0;
+                int totalCount = 0;
+                if (aPlan.getType().equals("moderate")) {
+                    weekCount = profile.getWeekModerateCount() + duration;
+                    totalCount = profile.getTotalModerateCount() + duration;
+                    profile.putWeekModerateCount(weekCount);
+                    profile.putTotalModerateCount(totalCount);
+                } else {
+                    weekCount = profile.getWeekVigorousCount() + duration;
+                    totalCount = profile.getTotalVigorousCount() + duration;
+                    profile.putWeekVigorousCount(weekCount);
+                    profile.putTotalVigorousCount(totalCount);
+                }
                 ToastUtil.bottomToast(getContext(),"Activity Done");
             }
         }
