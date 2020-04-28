@@ -115,7 +115,7 @@ public class PlanDetailFragment extends BaseFragment {
                     theTime = hour + ":" + minute;
                     binding.editTextWhen.setText(parseTimeFormat(theTime));
                 }
-            },calendar.get(Calendar.HOUR),calendar.get(Calendar.MINUTE),true);
+            },calendar.get(Calendar.HOUR),calendar.get(Calendar.MINUTE),false);
             dialog.show();
         });
 
@@ -232,7 +232,7 @@ public class PlanDetailFragment extends BaseFragment {
     // parse time format
     private String parseTimeFormat(String input) {
         SimpleDateFormat fromFormat = new SimpleDateFormat("HH:m");
-        SimpleDateFormat toFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat toFormat = new SimpleDateFormat("hh:mm a");
         try {
             String reformattedStr = toFormat.format(fromFormat.parse(input));
             return reformattedStr;

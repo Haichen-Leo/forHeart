@@ -7,7 +7,7 @@ public class DateTimeUtils {
 
     public static String parseDateTimeFormat(String input) {
         SimpleDateFormat fromFormat = new SimpleDateFormat("d M HH mm");
-        SimpleDateFormat toFormat = new SimpleDateFormat("d MMM HH:mm");
+        SimpleDateFormat toFormat = new SimpleDateFormat("d MMM hh:mm a");
         try {
             String reformattedStr = toFormat.format(fromFormat.parse(input));
             return reformattedStr;
