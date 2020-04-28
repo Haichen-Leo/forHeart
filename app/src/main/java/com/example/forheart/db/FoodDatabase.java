@@ -21,8 +21,8 @@ public abstract class FoodDatabase extends RoomDatabase {
 //            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database")
 //                    .addMigrations(MIGRATION_1_2)
 //                    .build();
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database_2")
-                    .createFromAsset("database/food_database_v2")
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database_3")
+                    .createFromAsset("database/food_database_v3")
                     .build();
         }
         return INSTANCE;
