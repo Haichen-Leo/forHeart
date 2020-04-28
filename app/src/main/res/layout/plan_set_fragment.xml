@@ -13,32 +13,32 @@
 
         <Button
             android:id="@+id/button_moderate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
+            android:layout_width="347dp"
+            android:layout_height="43dp"
+            android:background="@drawable/recommend_bt_style"
             android:text="Moderate"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+            app:layout_constraintBottom_toTopOf="@id/guideline32"
+            app:layout_constraintEnd_toEndOf="@id/guideline10"
+            app:layout_constraintStart_toStartOf="@id/guideline8"
+            app:layout_constraintTop_toBottomOf="@id/guideline32" />
 
         <Button
             android:id="@+id/button_vigorous"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_orange_dark"
+            android:background="@drawable/vigorous_orange_bt_style"
             android:text="Vigorous"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toStartOf="@+id/guideline10"
-            app:layout_constraintStart_toStartOf="@+id/guideline7"
-            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+            app:layout_constraintBottom_toBottomOf="@id/guideline5"
+            app:layout_constraintEnd_toStartOf="@id/guideline10"
+            app:layout_constraintStart_toEndOf="@id/guideline8"
+            app:layout_constraintTop_toBottomOf="@id/guideline5" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
+            app:layout_constraintGuide_percent="0.85" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline7"
@@ -63,10 +63,12 @@
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.45" />
+            app:layout_constraintEnd_toEndOf="@id/guideline9"
+            app:layout_constraintGuide_percent="0.45"
+            app:layout_constraintStart_toStartOf="@id/guideline8" />
 
         <TextView
             android:id="@+id/textView_step1"
@@ -77,6 +79,7 @@
             android:padding="8dp"
             android:text="@string/plan_step_1"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,13 +89,16 @@
             android:id="@+id/textView_des"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="We recommend taking at least 300mins moderate activities or 175 mins vigorous activities per week"
+            android:background="@drawable/radius_bg"
+            android:gravity="center_horizontal"
+            android:text="We recommend taking at least 300 mins moderate activities or 175 mins vigorous activities per week"
+            android:textColor="#FFFFFF"
             android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline31"
             app:layout_constraintEnd_toStartOf="@+id/guideline10"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textView_step1" />
+            app:layout_constraintTop_toBottomOf="@id/guideline13" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline13"
@@ -109,6 +115,50 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_step1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.32" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.52" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/moderate"
+            app:layout_constraintBottom_toTopOf="@id/guideline32"
+            app:layout_constraintEnd_toEndOf="@id/guideline10"
+            app:layout_constraintStart_toStartOf="@id/guideline8"
+            app:layout_constraintTop_toBottomOf="@id/guideline31" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/vigorous"
+            app:layout_constraintBottom_toBottomOf="@id/guideline5"
+            app:layout_constraintEnd_toStartOf="@id/guideline10"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/guideline8"
+            app:layout_constraintTop_toBottomOf="@id/guideline33" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
