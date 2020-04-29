@@ -58,7 +58,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             holder.itemView.setTag(R.id.plan_in_view_holder, plan.getId());
 
             if(plan.isDone()) {
-                holder.cardView.setBackgroundColor(Color.parseColor("#4CAF50"));
+                holder.cardView.setBackgroundColor(Color.parseColor("#e0e0e0"));
             } else {
                 holder.cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
             }

@@ -53,7 +53,7 @@ public class HomeFragment extends BaseFragment {
             getNavigationFragment().presentFragment(fragment,0);
         } else {
             String nickname = userProfile.getNickname();
-            binding.welcome.setText("Hello, " + nickname);
+            binding.welcome.setText("Hi " + nickname);
         }
 
         // setup weekly exercise count
@@ -103,7 +103,7 @@ public class HomeFragment extends BaseFragment {
             if (resultCode == Activity.RESULT_OK){
                 String nickname = data.getString("nickname");
                 userProfile.putNickname(nickname);
-                binding.welcome.setText("Hello, " + nickname);
+                binding.welcome.setText("Hi " + nickname);
                 userProfile.putLogin(true);
             }
         }

@@ -13,8 +13,8 @@
 
         <Button
             android:id="@+id/button_moderate"
-            android:layout_width="347dp"
-            android:layout_height="43dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/recommend_bt_style"
             android:text="Moderate"
             app:layout_constraintBottom_toTopOf="@id/guideline32"
@@ -94,6 +94,8 @@
             android:text="We recommend taking at least 300 mins moderate activities or 175 mins vigorous activities per week"
             android:textColor="#FFFFFF"
             android:textSize="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             app:layout_constraintBottom_toTopOf="@id/guideline31"
             app:layout_constraintEnd_toStartOf="@+id/guideline10"
             app:layout_constraintHorizontal_bias="0.0"

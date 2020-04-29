@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -71,8 +72,18 @@ public class PlanDetailFragment extends BaseFragment {
         super.onViewCreated(root, savedInstanceState);
         viewModel = new ViewModelProvider(this).get(PlanDetailViewModel.class);
 
-        // activity suggest button
         type = getArguments().getString(String.valueOf(R.string.activity_type));
+        // configure theme
+        if (type.equals("vigorous")) {
+            int backgroud = R.drawable.vigorous_bt_bg;
+            binding.buttonSuggest.setBackgroundResource(R.drawable.vigorous_bt_bg);
+            binding.buttonDate.setBackgroundResource(R.drawable.vigorous_bt_bg);
+            binding.buttonTime.setBackgroundResource(R.drawable.vigorous_bt_bg);
+            binding.buttonDuration.setBackgroundResource(R.drawable.vigorous_bt_bg);
+            binding.buttonSubmit.setBackgroundResource(R.drawable.vigorous_bt_bg);
+        }
+
+        // activity suggest button
         binding.buttonSuggest.setOnClickListener(v -> {
             SuggestDialog dialog = SuggestDialog.newInstance(type);
             showDialog(dialog, REQUEST_CODE_SUGGEST);

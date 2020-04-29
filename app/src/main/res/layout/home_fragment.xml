@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:orientation="vertical">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,7 +62,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline29"
-            app:layout_constraintTop_toTopOf="@+id/guideline37" >
+            app:layout_constraintTop_toTopOf="@+id/guideline37">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     android:id="@+id/textView_week_moderate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total moderate exercise:"
+                    android:text="Moderate exercise this week:"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/guideline40"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
                     android:id="@+id/textView_week_vigorous"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total vigorous exercise:"
+                    android:text="Vigorous exercise this week:"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/guideline41"
                     app:layout_constraintEnd_toEndOf="parent"
