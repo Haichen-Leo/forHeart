@@ -47,6 +47,11 @@ public class FoodRepository {
         return foodDao.findBestFoodsWithGroup(groupId);
     }
 
+    // recommendation - top 20
+    public LiveData<List<Food>> findAllBestFoods() {
+        return foodDao.findAllBestFoods();
+    }
+
 //    public void insertFoods(Food...foods) {
 //        new InsertAsyncTaskFood(foodDao).execute(foods);
 //    }

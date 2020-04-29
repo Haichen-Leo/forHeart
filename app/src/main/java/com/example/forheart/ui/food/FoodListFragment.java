@@ -58,11 +58,12 @@ public class FoodListFragment extends BaseFragment {
         groupId = getArguments().getInt(String.valueOf(R.string.nav_food_group_id));
         if (groupId == 0) {
             filteredFoods = mViewModel.getAllFoodsLive();
-            filteredFoods.observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
+        } else if (groupId == -1) {
+            filteredFoods = mViewModel.findAllBestFoods();
         } else {
             filteredFoods = mViewModel.findFoodsWithGroup(groupId);
-            filteredFoods.observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
         }
+        filteredFoods.observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

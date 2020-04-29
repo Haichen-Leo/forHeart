@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
@@ -35,7 +37,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.Reco
     public RecommendViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.cell_normal_food, parent, false);
         RecommendViewHolder holder = new RecommendViewHolder(itemView);
-        holder.textView.setOnClickListener(v -> {
+        holder.constraintLayout.setOnClickListener(v -> {
             FoodBean foodBean = (FoodBean) holder.itemView.getTag(R.id.food_in_view_holder);
             Bundle data = new Bundle();
             data.putParcelable(KEY_VALUE, foodBean);
@@ -75,10 +77,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.Reco
 
     static class RecommendViewHolder extends RecyclerView.ViewHolder{
         private TextView textView;
+        private ConstraintLayout constraintLayout;
         private int mPosition;
         RecommendViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textViewFoodName);
+            constraintLayout = itemView.findViewById(R.id.constraint_food);
+
         }
         void setData(String foodName, int position){
             textView.setText(foodName);

@@ -34,4 +34,8 @@ public class FoodListViewModel extends AndroidViewModel {
     LiveData<List<Food>> findFoodsWithGroup(int groupId, String pattern) {
         return foodRepository.findFoodsWithPattern(groupId, pattern);
     }
+
+    LiveData<List<Food>> findAllBestFoods() {
+        return foodRepository.findAllBestFoods();
+    }
 }

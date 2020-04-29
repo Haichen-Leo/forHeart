@@ -40,4 +40,8 @@ public interface FoodDao {
 
     @Query("SELECT * FROM Food WHERE food_group_id = :groupId ORDER BY total_score DESC LIMIT 3")
     LiveData<List<Food>> findBestFoodsWithGroup(int groupId);
+
+    @Query("SELECT * FROM Food ORDER BY total_score DESC LIMIT 20")
+    LiveData<List<Food>> findAllBestFoods();
+
 }

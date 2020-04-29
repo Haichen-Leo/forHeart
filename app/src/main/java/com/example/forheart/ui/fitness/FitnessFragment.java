@@ -55,7 +55,7 @@ public class FitnessFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setTitle("Fitness");
+        setTitle("Workout");
         // nav - menu
         if (isNavigationRoot()) {
             String iconUri = "font://FontAwesome/" + fromCharCode(61641) + "/24";
