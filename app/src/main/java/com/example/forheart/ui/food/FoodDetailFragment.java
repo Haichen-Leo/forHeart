@@ -68,6 +68,7 @@ public class FoodDetailFragment extends BaseFragment {
         super.onViewCreated(root, savedInstanceState);
         foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
         int groupId = foodBean.getFoodGroupId();
+        setPhoto(groupId);
 
     }
 
@@ -118,6 +119,57 @@ public class FoodDetailFragment extends BaseFragment {
                 getNavigationFragment().redirectToFragment(fragment);
             }
         }
+    }
+
+    public void setPhoto(int groupId) {
+        if (groupId == 11){
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_11));
+        } else if (groupId == 12) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_12));
+        } else if (groupId == 13) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_13));
+        } else if (groupId == 14) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_14));
+        } else if (groupId == 15) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_15));
+        } else if (groupId == 16) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_16));
+        } else if (groupId == 17) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_17));
+        } else if (groupId == 18) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_18));
+        } else if (groupId == 19) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_19));
+        } else if (groupId == 20) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_20));
+        } else if (groupId == 21) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_21));
+        } else if (groupId == 22) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_22));
+        } else if (groupId == 23) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_23));
+        } else if (groupId == 24) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_24));
+        } else if (groupId == 25) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_25));
+        } else if (groupId == 26) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_26));
+        } else if (groupId == 27) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_27));
+        } else if (groupId == 28) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_28));
+        } else if (groupId == 29) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_29));
+        } else if (groupId == 31) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_31));
+        } else if (groupId == 32) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_32));
+        } else if (groupId == 34) {
+            binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_34));
+        }
+
+
+
     }
 
 }

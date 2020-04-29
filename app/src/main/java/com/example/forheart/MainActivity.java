@@ -61,6 +61,5 @@ public class MainActivity extends AwesomeActivity {
     protected void onCustomStyle(@NonNull Style style) {
         style.setSwipeBackEnabled(true);
         style.setStatusBarColor(Color.parseColor("#4CAF50"));
-//        style.setNavigationBarColor(Color.WHITE);
     }
 }
