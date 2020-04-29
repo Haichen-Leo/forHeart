@@ -1,6 +1,7 @@
 package com.example.forheart.ui.food;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.example.forheart.model.FoodBean;
 import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.FragmentHelper;
+import com.navigation.androidx.Style;
 
 import java.text.DecimalFormat;
 
@@ -23,10 +25,28 @@ import java.text.DecimalFormat;
 public class FoodDetailFragment extends BaseFragment {
 
     private FoodDetailFragmentBinding binding;
+    private FoodBean foodBean;
+
+    AwesomeToolbar toolbar;
 
     @Override
     protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
-        return null;
+        return toolbar;
+    }
+
+    @Override
+    protected void onCustomStyle(@NonNull Style style) {
+        style.setShadow(null);
+        style.setToolbarBackgroundColor(Color.TRANSPARENT);
+    }
+
+    @Override
+    protected int preferredStatusBarColor() {
+        if (isStatusBarTranslucent()) {
+            return Color.TRANSPARENT;
+        } else {
+            return super.preferredStatusBarColor();
+        }
     }
 
     private static DecimalFormat df = new DecimalFormat("0.0");
@@ -34,19 +54,32 @@ public class FoodDetailFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = FoodDetailFragmentBinding.inflate(getLayoutInflater());
+        View root = inflater.inflate(R.layout.food_detail_fragment, container, false);
+        binding = FoodDetailFragmentBinding.bind(root);
+        toolbar = root.findViewById(R.id.toolbar);
+        if (isStatusBarTranslucent()) {
+            appendStatusBarPadding(toolbar);
+        }
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(root, savedInstanceState);
+        foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
+        int groupId = foodBean.getFoodGroupId();
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         assert getArguments() != null;
-        FoodBean foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
+
 //        String foodId = foodBean.getFoodId();
         String foodScore = df.format(foodBean.getTotalScore());
         binding.foodName.setText(foodBean.getFoodName());
-        binding.foodScoreNumber.setText(foodScore + " / 5");
+        binding.foodScoreNumber.setText(" " + foodScore + "/5");
         binding.dietaryFibreNumber.setText(String.valueOf(foodBean.getTotalDietaryFibre()));
         binding.totalOmega3Number.setText(String.valueOf(foodBean.getTotalOmega3()));
         binding.monounsaturatedNumber.setText(String.valueOf(foodBean.getTotalMonounsaturated()));
@@ -65,7 +98,7 @@ public class FoodDetailFragment extends BaseFragment {
             binding.foodTypeMessage.setText(R.string.food_message_normal);
         }
         
-        binding.recomBt.setOnClickListener(v -> {
+        binding.buttonRecommend.setOnClickListener(v -> {
             int groupId = foodBean.getFoodGroupId();
             RecommandFragment dialog = RecommandFragment.newInstance(groupId);
             showDialog(dialog,0);

@@ -59,9 +59,13 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
 
             if(plan.isDone()) {
                 holder.cardView.setBackgroundColor(Color.parseColor("#e0e0e0"));
-            } else {
-                holder.cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+                holder.activityView.setTextColor(Color.parseColor("#7A7A7A"));
+                holder.dateTimeView.setTextColor(Color.parseColor("#7A7A7A"));
+                holder.durationView.setTextColor(Color.parseColor("#7A7A7A"));
             }
+//            else {
+//                holder.cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+//            }
         }
     }
 

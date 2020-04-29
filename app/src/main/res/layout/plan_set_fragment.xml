@@ -78,6 +78,7 @@
             android:layout_marginTop="8dp"
             android:padding="8dp"
             android:text="@string/plan_step_1"
+            android:textColor="?attr/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

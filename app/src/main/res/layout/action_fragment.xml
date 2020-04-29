@@ -97,48 +97,44 @@
 
         <ImageButton
             android:id="@+id/imageButton_done"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/functions_green_bg"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:src="@drawable/ic_done_black_36dp"
             app:layout_constraintBottom_toTopOf="@id/guideline24"
             app:layout_constraintEnd_toEndOf="@id/guideline26"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/guideline28"
             app:layout_constraintTop_toBottomOf="@id/guideline34"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <ImageButton
             android:id="@+id/imageButton_start"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/functions_blue_bg"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:src="@drawable/ic_play_arrow_black_36dp"
             app:layout_constraintBottom_toBottomOf="@id/guideline30"
             app:layout_constraintEnd_toEndOf="@id/guideline26"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/guideline28"
             app:layout_constraintTop_toBottomOf="@id/guideline29" />
 
         <ImageButton
             android:id="@+id/imageButton_remove"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/functions_orange_bg"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
             android:src="@drawable/ic_block_black_36dp"
             app:layout_constraintBottom_toBottomOf="@id/guideline36"
             app:layout_constraintEnd_toEndOf="@id/guideline26"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/guideline28"
             app:layout_constraintTop_toBottomOf="@id/guideline35" />
 
@@ -154,17 +150,16 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Start Activity"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline30"
             app:layout_constraintEnd_toStartOf="@id/guideline28"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guideline25"
             app:layout_constraintTop_toBottomOf="@id/guideline29"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline29"
@@ -189,14 +184,13 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Finish Activity"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@id/guideline24"
             app:layout_constraintEnd_toStartOf="@id/guideline28"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guideline25"
             app:layout_constraintTop_toBottomOf="@id/guideline34" />
 
@@ -216,14 +210,13 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:text="Remove Activity"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@id/guideline36"
             app:layout_constraintEnd_toEndOf="@id/guideline28"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guideline25"
             app:layout_constraintTop_toBottomOf="@id/guideline35" />
 

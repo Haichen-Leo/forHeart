@@ -30,7 +30,7 @@ public class ActionDialog extends AwesomeFragment {
         if (type.equals(ActionFragment.ACTION_START)) {
             AlertDialog dialog = new AlertDialog.Builder(requireContext())
                     .setTitle("Start")
-                    .setMessage("Do you want to start now? \nAn alarm will be set to notify you when it is done")
+                    .setMessage("Do you want to start now? \nI will remind you when it is done")
                     .setPositiveButton("Yes", (dialogInterface, i) -> {
                         setResult(Activity.RESULT_OK, result);
                     })

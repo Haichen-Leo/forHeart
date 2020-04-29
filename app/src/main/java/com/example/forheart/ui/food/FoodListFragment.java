@@ -89,7 +89,7 @@ public class FoodListFragment extends BaseFragment {
             @Override
             public void afterTextChanged(Editable s) {
                 String pattern = s.toString().trim();
-                Toast.makeText(getActivity(), pattern, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), pattern, Toast.LENGTH_SHORT).show();
                 filteredFoods.removeObservers(getViewLifecycleOwner());
                 if (groupId == 0) {
                     filteredFoods = mViewModel.findFoodsWithPattern(pattern);

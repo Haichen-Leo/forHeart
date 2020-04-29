@@ -103,6 +103,7 @@
             android:layout_marginTop="8dp"
             android:padding="8dp"
             android:text="@string/plan_step_2"
+            android:textColor="?attr/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -260,12 +261,13 @@
 
         <EditText
             android:id="@+id/editText_date"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:enabled="false"
             android:hint="Select the date"
             android:inputType="date"
+            app:layout_constraintEnd_toStartOf="@+id/guideline16"
             app:layout_constraintStart_toStartOf="@+id/guideline12"
             app:layout_constraintTop_toBottomOf="@+id/textView_date" />
 

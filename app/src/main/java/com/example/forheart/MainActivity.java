@@ -24,7 +24,7 @@ public class MainActivity extends AwesomeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // ui - set translucent status bar
-        setStatusBarTranslucent(false);
+        setStatusBarTranslucent(true);
 
         // ui - set navigation structure
         if (savedInstanceState == null) {

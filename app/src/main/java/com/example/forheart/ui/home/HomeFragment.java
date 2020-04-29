@@ -92,8 +92,6 @@ public class HomeFragment extends BaseFragment {
         }
 //        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
-
-
     }
 
     @Override

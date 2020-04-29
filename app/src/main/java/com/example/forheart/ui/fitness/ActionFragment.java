@@ -77,8 +77,8 @@ public class ActionFragment extends BaseFragment {
                 binding.textViewDes.setText(plan.getDescription());
                 if(plan.isDone() == true) {
                     binding.textViewDone.setVisibility(View.VISIBLE);
-                    binding.imageButtonStart.setBackgroundColor(Color.parseColor("#848484"));
-                    binding.imageButtonDone.setBackgroundColor(Color.parseColor("#848484"));
+                    binding.imageButtonStart.setBackgroundResource(R.drawable.action_bt_disable_bg);
+                    binding.imageButtonDone.setBackgroundResource(R.drawable.action_bt_disable_bg);
                 } else {
                     // start button
                     binding.imageButtonStart.setOnClickListener(v -> {

@@ -12,8 +12,8 @@
     <string name="healthy_message">This food is very healthy for your cardiovascular system and can be consumed regularly.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edittext_hint">Tell us something here</string>
-    <string name="plan_step_1">Step 1 - Select your prefer style</string>
-    <string name="plan_step_2">Step 2 - Set details</string>
+    <string name="plan_step_1">Select your prefer style</string>
+    <string name="plan_step_2">Exercise details</string>
     <string name="food_type_good">Good for Heart !</string>
     <string name="food_type_normal">Not bad !</string>
     <string name="food_type_bad">No help for heart !</string>
