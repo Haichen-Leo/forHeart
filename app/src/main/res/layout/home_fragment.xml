@@ -113,6 +113,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/edit_text_border"
                 android:clickable="false">
 
                 <androidx.constraintlayout.widget.Guideline
@@ -165,6 +166,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/edit_text_border"
                 android:clickable="true"
                 android:focusable="auto"
                 android:foreground="?attr/selectableItemBackground">
@@ -259,6 +261,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/edit_text_border"
                 android:clickable="true"
                 android:focusable="auto"
                 android:foreground="?attr/selectableItemBackground">
