@@ -34,7 +34,7 @@
                 android:layout_below="@+id/view"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="Nutrition for Heart" />
+                app:title="Nutrition" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
