@@ -118,12 +118,12 @@ public class FoodDetailFragment extends BaseFragment {
                 args.putParcelable(String.valueOf(R.string.nav_food_id), foodBean);
                 getNavigationFragment().redirectToFragment(fragment);
             }
-            if (requestCode == Activity.RESULT_CANCELED) {
-                FoodListFragment foodListFragment = new FoodListFragment();
-                Bundle args = FragmentHelper.getArguments(foodListFragment);
-                args.putInt(String.valueOf(R.string.nav_food_group_id),-1);
-                getNavigationFragment().redirectToFragment(foodListFragment);
-            }
+//            if (requestCode == Activity.RESULT_CANCELED) {
+////                FoodListFragment foodListFragment = new FoodListFragment();
+////                Bundle args = FragmentHelper.getArguments(foodListFragment);
+////                args.putInt(String.valueOf(R.string.nav_food_group_id),-1);
+////                getNavigationFragment().redirectToFragment(foodListFragment);
+////            }
         }
     }
 
