@@ -62,13 +62,13 @@ public class RecommandFragment extends AwesomeFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        LinearLayout layout = root.findViewById(R.id.linear__more);
-//        layout.setOnClickListener(v -> {
-//            FoodListFragment listFragment = new FoodListFragment();
-//            Bundle args = FragmentHelper.getArguments(listFragment);
-//            args.putInt(String.valueOf(R.string.nav_food_group_id),-1);
-//            getNavigationFragment().redirectToFragment(listFragment);
-//        });
+        LinearLayout layout = root.findViewById(R.id.linear__more);
+        layout.setOnClickListener(v -> {
+
+            Bundle result = new Bundle();
+            this.setResult(Activity.RESULT_CANCELED,result);
+            this.hideDialog();
+        });
     }
 
 }
