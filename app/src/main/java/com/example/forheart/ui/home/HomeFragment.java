@@ -25,6 +25,8 @@ import com.navigation.androidx.ToolbarButtonItem;
 
 import java.util.Calendar;
 
+import at.grabner.circleprogress.CircleProgressView;
+
 public class HomeFragment extends BaseFragment {
 
     private HomeViewModel mViewModel;
@@ -57,7 +59,7 @@ public class HomeFragment extends BaseFragment {
             getNavigationFragment().presentFragment(fragment,0);
         } else {
             String nickname = userProfile.getNickname();
-            binding.welcome.setText("Hi " + nickname);
+            binding.nickname.setText(nickname);
         }
 
         // daily recommend - top 20
@@ -77,12 +79,21 @@ public class HomeFragment extends BaseFragment {
             userProfile.putWeekVigorousCount(0);
         }
 
-        // setup weekly exercise count
-        binding.textViewModerateMin.setText(userProfile.getWeekModerateCount() + "min");
-        binding.textViewVigorousMin.setText(userProfile.getWeekVigorousCount() + "min");
-        userProfile.addWeekModerateCountOnChangedListener(weekmoderatecount -> binding.textViewModerateMin.setText(weekmoderatecount + "min"));
-        userProfile.addWeekVigorousCountOnChangedListener(weekvigorouscount -> binding.textViewVigorousMin.setText(weekvigorouscount + "min"));
+        // setup circle progress
+        float progress = userProfile.getWeekVigorousCount() * 300 / 175 + userProfile.getWeekModerateCount();
+        binding.circleView.setValueAnimated(progress, 1500);
 
+        // setup weekly exercise count
+        binding.textViewModerateMin.setText(String.valueOf(userProfile.getWeekModerateCount()));
+        binding.textViewVigorousMin.setText(String.valueOf(userProfile.getWeekVigorousCount()));
+        userProfile.addWeekModerateCountOnChangedListener(weekmoderatecount -> {
+            binding.textViewModerateMin.setText(String.valueOf(weekmoderatecount));
+            binding.circleView.setValueAnimated(userProfile.getWeekVigorousCount() * 300 / 175 + weekmoderatecount, 1500 );
+        });
+        userProfile.addWeekVigorousCountOnChangedListener(weekvigorouscount -> {
+            binding.textViewVigorousMin.setText(String.valueOf(weekvigorouscount));
+            binding.circleView.setValueAnimated(weekvigorouscount * 300 / 175 + userProfile.getWeekModerateCount(), 1500);
+        });
     }
 
 
@@ -113,7 +124,7 @@ public class HomeFragment extends BaseFragment {
             if (resultCode == Activity.RESULT_OK){
                 String nickname = data.getString("nickname");
                 userProfile.putNickname(nickname);
-                binding.welcome.setText("Hi " + nickname);
+                binding.nickname.setText(nickname);
                 userProfile.putLogin(true);
             }
         }

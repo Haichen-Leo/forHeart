@@ -67,4 +67,7 @@ dependencies {
     // PreferenceRoom
     implementation "com.github.skydoves:preferenceroom:1.2.0"
     annotationProcessor "com.github.skydoves:preferenceroom-processor:1.2.0"
+
+    // CircleView
+    implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
 }

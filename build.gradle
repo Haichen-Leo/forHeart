@@ -19,6 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //circle progress
+        maven { url 'https://jitpack.io' }
     }
 }
 
