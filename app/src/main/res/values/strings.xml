@@ -20,5 +20,8 @@
     <string name="food_message_good">This food is very healthy for your cardiovascular system and can be consumed regularly.</string>
     <string name="food_message_normal">This food is good for heart. You may find more healthy food in recommendation below.</string>
     <string name="food_message_bad">This food is not good enough for heart health, find other food in our database.</string>
+    <string name="motivation_new">Welcome to a new week! Click the add button below to make new plans</string>
+    <string name="motivation_half">Keep going! Try to hit 100% of progress for the workout task this week</string>
+    <string name="motivation_done">Good job! You have finished the workout task this week. Take more exercise if you like</string>
 
 </resources>

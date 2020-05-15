@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
@@ -58,14 +59,11 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             holder.itemView.setTag(R.id.plan_in_view_holder, plan.getId());
 
             if(plan.isDone()) {
-                holder.cardView.setBackgroundColor(Color.parseColor("#e0e0e0"));
-                holder.activityView.setTextColor(Color.parseColor("#7A7A7A"));
-                holder.dateTimeView.setTextColor(Color.parseColor("#7A7A7A"));
-                holder.durationView.setTextColor(Color.parseColor("#7A7A7A"));
+                holder.setDone();
             }
-//            else {
-//                holder.cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
-//            }
+            else {
+                holder.setNotDone();
+            }
         }
     }
 
@@ -98,6 +96,20 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             durationView.setText(planDuration);
             dateTimeView.setText(datetime);
             mPosition = position;
+        }
+
+        void setDone() {
+            cardView.setBackgroundColor(Color.parseColor("#e0e0e0"));
+            activityView.setTextColor(Color.parseColor("#7A7A7A"));
+            dateTimeView.setTextColor(Color.parseColor("#7A7A7A"));
+            durationView.setTextColor(Color.parseColor("#7A7A7A"));
+        }
+
+        void setNotDone() {
+            cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+            activityView.setTextColor(Color.parseColor("#000000"));
+            dateTimeView.setTextColor(Color.parseColor("#000000"));
+            durationView.setTextColor(Color.parseColor("#000000"));
         }
     }
 }

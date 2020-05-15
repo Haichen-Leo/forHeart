@@ -18,6 +18,7 @@ import com.example.forheart.databinding.HomeFragmentBinding;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.ui.food.FoodListFragment;
+import com.example.forheart.util.ProgressUtil;
 import com.example.forheart.util.ToastUtil;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.FragmentHelper;
@@ -80,7 +81,10 @@ public class HomeFragment extends BaseFragment {
         }
 
         // setup circle progress
-        float progress = userProfile.getWeekVigorousCount() * 300 / 175 + userProfile.getWeekModerateCount();
+        String taskType = userProfile.getTaskType();
+        ProgressUtil.init(taskType);
+        float progress = ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + userProfile.getWeekModerateCount();
+        binding.circleView.setMaxValue(ProgressUtil.getModerate());
         binding.circleView.setValueAnimated(progress, 1500);
 
         // setup weekly exercise count
@@ -88,11 +92,11 @@ public class HomeFragment extends BaseFragment {
         binding.textViewVigorousMin.setText(String.valueOf(userProfile.getWeekVigorousCount()));
         userProfile.addWeekModerateCountOnChangedListener(weekmoderatecount -> {
             binding.textViewModerateMin.setText(String.valueOf(weekmoderatecount));
-            binding.circleView.setValueAnimated(userProfile.getWeekVigorousCount() * 300 / 175 + weekmoderatecount, 1500 );
+            binding.circleView.setValueAnimated(ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + weekmoderatecount, 1500 );
         });
         userProfile.addWeekVigorousCountOnChangedListener(weekvigorouscount -> {
             binding.textViewVigorousMin.setText(String.valueOf(weekvigorouscount));
-            binding.circleView.setValueAnimated(weekvigorouscount * 300 / 175 + userProfile.getWeekModerateCount(), 1500);
+            binding.circleView.setValueAnimated(ProgressUtil.transVig(weekvigorouscount) + userProfile.getWeekModerateCount(), 1500);
         });
     }
 
