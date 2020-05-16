@@ -11,64 +11,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/divider2"/>
+
         <Button
             android:id="@+id/button_moderate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/recommend_bt_style"
+            android:background="@drawable/workout_button_bt_style"
             android:text="Moderate"
-            app:layout_constraintBottom_toTopOf="@id/guideline32"
-            app:layout_constraintEnd_toEndOf="@id/guideline10"
-            app:layout_constraintStart_toStartOf="@id/guideline8"
-            app:layout_constraintTop_toBottomOf="@id/guideline32" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <Button
             android:id="@+id/button_vigorous"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/vigorous_orange_bt_style"
+            android:background="@drawable/workout_button_bt_style"
             android:text="Vigorous"
-            app:layout_constraintBottom_toBottomOf="@id/guideline5"
-            app:layout_constraintEnd_toStartOf="@id/guideline10"
-            app:layout_constraintStart_toEndOf="@id/guideline8"
-            app:layout_constraintTop_toBottomOf="@id/guideline5" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.85" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.55" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.92" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.08" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/guideline9"
-            app:layout_constraintGuide_percent="0.45"
-            app:layout_constraintStart_toStartOf="@id/guideline8" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <TextView
             android:id="@+id/textView_step1"
@@ -78,37 +50,40 @@
             android:layout_marginTop="8dp"
             android:padding="8dp"
             android:text="@string/plan_step_1"
-            android:textColor="?attr/colorPrimaryDark"
-            android:textSize="24sp"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_des"
-            android:layout_width="0dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/radius_bg"
-            android:gravity="center_horizontal"
-            android:text="We recommend taking at least 300 mins moderate activities or 175 mins vigorous activities per week"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@id/guideline31"
-            app:layout_constraintEnd_toStartOf="@+id/guideline10"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@id/guideline13" />
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider3">
+
+            <TextView
+                android:id="@+id/textView_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:singleLine="false"
+                android:text="We recommend taking at least\n       300 mins moderate or\n       175 mins vigorous activities per week. \n\nSee more in our Tips for Heart"
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
 
         <View
             android:id="@+id/divider2"
@@ -119,49 +94,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_step1" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.32" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.52" />
-
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/moderate"
-            app:layout_constraintBottom_toTopOf="@id/guideline32"
-            app:layout_constraintEnd_toEndOf="@id/guideline10"
-            app:layout_constraintStart_toStartOf="@id/guideline8"
-            app:layout_constraintTop_toBottomOf="@id/guideline31" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
+            android:layout_width="165dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/moderate_v2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline13"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/vigorous"
-            app:layout_constraintBottom_toBottomOf="@id/guideline5"
-            app:layout_constraintEnd_toStartOf="@id/guideline10"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/guideline8"
-            app:layout_constraintTop_toBottomOf="@id/guideline33" />
+            android:layout_width="165dp"
+            android:layout_height="240dp"
+            android:src="@drawable/vigorous_v2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline13"
+            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

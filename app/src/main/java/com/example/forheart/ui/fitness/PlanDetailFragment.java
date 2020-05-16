@@ -16,10 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -33,6 +35,8 @@ import com.example.forheart.util.ToastUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import es.dmoral.toasty.Toasty;
 
 public class PlanDetailFragment extends BaseFragment {
 
@@ -73,14 +77,19 @@ public class PlanDetailFragment extends BaseFragment {
         viewModel = new ViewModelProvider(this).get(PlanDetailViewModel.class);
 
         type = getArguments().getString(String.valueOf(R.string.activity_type));
-        // configure theme
-        if (type.equals("vigorous")) {
-            int backgroud = R.drawable.vigorous_bt_bg;
-            binding.buttonSuggest.setBackgroundResource(R.drawable.vigorous_bt_bg);
-            binding.buttonDate.setBackgroundResource(R.drawable.vigorous_bt_bg);
-            binding.buttonTime.setBackgroundResource(R.drawable.vigorous_bt_bg);
-            binding.buttonDuration.setBackgroundResource(R.drawable.vigorous_bt_bg);
-            binding.buttonSubmit.setBackgroundResource(R.drawable.vigorous_bt_bg);
+//        // configure theme
+//        if (type.equals("vigorous")) {
+//            int backgroud = R.drawable.vigorous_bt_bg;
+//            binding.buttonSuggest.setBackgroundResource(R.drawable.vigorous_bt_bg);
+//            binding.buttonDate.setBackgroundResource(R.drawable.vigorous_bt_bg);
+//            binding.buttonTime.setBackgroundResource(R.drawable.vigorous_bt_bg);
+//            binding.buttonDuration.setBackgroundResource(R.drawable.vigorous_bt_bg);
+//            binding.buttonSubmit.setBackgroundResource(R.drawable.vigorous_bt_bg);
+//        }
+
+        // configure pic
+        if (type.equals("moderate")) {
+            binding.imageViewTypePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_do_pilates));
         }
 
         // activity suggest button
@@ -121,10 +130,31 @@ public class PlanDetailFragment extends BaseFragment {
             TimePickerDialog dialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute1) {
+
                     hour = hourOfDay;
                     minute = minute1;
+
+                    // if today, unable set a time before current
+                    if (day == calendar.get(Calendar.DATE) && month == calendar.get(Calendar.MONTH) + 1) {
+
+                        Calendar planCalendar = Calendar.getInstance();
+                        planCalendar.set(Calendar.YEAR,year);
+                        planCalendar.set(Calendar.MONTH,month-1);
+                        planCalendar.set(Calendar.DATE,day);
+                        planCalendar.set(Calendar.HOUR,hour);
+                        planCalendar.set(Calendar.MINUTE,minute);
+                        long startTime = planCalendar.getTimeInMillis();
+
+                        if (startTime < System.currentTimeMillis()) {
+                            Toasty.info(getContext(), "Oops, you select a time before the current.\nPlease choose a valid time again", Toast.LENGTH_SHORT, true).show();
+                            hour = 19;
+                            minute = 0;
+                        }
+                    }
+
                     theTime = hour + ":" + minute;
                     binding.editTextWhen.setText(parseTimeFormat(theTime));
+
                 }
             },calendar.get(Calendar.HOUR),calendar.get(Calendar.MINUTE),false);
             dialog.show();
@@ -154,6 +184,11 @@ public class PlanDetailFragment extends BaseFragment {
                     }
                 }
             }
+        });
+
+        // question button
+        binding.imageViewQuestion.setOnClickListener(v -> {
+            Toasty.info(getContext(), "Get suggestions by clicking the RECOMMEND button based on our statistics", Toast.LENGTH_SHORT,true).show();
         });
 
         // duration suggest button
