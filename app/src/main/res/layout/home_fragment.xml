@@ -122,14 +122,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_weekly_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="15dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -159,7 +157,7 @@
                         CircleProgressView:cpv_unitColor="@color/colorPrimaryLight"
                         CircleProgressView:cpv_unitPosition="right_top"
                         CircleProgressView:cpv_unitScale="1"
-                        CircleProgressView:cpv_value="10"
+                        CircleProgressView:cpv_value="0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/guideline37"
@@ -330,7 +328,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:paddingBottom="16dp"
-                        android:text="Check details and make a new workout plan"
+                        android:text="Check more details and new plans in Workout"
                         app:layout_constraintEnd_toStartOf="@+id/guideline38"
                         app:layout_constraintStart_toStartOf="@+id/guideline37"
                         app:layout_constraintTop_toBottomOf="@+id/textView_week_moderate" />
@@ -347,6 +345,7 @@
                 android:layout_marginBottom="16dp">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView_healthy_profile"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="16dp"
@@ -356,7 +355,7 @@
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView"
+                    app:layout_constraintEnd_toStartOf="@+id/cardView_tips"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -394,7 +393,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/cardView_tips"
                     android:layout_width="140dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="16dp"

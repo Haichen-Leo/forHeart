@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,8 @@ import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.DateTimeUtils;
 import com.example.forheart.util.ToastUtil;
+
+import es.dmoral.toasty.Toasty;
 
 public class ActionFragment extends BaseFragment {
 
@@ -71,12 +74,14 @@ public class ActionFragment extends BaseFragment {
                 // view plan details
                 String datetime = plan.getDay() + " " + plan.getMonth() + " " + plan.getHour() + " " + plan.getMinute();
                 String duration = plan.getDuration() + " min";
+                String type = plan.getType();
                 binding.textViewActivity.setText(plan.getActivity());
                 binding.textViewDatetime.setText(DateTimeUtils.parseDateTimeFormat(datetime));
                 binding.textViewDuration.setText(duration);
+                binding.workoutType.setText(type);
                 binding.textViewDes.setText(plan.getDescription());
                 if(plan.isDone() == true) {
-                    binding.textViewDone.setVisibility(View.VISIBLE);
+//                    binding.textViewDone.setVisibility(View.VISIBLE);
                     binding.imageButtonStart.setBackgroundResource(R.drawable.action_bt_disable_bg);
                     binding.imageButtonDone.setBackgroundResource(R.drawable.action_bt_disable_bg);
                 } else {
@@ -137,14 +142,16 @@ public class ActionFragment extends BaseFragment {
                     profile.putWeekVigorousCount(weekCount);
                     profile.putTotalVigorousCount(totalCount);
                 }
-                ToastUtil.bottomToast(getContext(),"Activity Done");
+//                ToastUtil.bottomToast(getContext(),"Activity Done");
+                Toasty.success(getContext(),"Activity Done!", Toast.LENGTH_SHORT, true).show();
             }
         }
         if (requestCode == REQUEST_CODE_DELETE) {
             if (resultCode == Activity.RESULT_OK) {
                 mViewModel.deletePlans(aPlan);
                 getNavigationFragment().popToRootFragment();
-                ToastUtil.bottomToast(getContext(),"Activity Removed");
+//                ToastUtil.bottomToast(getContext(),"Activity Removed");
+                Toasty.info(getContext(),"Activity Removed", Toast.LENGTH_SHORT, true).show();
             }
         }
     }

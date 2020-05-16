@@ -4,222 +4,267 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.fitness.ActionFragment">
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline24"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
+            android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline27"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:src="@drawable/ic_couple_running" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/guideline25"
-            app:layout_constraintGuide_percent="0.1"
-            app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#EBE7E7">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline26"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:background="@drawable/bg_for_form_haft_radius" >
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+                    <TextView
+                        android:id="@+id/textView_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:text="Workout Name"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Activity"
-            android:textSize="36sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline25"
-            app:layout_constraintTop_toTopOf="@+id/guideline27" />
+                    <Button
+                        android:id="@+id/imageButton_start"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#F5A391"
+                        android:elevation="4dp"
+                        android:text="Start workout"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+                        app:layout_constraintStart_toStartOf="@+id/guideline24"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_activity" />
 
-        <TextView
-            android:id="@+id/textView_datetime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="24 Apr 19:00"
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline25"
-            app:layout_constraintTop_toBottomOf="@+id/textView_activity" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.25" />
 
-        <TextView
-            android:id="@+id/textView_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="30 mins"
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline25"
-            app:layout_constraintTop_toBottomOf="@+id/textView_datetime" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.75" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description:"
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="@+id/guideline25"
-            app:layout_constraintTop_toBottomOf="@+id/textView_duration" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/textView_des"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline26"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline25"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_for_form"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
 
-        <ImageButton
-            android:id="@+id/imageButton_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/functions_green_bg"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:src="@drawable/ic_done_black_36dp"
-            app:layout_constraintBottom_toTopOf="@id/guideline24"
-            app:layout_constraintEnd_toEndOf="@id/guideline26"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/guideline28"
-            app:layout_constraintTop_toBottomOf="@id/guideline34"
-            app:layout_constraintVertical_bias="0.5" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5"/>
 
-        <ImageButton
-            android:id="@+id/imageButton_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/functions_blue_bg"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:src="@drawable/ic_play_arrow_black_36dp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline30"
-            app:layout_constraintEnd_toEndOf="@id/guideline26"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/guideline28"
-            app:layout_constraintTop_toBottomOf="@id/guideline29" />
+                    <ImageView
+                        android:id="@+id/type_pic"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/moderate_illustration"
+                        app:layout_constraintBottom_toBottomOf="@id/workout_type"
+                        app:layout_constraintEnd_toStartOf="@id/workout_type"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/workout_type"
+                        app:layout_constraintHorizontal_chainStyle="packed"/>
 
-        <ImageButton
-            android:id="@+id/imageButton_remove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/functions_orange_bg"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:src="@drawable/ic_block_black_36dp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline36"
-            app:layout_constraintEnd_toEndOf="@id/guideline26"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@id/guideline28"
-            app:layout_constraintTop_toBottomOf="@id/guideline35" />
+                    <TextView
+                        android:id="@+id/workout_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Moderate"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/guideline41"
+                        app:layout_constraintStart_toEndOf="@id/type_pic"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/textView_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="--DONE--"
-            android:textSize="36sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/guideline27"
-            app:layout_constraintStart_toStartOf="@+id/guideline25" />
+                    <ImageView
+                        android:id="@+id/clock_alarm"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/clock_alarm"
+                        app:layout_constraintBottom_toBottomOf="@id/textView_duration"
+                        app:layout_constraintEnd_toStartOf="@id/textView_duration"
+                        app:layout_constraintStart_toStartOf="@id/guideline41"
+                        app:layout_constraintTop_toTopOf="@id/textView_duration"
+                        app:layout_constraintHorizontal_chainStyle="packed"/>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start Activity"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline30"
-            app:layout_constraintEnd_toStartOf="@id/guideline28"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/guideline25"
-            app:layout_constraintTop_toBottomOf="@id/guideline29"
-            app:layout_constraintVertical_bias="0.5" />
+                    <TextView
+                        android:id="@+id/textView_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="40min"
+                        android:textSize="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/clock_alarm"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline29"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_for_form">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.50" />
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline51"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5"/>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.55" />
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Description:"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Finish Activity"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline24"
-            app:layout_constraintEnd_toStartOf="@id/guideline28"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/guideline25"
-            app:layout_constraintTop_toBottomOf="@id/guideline34" />
+                    <ScrollView
+                        android:id="@+id/scrollView_des"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.70" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline36"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.80" />
+                            <TextView
+                                android:id="@+id/textView_des"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="false"
+                                android:textSize="16sp" />
+                        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Remove Activity"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline36"
-            app:layout_constraintEnd_toEndOf="@id/guideline28"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/guideline25"
-            app:layout_constraintTop_toBottomOf="@id/guideline35" />
+                    </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/textView_reminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Remind me at"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@id/textView6"
+                        app:layout_constraintTop_toBottomOf="@+id/scrollView_des" />
+
+                    <TextView
+                        android:id="@+id/textView_datetime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="24 Apr 19:00"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/textView_reminder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/scrollView_des"
+                        app:layout_constraintTop_toTopOf="@id/textView_reminder" />
+
+                    <Button
+                        android:id="@+id/imageButton_remove"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/remove_bt_bg"
+                        android:elevation="4dp"
+                        android:paddingLeft="9dp"
+                        android:paddingRight="9dp"
+                        android:text="remove plan"
+                        android:textColor="#CA1843"
+                        android:textSize="16dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline51"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_reminder" />
+
+                    <Button
+                        android:id="@+id/imageButton_done"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="#CA1843"
+                        android:elevation="4dp"
+                        android:paddingLeft="9dp"
+                        android:paddingRight="9dp"
+                        android:text="Finish plan"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="@id/imageButton_remove"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline51"
+                        app:layout_constraintTop_toBottomOf="@id/textView_reminder"
+                        app:layout_constraintTop_toTopOf="@id/imageButton_remove" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
-

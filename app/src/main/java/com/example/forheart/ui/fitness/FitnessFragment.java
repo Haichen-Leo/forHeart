@@ -1,9 +1,11 @@
 package com.example.forheart.ui.fitness;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +23,8 @@ import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.ToolbarButtonItem;
 
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 public class FitnessFragment extends BaseFragment {
 
@@ -74,7 +78,23 @@ public class FitnessFragment extends BaseFragment {
             binding.circleView.setValueAnimated(ProgressUtil.transVig(weekvigorouscount) + userProfile.getWeekModerateCount(), 1500);
         });
 
+        // set task type
         binding.taskType.setText(userProfile.getTaskType());
+
+        // view
+        binding.question.setOnClickListener(v -> {
+            String message = "Normal task includes\n   300 mins moderate exercises or\n   175 mins vigorous exercises\nYou can change the task type in Healthy Profile";
+            if (userProfile.getTaskType().equals("Heavy")) {
+                message = "Heavy task includes\n   420 mins moderate exercises or\n   250 mins vigorous exercises\nYou can change the task type in Healthy Profile";
+            } else if (userProfile.getTaskType().equals("Light")) {
+                message = "Light task includes\n   180 mins moderate exercises or\n   100 mins vigorous exercises\nYou can change the task type in Healthy Profile";
+            }
+
+
+             Toast info = Toasty.info(getContext(),message, Toast.LENGTH_LONG, true);
+             info.setGravity(Gravity.CENTER, 0, 0);
+             info.show();
+        });
     }
 
     @Override

@@ -17,6 +17,7 @@ import com.example.forheart.R;
 import com.example.forheart.databinding.HomeFragmentBinding;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
+import com.example.forheart.ui.fitness.FitnessFragment;
 import com.example.forheart.ui.food.FoodListFragment;
 import com.example.forheart.util.ProgressUtil;
 import com.example.forheart.util.ToastUtil;
@@ -98,6 +99,10 @@ public class HomeFragment extends BaseFragment {
             binding.textViewVigorousMin.setText(String.valueOf(weekvigorouscount));
             binding.circleView.setValueAnimated(ProgressUtil.transVig(weekvigorouscount) + userProfile.getWeekModerateCount(), 1500);
         });
+
+        // profile listener
+
+        // tips listener
     }
 
 

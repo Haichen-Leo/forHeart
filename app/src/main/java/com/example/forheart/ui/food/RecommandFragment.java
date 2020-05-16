@@ -66,7 +66,7 @@ public class RecommandFragment extends AwesomeFragment {
         layout.setOnClickListener(v -> {
 
             Bundle result = new Bundle();
-            this.setResult(Activity.RESULT_CANCELED,result);
+            this.setResult(1,result);
             this.hideDialog();
         });
     }

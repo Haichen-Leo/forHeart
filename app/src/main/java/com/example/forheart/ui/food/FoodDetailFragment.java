@@ -3,9 +3,11 @@ package com.example.forheart.ui.food;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +22,8 @@ import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.Style;
 
 import java.text.DecimalFormat;
+
+import es.dmoral.toasty.Toasty;
 
 
 public class FoodDetailFragment extends BaseFragment {
@@ -69,6 +73,12 @@ public class FoodDetailFragment extends BaseFragment {
         foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
         int groupId = foodBean.getFoodGroupId();
         setPhoto(groupId);
+        binding.imageViewQuestion.setOnClickListener(v -> {
+            String answer = "Scoring is purely based on our formula. Find more details in Tips for Heart.\nFor further assistance, please see a medical practitioner";
+            Toast info = Toasty.info(getContext(), answer, Toast.LENGTH_SHORT, true);
+            info.setGravity(Gravity.CENTER, 0 ,0);
+            info.show();
+        });
 
     }
 
@@ -93,9 +103,11 @@ public class FoodDetailFragment extends BaseFragment {
         // present
         if(foodBean.getTotalScore() < 1 ) {
             binding.foodType.setText(R.string.food_type_bad);
+            binding.foodType.setTextColor(getResources().getColor(R.color.colorRed));
             binding.foodTypeMessage.setText(R.string.food_message_bad);
         } else if (foodBean.getTotalScore() < 2) {
             binding.foodType.setText(R.string.food_type_normal);
+            binding.foodType.setTextColor(getResources().getColor(R.color.colorPink));
             binding.foodTypeMessage.setText(R.string.food_message_normal);
         }
         
@@ -118,7 +130,7 @@ public class FoodDetailFragment extends BaseFragment {
                 args.putParcelable(String.valueOf(R.string.nav_food_id), foodBean);
                 getNavigationFragment().redirectToFragment(fragment);
             }
-            if (resultCode == Activity.RESULT_CANCELED) {
+            if (resultCode == 1) {
                 FoodListFragment foodListFragment = new FoodListFragment();
                 Bundle args = FragmentHelper.getArguments(foodListFragment);
                 args.putInt(String.valueOf(R.string.nav_food_group_id),-1);

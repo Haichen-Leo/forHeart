@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.LoginPageBinding;
@@ -19,6 +20,8 @@ import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.ToastUtil;
 import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.Style;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  *  Fragment to handle first setup
@@ -41,7 +44,7 @@ public class LoginFragment extends BaseFragment {
         binding.loginBt.setOnClickListener(v -> {
             String str = binding.unEdit.getText().toString();
             if (str.equals("")){
-                ToastUtil.bottomToast(getContext(),"Hey, can you tell me your nick name?");
+                Toasty.info(getContext(), "Hey, can you tell me your nick name?", Toast.LENGTH_SHORT, true).show();
             } else {
                 Bundle result = new Bundle();
                 result.putString("nickname", str);

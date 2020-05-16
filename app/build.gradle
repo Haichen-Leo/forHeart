@@ -70,4 +70,7 @@ dependencies {
 
     // CircleView
     implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
+
+    // Toasty
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
 }
