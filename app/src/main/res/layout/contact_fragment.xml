@@ -70,7 +70,7 @@
             android:id="@+id/login_bg_to"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4FC07F"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@id/guideline1"/>
 
         <TextView
@@ -83,9 +83,10 @@
             android:textColor="#FFFFFF"
             android:textSize="32dp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/guideline2"
+            app:layout_constraintBottom_toTopOf="@+id/guideline1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="@id/guideline2" />
 
         <TextView
             android:id="@+id/contactInform"
@@ -123,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/formText"
             android:layout_centerHorizontal="true"
-            android:background="#4FC07F"
+            android:background="@color/colorPrimary"
             android:text="Send"
             android:layout_marginTop="20dp"
             android:textColor="#FFFFFF"
@@ -141,7 +142,7 @@
             app:layout_constraintEnd_toStartOf="@id/guideline4"
             app:layout_constraintStart_toStartOf="@id/guideline3"
             app:layout_constraintBottom_toBottomOf="@id/guideline8"
-            android:background="#4FC07F">
+            android:background="@color/colorPrimary">
 
             <TextView
                 android:id="@+id/ce_title"
