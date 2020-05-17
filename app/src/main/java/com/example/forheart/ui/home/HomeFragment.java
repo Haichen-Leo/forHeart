@@ -25,7 +25,6 @@ import java.util.Calendar;
 
 public class HomeFragment extends BaseFragment {
 
-    private HomeViewModel mViewModel;
     private HomeFragmentBinding binding;
     private Preference_UserProfile userProfile;
 
@@ -137,7 +136,6 @@ public class HomeFragment extends BaseFragment {
             });
             setLeftBarButtonItem(builder.build());
         }
-//        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
     }
 

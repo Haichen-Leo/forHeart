@@ -26,10 +26,13 @@ import com.allyants.notifyme.NotifyMe;
 import com.example.forheart.MainActivity;
 import com.example.forheart.R;
 import com.example.forheart.databinding.PlanDetailFragmentBinding;
+import com.example.forheart.model.ExerciseBean;
 import com.example.forheart.model.Plan;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.ToastUtil;
+import com.navigation.androidx.FragmentHelper;
+import com.navigation.androidx.NavigationFragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,7 +45,9 @@ public class PlanDetailFragment extends BaseFragment {
     private PlanDetailFragmentBinding binding;
     private PlanDetailViewModel viewModel;
     private static final int REQUEST_CODE_SUGGEST = 1;
+    private static final int REQUEST_CODE_SUGGEST_NEW = 2;
     private static final String KEY_TYPE = "activity_type";
+    private int recommendDuration = 30;
     private Calendar calendar;
     private String theDay;
     private String theTime;
@@ -92,9 +97,18 @@ public class PlanDetailFragment extends BaseFragment {
         }
 
         // activity suggest button
+//        binding.buttonSuggest.setOnClickListener(v -> {
+//            SuggestDialog dialog = SuggestDialog.newInstance(type);
+//            showDialog(dialog, REQUEST_CODE_SUGGEST);
+//        });
         binding.buttonSuggest.setOnClickListener(v -> {
-            SuggestDialog dialog = SuggestDialog.newInstance(type);
-            showDialog(dialog, REQUEST_CODE_SUGGEST);
+            NavigationFragment navigationFragment = new NavigationFragment();
+            ExerciseCategoryFragment fragment = new ExerciseCategoryFragment();
+            navigationFragment.setRootFragment(fragment);
+            Bundle args = FragmentHelper.getArguments(fragment);
+            args.putString("exercise_type", type);
+            presentFragment(navigationFragment, REQUEST_CODE_SUGGEST_NEW);
+
         });
 
         // set current date
@@ -193,12 +207,11 @@ public class PlanDetailFragment extends BaseFragment {
         // duration suggest button
         // -- need to be updated from database
         binding.buttonDuration.setOnClickListener(v -> {
-            int recommendDuration = 0;
-            if (type == "moderate") {
-                recommendDuration = 60;
-            } else {
-                recommendDuration = 30;
-            }
+//            if (type == "moderate") {
+//                recommendDuration = 60;
+//            } else {
+//                recommendDuration = 30;
+//            }
             binding.editTextDuration.setText(String.valueOf(recommendDuration));
             binding.editTextDuration.clearFocus();
         });
@@ -262,7 +275,7 @@ public class PlanDetailFragment extends BaseFragment {
                         .time(calendar)
                         .key(String.valueOf(index))
 //                        .addAction(new Intent(), "Dismiss")
-                        .addAction(intent,"Start")
+                        .addAction(intent,"Get it")
                         .large_icon(R.mipmap.ic_launcher_round)
                         .build();
 
@@ -286,6 +299,14 @@ public class PlanDetailFragment extends BaseFragment {
                 binding.editTextWhat.setText(data.getString(KEY_TYPE));
                 binding.editTextWhat.clearFocus();
                 hideKeyboard(getView());
+            }
+        }
+        if (requestCode == REQUEST_CODE_SUGGEST_NEW) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+//                Toasty.info(getContext(),"ok", Toast.LENGTH_SHORT, true).show();
+                ExerciseBean bean = data.getParcelable("suggest_food");
+                binding.editTextWhat.setText(bean.getName());
+                recommendDuration = bean.getDuration();
             }
         }
     }

@@ -2,22 +2,16 @@ package com.example.forheart.ui.home;
 
 import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.room.PrimaryKey;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.forheart.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.example.forheart.databinding.LoginPageBinding;
-import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
-import com.example.forheart.util.ToastUtil;
 import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.Style;
 
