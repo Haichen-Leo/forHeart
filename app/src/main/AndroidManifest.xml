@@ -9,26 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:noHistory="true">
+        <activity
+            android:name=".IntroActivity"
+            android:theme="@style/IntroTheme">
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:noHistory="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="nav"
                     android:scheme="nav" />
             </intent-filter>
-        </activity>
-        <!--  receiver for alarm and notification -->
+        </activity> <!-- receiver for alarm and notification -->
         <receiver android:name="com.allyants.notifyme.NotificationPublisher" />
         <receiver android:name="com.allyants.notifyme.BootNotifyMe">
             <intent-filter>

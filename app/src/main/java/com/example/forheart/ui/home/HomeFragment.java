@@ -29,6 +29,9 @@ public class HomeFragment extends BaseFragment {
     private HomeFragmentBinding binding;
     private Preference_UserProfile userProfile;
 
+    public HomeFragment() {
+    }
+
     private static String fromCharCode(int... codePoints) {
         return new String(codePoints, 0, codePoints.length);
     }
