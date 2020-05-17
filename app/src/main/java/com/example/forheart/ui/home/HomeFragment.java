@@ -14,6 +14,7 @@ import com.example.forheart.databinding.HomeFragmentBinding;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.ui.drawer.ProfileFragment;
+import com.example.forheart.ui.drawer.TipsFragment;
 import com.example.forheart.ui.food.FoodListFragment;
 import com.example.forheart.util.ProgressUtil;
 import com.navigation.androidx.DrawerFragment;
@@ -107,7 +108,12 @@ public class HomeFragment extends BaseFragment {
             ProfileFragment fragment = new ProfileFragment();
             getNavigationFragment().pushFragment(fragment);
         });
+
         // tips listener
+        binding.cardViewTips.setOnClickListener(v -> {
+            TipsFragment fragment = new TipsFragment();
+            getNavigationFragment().pushFragment(fragment);
+        });
     }
 
 

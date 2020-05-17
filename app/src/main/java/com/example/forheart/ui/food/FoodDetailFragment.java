@@ -75,9 +75,7 @@ public class FoodDetailFragment extends BaseFragment {
         setPhoto(groupId);
         binding.imageViewQuestion.setOnClickListener(v -> {
             String answer = "Scoring is purely based on our formula. Find more details in Tips for Heart.\nFor further assistance, please see a medical practitioner";
-            Toast info = Toasty.info(getContext(), answer, Toast.LENGTH_SHORT, true);
-            info.setGravity(Gravity.CENTER, 0 ,0);
-            info.show();
+            Toasty.info(getContext(), answer, Toast.LENGTH_SHORT, true).show();
         });
 
     }

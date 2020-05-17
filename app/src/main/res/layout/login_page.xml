@@ -81,7 +81,7 @@
             android:id="@+id/login_bg_to"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4FC07F"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@id/guideline1"/>
 
         <ImageView
@@ -167,16 +167,15 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@id/user_name"
                             android:inputType="text"
-                            android:maxLength="25"
+                            android:maxLength="50"
                             android:maxLines="1"
                             android:singleLine="true"
                             android:textSize="14sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.799" />
+                            app:layout_constraintVertical_bias="0.8" />
 
                         <TextView
                             android:id="@+id/textView7"

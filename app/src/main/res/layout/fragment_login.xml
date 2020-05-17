@@ -18,7 +18,7 @@
             android:layout_height="260dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="#4FC07F"/>
+            android:background="@color/colorPrimary"/>
 
         <RelativeLayout
             android:id="@+id/login_top"

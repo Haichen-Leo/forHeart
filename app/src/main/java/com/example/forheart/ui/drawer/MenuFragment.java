@@ -50,12 +50,8 @@ public class MenuFragment extends AwesomeFragment {
 
         // nav - to tips page
         binding.layoutTips.setOnClickListener(v -> {
-            Toasty.info(getContext(), "tips", Toast.LENGTH_SHORT, true).show();
-        });
-
-        // nav - to faq page
-        binding.layoutFaq.setOnClickListener(v -> {
-            Toasty.info(getContext(), "FAQ", Toast.LENGTH_SHORT, true).show();
+            TipsFragment fragment = new TipsFragment();
+            getNavigationFragment().pushFragment(fragment);
         });
 
         // nav - to contact page

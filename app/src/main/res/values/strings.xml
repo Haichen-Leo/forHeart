@@ -26,5 +26,29 @@
     <string name="explain_normal">Normal task - recommended for most people\n    300 min moderate or 175 min vigorous activities</string>
     <string name="explain_heavy">Heavy task - for the young\n    420 min moderate or 250 min vigorous activities</string>
     <string name="explain_light">Light task - for everyone, just moving!\n    180 min moderate or 100 min vigorous activities</string>
+    <string name="tips_one">"Dietary Fibre: a high-fiber diet appears to reduce risk of developing diabetes, diverticular disease, constipation and colon cancer. Fiber also slows digestion, which means it helps you feel fuller, longer – which may help you eat fewer calories and control your weight. Dietary fiber is material from plant cells which has two important types of fiber: water-soluble and water insoluble. Soluble fiber in particular decreases blood cholesterol. Fruits, vegetables, legumes, barley, oats and oat bran are good sources of soluble fiber.Total dietary fiber intake should be at least 25 to 30 grams a day from food, not supplements.
+        \nTotal Omega3: Omega3 decrease triglycerides and increase HDL-cholesterol levels, improves blood vessel elasticity and thins the blood, making it less likely to clot and block blood flow.
+        \nFolic Acid: lowers the risk of stroke 12% by lowering homocysteine levels in the blood and reducing artery wall thickening. Amaranth greens, spinach, mint, Bengal gram, green gram, black gram and soy are good sources of folic acid.
+        \nMonounsaturated: Also known as MUFA, they are healthy for the heart. Monounsaturated fats are known to lower LDL cholesterol and increase HDL cholesterol and could replace saturated fats and trans fat. Amongst the cooking oils, olive oil, canola oil, peanut oil, safflower oil and sesame oil are sources of MUFA. Other sources include nuts like almonds, peanuts, walnuts and avocados. These nuts also provide nutrients other than healthy oils that are heart protective too.
+        \nLycopene: It is an antioxidant ( that provides tomatoes its red colour). A number of clinical studies have established its protective role in lowering blood pressure and C reactive protein- a marker of cardiac inflammation.
+        \nMagnesium: is necessary for more than 300 biochemical reactions in the body. It helps maintain nerve and muscle function, keeps the heart rhythm stable, and maintains blood pressure among other functions. Large intake of magnesium is associated with reduced risk of CVD and IHD. Whole grains, black beans, soybeans and tofu, almonds, pumpkin seeds, sesame seeds and spinach are the best sources of magnesium.
+        \nTotal Folates : A water-soluble B-vitamin that helps lower the blood levels of the amino acid homocysteine which is linked to an increased risk of heart disease. These vitamins can participate in homocysteine metabolism and provide protection against stroke and reduce the risk of cardiovascular disease by reducing homocysteine levels.
+        \nPotassium: potassium can maintain a stable heart rhythm. One of the risk factors for atrial fibrillation: The common irregular new green may be related to insufficient or excessive potassium intake. We recommend that you consume at least 4700 mg of potassium in your daily diet."</string>
+    <string name="tips_two">Reducing the consumption of highly processed foods is very useful for your heart. Currently, up to 35% of the average Australian diet consists of highly processed foods, such as:
+        \n\nBaked goods cakes, cookies and pastries;
+        \nchocolate;
+        \nPotato chips;
+        \nlollipop;
+        \nSugary drinks, soft drinks, energy drinks, sports drinks;
+        \nTake away food such as pizza burgers.
+        \n\nThese foods are usually rich in sugar, salt, saturated fat and trans fat, so they are not a heart-healthy diet. Try to eat these foods only occasionally in small amounts.</string>
+    <string name="tips_three">Many factors are related to the accumulation of fat accumulation in the coronary arteries, including smoking, lack of physical activity and a family history of the disease.
+        \n\nOther risk factors include:
+        \nTypes of fat eaten-saturated fat and trans fat increase blood cholesterol and heart attack rate. Polyunsaturated and monounsaturated fats can reduce the risk of heart attack.
+        \n\nObesity-Many overweight and obese people have high levels of fat in their diet, especially saturated fat. People who have a lot of fat around their stomachs ("apple" -shaped bodies) are at greater risk of heart disease than those who pile fat on their bottoms, around their hips and thighs (pear-shaped bodies).
+        \n\nHypertension-Blood pressure refers to the pressure within the arteries (the blood vessels that transport blood to the body). Hypertension or hypertension means that the pressure in the arteries is higher than normal. This may be because the arteries are less elastic, the blood volume is larger, or more blood is pumped from the heart.</string>
+    <string name="tips_four">Including physical exercise
+        \n\nExercise is essential to reduce the risk of heart disease. Walking at a violent speed for at least 30 minutes a day (at least 4 km per hour) can reduce the risk of heart disease by 30%. How do you record your exercise time and get health reminders every day? Try our workout function every day, you can get more help, and for heart for good.
+        \n\nIf you are over 40 years old, have heart disease or have not exercised for a long time, please consult your doctor before starting any exercise program.</string>
 
 </resources>

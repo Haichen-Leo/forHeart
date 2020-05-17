@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/colorRed"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraint1"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/colorRed">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5"/>
+
+                    <ImageView
+                        android:id="@+id/tips_logo"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/faq_logo"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintStart_toStartOf="@id/guideline1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:contentDescription="TODO" />
+
+
+                    <TextView
+                        android:id="@+id/tips_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="FAQs about \nforHeart"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@id/tips_subtitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread"/>
+
+                    <TextView
+                        android:id="@+id/tips_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:text="We look forward to solving some of your problems through FAQs"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/guideline1"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@id/tips_text"
+                        app:layout_constraintTop_toBottomOf="@id/tips_text"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/block1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/constraint1"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="18dp">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.49"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.03"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.97"/>
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.51"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tips_card"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:layout_constraintStart_toStartOf="@id/guideline22"
+                            app:layout_constraintEnd_toEndOf="@id/guideline21"
+                            app:cardCornerRadius="15dp"
+                            android:clickable="true">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/layout_tips"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/faq_tab_bg">
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline31"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    app:layout_constraintGuide_percent="0.5" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline32"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintGuide_percent="0.1" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline33"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintGuide_percent="0.9" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:gravity="center"
+                                    android:text="Tips"
+                                    android:textColor="@color/colorRed"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="@id/guideline31"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+
+                                <ImageView
+                                    android:id="@+id/tips_tab"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/tips_tab"
+                                    app:layout_constraintBottom_toBottomOf="@id/guideline33"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/guideline31"
+                                    app:layout_constraintTop_toTopOf="@id/guideline32" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/faq_card"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:layout_constraintStart_toStartOf="@id/guideline24"
+                            app:layout_constraintEnd_toEndOf="@id/guideline23"
+                            app:cardCornerRadius="15dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/tips_tab_bg">
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline41"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    app:layout_constraintGuide_percent="0.5" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline42"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintGuide_percent="0.1" />
+
+                                <androidx.constraintlayout.widget.Guideline
+                                    android:id="@+id/guideline43"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintGuide_percent="0.9" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:gravity="center"
+                                    android:text="FAQs"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="@id/guideline41"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+
+                                <ImageView
+                                    android:id="@+id/faqs_tab"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/faq_tab"
+                                    app:layout_constraintBottom_toBottomOf="@id/guideline43"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/guideline41"
+                                    app:layout_constraintTop_toTopOf="@id/guideline42" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/block1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/faq_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginBottom="16sp"
+                        android:layout_marginTop="16sp"
+                        android:clickable="true"
+                        android:text="1. What is the app about?"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/faq_one_answer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_one_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:clickable="true"
+                            android:text="This app is to educate users about the nutrient content in their food. We focus on those nutrients that affect your heart health."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_one"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:clickable="true"
+                            android:text="2. Who can use this application?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_one_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_two_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_two_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:clickable="true"
+                            android:text="Any users who have a history of bad heart health or anyone who wants to check on their eating habits and its effects on their heart can use this application."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_two"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:clickable="true"
+                            android:text="3. Which are the nutrients good for the heart?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_two_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_three_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_three_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:clickable="true"
+                            android:text="Nutrients good for the heart are as follows- potassium, folic acid, folates and dietary fibre. There are some more too which you can find in our food nutrition tab."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_three"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_four"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:clickable="true"
+                            android:text="4. How is the score calculated for each food item?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_three_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_four_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_four_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:clickable="true"
+                            android:text="The heart nutrition scoring is calculated based on the presence of 8 nutritions which are good for the heart. \nThe score then will have more added weight based on the amount of nutrition it has in relation to other food. For example, a food item that has higher omega3 in relation to other food will have a higher score. Finally, the score will be penalized by the amount of how much sugar, salt, and trans fat it has."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_four"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_five"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:clickable="true"
+                            android:text="5. Why am I asked for a username while opening up the app?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_four_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_five_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_five_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:text="We ask you for a username so as to personalize the app experience for you. It also helps us track your physical activities."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_five"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_six"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:text="6. Can I use two different usernames on the same mobile device?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_five_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_six_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_six_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:text="Although you can do that, we suggest you keep to one username per device so that you can track your exercise times every week."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_six"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_seven"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:text="7. What if my physical activity is not listed in the list?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_six_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_seven_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_seven_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="5sp"
+                            android:text="If not listed in our list, you may type the physical activity in the text box. \nYou can deem the activity as moderate or vigorous based on other activities in those categories."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_seven"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/faq_eight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:layout_marginTop="16sp"
+                            android:clickable="true"
+                            android:text="8. Can this app be used on an iOS or on windows?"
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintTop_toBottomOf="@id/faq_seven_answer"
+                            app:layout_constraintBottom_toTopOf="@id/faq_eight_answer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/faq_eight_answer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="18dp"
+                            android:layout_marginBottom="16sp"
+                            android:text="Currently, our app is only compatible with devices running on android OS. But we are working on releasing compatible versions in iOS and on the web."
+                            android:textColor="@android:color/secondary_text_light"
+                            android:textSize="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/faq_eight"
+                            app:layout_constraintVertical_bias="0" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
