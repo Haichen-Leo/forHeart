@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.icu.util.Calendar;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,20 +20,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.cardview.widget.CardView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.allyants.notifyme.NotifyMe;
+import com.example.forheart.MainActivity;
 import com.example.forheart.R;
 import com.example.forheart.databinding.PlanDetailFragmentBinding;
-import com.example.forheart.db.PlanRepository;
 import com.example.forheart.model.Plan;
+import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
-import com.example.forheart.util.AlarmManagerUtils;
 import com.example.forheart.util.ToastUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import es.dmoral.toasty.Toasty;
 
@@ -42,7 +41,6 @@ public class PlanDetailFragment extends BaseFragment {
 
     private PlanDetailFragmentBinding binding;
     private PlanDetailViewModel viewModel;
-    private AlarmManagerUtils alarmManagerUtils;
     private static final int REQUEST_CODE_SUGGEST = 1;
     private static final String KEY_TYPE = "activity_type";
     private Calendar calendar;
@@ -57,6 +55,7 @@ public class PlanDetailFragment extends BaseFragment {
     private int minute;
     private int duration;
     private String description;
+    private Preference_UserProfile userProfile;
 
     public static PlanDetailFragment newInstance() {
         return new PlanDetailFragment();
@@ -222,20 +221,56 @@ public class PlanDetailFragment extends BaseFragment {
                 viewModel.insertPlans(plan);
 
                 // set alarm
-////                viewModel.getLastPlan().observe(getViewLifecycleOwner(),lastPlan ->{
-//
+//                viewModel.getLastPlan().observe(getViewLifecycleOwner(),lastPlan ->{
+
 //                    calendar.set(Calendar.YEAR,year);
 //                    calendar.set(Calendar.MONTH,month-1);
 //                    calendar.set(Calendar.DATE,day);
 //                    calendar.set(Calendar.HOUR,hour);
 //                    calendar.set(Calendar.MINUTE,minute);
 //                    long startTime = calendar.getTimeInMillis();
-////                    int lastPlanId = lastPlan.getId();
-//
+//                    int lastPlanId = viewModel.getLastPlan().getValue().getId();
+//                    Toasty.info(getContext(), String.valueOf(lastPlanId), Toast.LENGTH_SHORT,true).show();
+
 //                    alarmManagerUtils = AlarmManagerUtils.getINSTANCE(getContext());
-////                    alarmManagerUtils.setAlarm(lastPlanId, startTime);
+//                    alarmManagerUtils.setAlarm(lastPlanId, startTime);
 //                    alarmManagerUtils.setAlarm(0, startTime);
-////                });
+//                });
+
+//                userProfile = Preference_UserProfile.getInstance(getContext());
+
+                // last index
+                userProfile = Preference_UserProfile.getInstance(getContext());
+                int index = userProfile.getPlanIndex() + 1;
+                userProfile.putPlanIndex(index);
+
+                //set alarm
+                calendar.set(Calendar.YEAR,year);
+                calendar.set(Calendar.MONTH,month-1);
+                calendar.set(Calendar.DATE,day);
+                calendar.set(Calendar.HOUR,hour);
+                calendar.set(Calendar.MINUTE,minute);
+                calendar.set(Calendar.SECOND,0);
+
+                Intent intent = new Intent(requireContext(), MainActivity.class);
+                intent.putExtra("planId", index);
+                NotifyMe notifyMe = new NotifyMe.Builder(getContext())
+                        .title("forHeart - Time to Start")
+                        .content(activity + "\n" + duration + " mins")
+                        .color(7,103,11,255)
+                        .led_color(255,255,255,255)
+                        .time(calendar)
+                        .key(String.valueOf(index))
+//                        .addAction(new Intent(), "Dismiss")
+                        .addAction(intent,"Start")
+                        .large_icon(R.mipmap.ic_launcher_round)
+                        .build();
+
+
+//                NotifyMe.cancel(getContext(), String.valueOf(index));
+
+                Toasty.info(getContext(), String.valueOf(index), Toast.LENGTH_SHORT,true).show();
+
 
                 // nav - root
                getNavigationFragment().popToRootFragment();

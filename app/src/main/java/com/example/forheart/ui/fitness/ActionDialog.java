@@ -30,7 +30,7 @@ public class ActionDialog extends AwesomeFragment {
         if (type.equals(ActionFragment.ACTION_START)) {
             AlertDialog dialog = new AlertDialog.Builder(requireContext())
                     .setTitle("Start")
-                    .setMessage("Do you want to start now? \nI will remind you when it is done")
+                    .setMessage("Start now? \nYou will be notified when it is done")
                     .setPositiveButton("Yes", (dialogInterface, i) -> {
                         setResult(Activity.RESULT_OK, result);
                     })
@@ -43,7 +43,7 @@ public class ActionDialog extends AwesomeFragment {
         if (type.equals(ActionFragment.ACTION_DONE)) {
             AlertDialog dialog = new AlertDialog.Builder(requireContext())
                     .setTitle("Done")
-                    .setMessage("Mark it as Done? \nResult will be added to your total exercise time")
+                    .setMessage("Mark it as Done? \nResult will be added to your progress")
                     .setPositiveButton("Yes", (dialogInterface, i) -> {
                         setResult(Activity.RESULT_OK, result);
                     })

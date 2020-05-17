@@ -1,6 +1,7 @@
 package com.example.forheart.ui.fitness;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.allyants.notifyme.NotifyMe;
+import com.example.forheart.MainActivity;
 import com.example.forheart.R;
 import com.example.forheart.databinding.ActionFragmentBinding;
 import com.example.forheart.model.Plan;
@@ -20,6 +23,8 @@ import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.DateTimeUtils;
 import com.example.forheart.util.ToastUtil;
+
+import java.util.Calendar;
 
 import es.dmoral.toasty.Toasty;
 
@@ -118,7 +123,27 @@ public class ActionFragment extends BaseFragment {
         super.onFragmentResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_START) {
             if (resultCode == Activity.RESULT_OK) {
+                // Remove notification
+                NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
                 // set new alarm
+                Calendar alarm = Calendar.getInstance();
+                long current = alarm.getTimeInMillis();
+                long notifyTime = current + aPlan.getDuration() * 60 * 1000;
+                alarm.setTimeInMillis(notifyTime);
+                // NotifyMe
+                Intent intent = new Intent(requireContext(), MainActivity.class);
+                intent.putExtra("planId", aPlan.getId());
+                NotifyMe notifyMe = new NotifyMe.Builder(getContext())
+                        .title("forHeart - Well Done")
+                        .content("Congratulations! You have finished an activity")
+                        .color(7,103,11,255)
+                        .led_color(255,255,255,255)
+                        .time(alarm)
+                        .key(String.valueOf(aPlan.getId()))
+                        .addAction(intent,"Done")
+                        .addAction(new Intent(), "Dismiss")
+                        .large_icon(R.mipmap.ic_launcher_round)
+                        .build();
             }
         }
         if (requestCode == REQUEST_CODE_DONE) {
@@ -142,15 +167,18 @@ public class ActionFragment extends BaseFragment {
                     profile.putWeekVigorousCount(weekCount);
                     profile.putTotalVigorousCount(totalCount);
                 }
-//                ToastUtil.bottomToast(getContext(),"Activity Done");
+                // Remove notification
+                NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
                 Toasty.success(getContext(),"Activity Done!", Toast.LENGTH_SHORT, true).show();
+
             }
         }
         if (requestCode == REQUEST_CODE_DELETE) {
             if (resultCode == Activity.RESULT_OK) {
                 mViewModel.deletePlans(aPlan);
                 getNavigationFragment().popToRootFragment();
-//                ToastUtil.bottomToast(getContext(),"Activity Removed");
+                // Remove notification
+                NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
                 Toasty.info(getContext(),"Activity Removed", Toast.LENGTH_SHORT, true).show();
             }
         }

@@ -73,4 +73,7 @@ dependencies {
 
     // Toasty
     implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+    // NotifyMe
+    implementation 'com.github.jakebonk:NotifyMe:1.0.1'
 }

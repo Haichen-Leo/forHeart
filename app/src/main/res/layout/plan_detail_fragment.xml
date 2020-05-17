@@ -285,7 +285,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:enabled="false"
+                            android:enabled="true"
                             android:hint="Click right for advice"
                             android:inputType="time"
                             app:layout_constraintBottom_toBottomOf="parent"

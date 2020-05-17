@@ -15,7 +15,7 @@ public class Profile {
     protected final int weekModerateCount = 0;
     protected final int weekVigorousCount = 0;
     protected final int weekOfYear = 0;
-    protected final int preferType = -1;
     protected final int progress = 0;
     protected final String taskType = "Normal";
+    protected final int planIndex = 0;
 }

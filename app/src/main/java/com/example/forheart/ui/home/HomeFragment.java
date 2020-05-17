@@ -1,33 +1,25 @@
 package com.example.forheart.ui.home;
 
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.HomeFragmentBinding;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
-import com.example.forheart.ui.fitness.FitnessFragment;
 import com.example.forheart.ui.food.FoodListFragment;
 import com.example.forheart.util.ProgressUtil;
-import com.example.forheart.util.ToastUtil;
 import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.ToolbarButtonItem;
 
 import java.util.Calendar;
-
-import at.grabner.circleprogress.CircleProgressView;
 
 public class HomeFragment extends BaseFragment {
 
@@ -101,6 +93,7 @@ public class HomeFragment extends BaseFragment {
         });
 
         // profile listener
+
 
         // tips listener
     }
