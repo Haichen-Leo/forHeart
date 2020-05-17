@@ -18,4 +18,5 @@ public class Profile {
     protected final int progress = 0;
     protected final String taskType = "Normal";
     protected final int planIndex = 0;
+    protected final int taskFinished = 0;
 }

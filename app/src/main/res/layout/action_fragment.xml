@@ -16,8 +16,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:id="@+id/layout_empty"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:visibility="gone"/>
+
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/imageView_pic"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:src="@drawable/ic_couple_running" />

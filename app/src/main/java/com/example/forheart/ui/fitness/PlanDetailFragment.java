@@ -266,12 +266,6 @@ public class PlanDetailFragment extends BaseFragment {
                         .large_icon(R.mipmap.ic_launcher_round)
                         .build();
 
-
-//                NotifyMe.cancel(getContext(), String.valueOf(index));
-
-                Toasty.info(getContext(), String.valueOf(index), Toast.LENGTH_SHORT,true).show();
-
-
                 // nav - root
                getNavigationFragment().popToRootFragment();
             }

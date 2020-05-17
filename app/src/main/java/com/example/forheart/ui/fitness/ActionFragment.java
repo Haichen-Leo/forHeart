@@ -22,6 +22,7 @@ import com.example.forheart.model.Plan;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.DateTimeUtils;
+import com.example.forheart.util.ProgressUtil;
 import com.example.forheart.util.ToastUtil;
 
 import java.util.Calendar;
@@ -86,9 +87,11 @@ public class ActionFragment extends BaseFragment {
                 binding.workoutType.setText(type);
                 binding.textViewDes.setText(plan.getDescription());
                 if(plan.isDone() == true) {
-//                    binding.textViewDone.setVisibility(View.VISIBLE);
                     binding.imageButtonStart.setBackgroundResource(R.drawable.action_bt_disable_bg);
                     binding.imageButtonDone.setBackgroundResource(R.drawable.action_bt_disable_bg);
+                    binding.imageViewPic.setImageDrawable(getResources().getDrawable(R.drawable.finished_cup));
+                    binding.layoutEmpty.setVisibility(View.VISIBLE);
+                    binding.imageButtonStart.setText("Finished");
                 } else {
                     // start button
                     binding.imageButtonStart.setOnClickListener(v -> {
@@ -150,7 +153,7 @@ public class ActionFragment extends BaseFragment {
             if (resultCode == Activity.RESULT_OK) {
                 aPlan.setDone(true);
                 mViewModel.updatePlans(aPlan);
-                getNavigationFragment().popToRootFragment();
+
                 // count exercise time
                 Preference_UserProfile profile = Preference_UserProfile.getInstance(getContext());
                 int duration = aPlan.getDuration();
@@ -169,8 +172,20 @@ public class ActionFragment extends BaseFragment {
                 }
                 // Remove notification
                 NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
-                Toasty.success(getContext(),"Activity Done!", Toast.LENGTH_SHORT, true).show();
+                Toasty.success(getContext(),"Well Done!", Toast.LENGTH_SHORT, true).show();
 
+                // celebrating
+                String taskType = profile.getTaskType();
+                ProgressUtil.init(taskType);
+                int target = ProgressUtil.getModerate();
+                float progress = ProgressUtil.transVig(profile.getWeekVigorousCount()) + profile.getWeekModerateCount();
+                if (progress > target && profile.getTaskFinished() == 0) {
+                    profile.putTaskFinished(1);
+                    CelebrateFragment fragment = new CelebrateFragment();
+                    getNavigationFragment().redirectToFragment(fragment);
+                } else {
+                    getNavigationFragment().popToRootFragment();
+                }
             }
         }
         if (requestCode == REQUEST_CODE_DELETE) {

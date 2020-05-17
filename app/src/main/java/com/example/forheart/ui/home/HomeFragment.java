@@ -76,6 +76,7 @@ public class HomeFragment extends BaseFragment {
             userProfile.putWeekOfYear(weekOfYear);
             userProfile.putWeekModerateCount(0);
             userProfile.putWeekVigorousCount(0);
+            userProfile.putTaskFinished(0);
         }
 
         // setup circle progress

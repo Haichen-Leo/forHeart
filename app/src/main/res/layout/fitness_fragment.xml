@@ -21,7 +21,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <at.grabner.circleprogress.CircleProgressView
                 android:id="@+id/circleView"
                 android:layout_width="160dp"
