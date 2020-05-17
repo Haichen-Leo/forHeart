@@ -65,6 +65,12 @@ public class FitnessFragment extends BaseFragment {
         float progress = ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + userProfile.getWeekModerateCount();
         binding.circleView.setMaxValue(ProgressUtil.getModerate());
         binding.circleView.setValueAnimated(progress, 1500);
+        userProfile.addTaskTypeOnChangedListener(newTaskType -> {
+            ProgressUtil.init(newTaskType);
+            float newProgress = ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + userProfile.getWeekModerateCount();
+            binding.circleView.setMaxValue(ProgressUtil.getModerate());
+            binding.circleView.setValueAnimated(newProgress, 1500);
+        });
 
         // setup weekly exercise count
         binding.textViewModerateMin.setText(String.valueOf(userProfile.getWeekModerateCount()));

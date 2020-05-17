@@ -13,6 +13,7 @@ import com.example.forheart.R;
 import com.example.forheart.databinding.HomeFragmentBinding;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
+import com.example.forheart.ui.drawer.ProfileFragment;
 import com.example.forheart.ui.food.FoodListFragment;
 import com.example.forheart.util.ProgressUtil;
 import com.navigation.androidx.DrawerFragment;
@@ -54,6 +55,9 @@ public class HomeFragment extends BaseFragment {
         } else {
             String nickname = userProfile.getNickname();
             binding.nickname.setText(nickname);
+            userProfile.addNicknameOnChangedListener(nickname1 -> {
+                binding.nickname.setText(nickname1);
+            });
         }
 
         // daily recommend - top 20
@@ -79,6 +83,12 @@ public class HomeFragment extends BaseFragment {
         float progress = ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + userProfile.getWeekModerateCount();
         binding.circleView.setMaxValue(ProgressUtil.getModerate());
         binding.circleView.setValueAnimated(progress, 1500);
+        userProfile.addTaskTypeOnChangedListener(newTaskType -> {
+            ProgressUtil.init(newTaskType);
+            float newProgress = ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + userProfile.getWeekModerateCount();
+            binding.circleView.setMaxValue(ProgressUtil.getModerate());
+            binding.circleView.setValueAnimated(newProgress, 1500);
+        });
 
         // setup weekly exercise count
         binding.textViewModerateMin.setText(String.valueOf(userProfile.getWeekModerateCount()));
@@ -93,8 +103,10 @@ public class HomeFragment extends BaseFragment {
         });
 
         // profile listener
-
-
+        binding.cardViewHealthyProfile.setOnClickListener(v -> {
+            ProfileFragment fragment = new ProfileFragment();
+            getNavigationFragment().pushFragment(fragment);
+        });
         // tips listener
     }
 

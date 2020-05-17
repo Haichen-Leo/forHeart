@@ -23,5 +23,8 @@
     <string name="motivation_new">Welcome to a new week! Click the add button below to make new plans</string>
     <string name="motivation_half">Keep going! Try to hit 100% of progress for the workout task this week</string>
     <string name="motivation_done">Good job! You have finished the workout task this week. Take more exercise if you like</string>
+    <string name="explain_normal">Normal task - recommended for most people\n    300 min moderate or 175 min vigorous activities</string>
+    <string name="explain_heavy">Heavy task - for the young\n    420 min moderate or 250 min vigorous activities</string>
+    <string name="explain_light">Light task - for everyone, just moving!\n    180 min moderate or 100 min vigorous activities</string>
 
 </resources>

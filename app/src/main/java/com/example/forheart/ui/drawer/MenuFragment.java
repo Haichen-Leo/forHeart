@@ -38,10 +38,14 @@ public class MenuFragment extends AwesomeFragment {
         // set nickname
         userProfile = Preference_UserProfile.getInstance(getContext());
         binding.textViewNickname.setText(userProfile.getNickname());
+        userProfile.addNicknameOnChangedListener(nickname1 -> {
+            binding.textViewNickname.setText(nickname1);
+        });
 
         // nav - to profile page
         binding.layoutProfile.setOnClickListener(v -> {
-            Toasty.info(getContext(), "profile", Toast.LENGTH_SHORT, true).show();
+            ProfileFragment fragment = new ProfileFragment();
+            getNavigationFragment().pushFragment(fragment);
         });
 
         // nav - to tips page
