@@ -222,10 +222,12 @@ public class PlanDetailFragment extends BaseFragment {
             String durationStr = binding.editTextDuration.getText().toString();
             if (TextUtils.isEmpty(activity)) {
                 binding.editTextWhat.requestFocus();
-                ToastUtil.centerToast(getContext(), "Please set an activity!");
+//                ToastUtil.centerToast(getContext(), "Please set an activity!");
+                Toasty.info(getContext(),"Please set an activity!", Toast.LENGTH_SHORT).show();
             } else if (TextUtils.isEmpty(durationStr)) {
                 binding.editTextDuration.requestFocus();
-                ToastUtil.centerToast(getContext(),"Please set the duration!");
+//                ToastUtil.centerToast(getContext(),"Please set the duration!");
+                Toasty.info(getContext(),"Please set the duration!", Toast.LENGTH_SHORT).show();
             } else {
                 // insert plan
                 duration = Integer.parseInt(durationStr);
