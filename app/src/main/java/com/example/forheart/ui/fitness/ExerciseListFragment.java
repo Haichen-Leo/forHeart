@@ -63,21 +63,19 @@ public class ExerciseListFragment extends BaseFragment {
 
         // set header pic
         if (category.equals("bicycling")){
-            binding.layoutExerciseCategoryPic.setBackgroundResource(R.drawable.ic_do_pilates);
-//            binding.imageViewTypePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_do_pilates));
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.bike));
         } else if (category.equals("conditioning")) {
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.conditioning_exercise));
         } else if (category.equals("dancing")){
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.dance));
         } else if (category.equals("running")) {
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.run));
         } else if (category.equals("sports")) {
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.sports));
         } else if (category.equals("walking")) {
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.walk));
         } else if (category.equals("water activities")) {
-
+            binding.imageViewExerciseCategory.setImageDrawable(getResources().getDrawable(R.drawable.water_activities));
         }
     }
 

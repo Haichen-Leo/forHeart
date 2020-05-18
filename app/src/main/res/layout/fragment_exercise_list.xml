@@ -19,14 +19,23 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_exercise_category_pic"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/ic_logo">
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/imageView_exercise_category"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bike"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView_step2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="16dp"
+                    android:padding="8dp"
                     android:text="Select an activity"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="24sp"
