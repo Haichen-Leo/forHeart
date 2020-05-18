@@ -61,4 +61,10 @@ public class ExerciseListFragment extends BaseFragment {
             adapter.setAllExercise(exercises);
         });
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setTitle("Recommended Activities");
+    }
 }

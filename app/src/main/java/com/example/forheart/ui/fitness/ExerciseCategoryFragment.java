@@ -105,6 +105,6 @@ public class ExerciseCategoryFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setTitle("Activity Categories");
+        setTitle("Recommended Activities");
     }
 }
