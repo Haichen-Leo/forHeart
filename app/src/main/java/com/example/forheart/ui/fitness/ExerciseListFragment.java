@@ -60,6 +60,25 @@ public class ExerciseListFragment extends BaseFragment {
         allExercises.observe(getViewLifecycleOwner(), exercises -> {
             adapter.setAllExercise(exercises);
         });
+
+        // set header pic
+        if (category.equals("bicycling")){
+            binding.layoutExerciseCategoryPic.setBackgroundResource(R.drawable.ic_do_pilates);
+//            binding.imageViewTypePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_do_pilates));
+
+        } else if (category.equals("conditioning")) {
+
+        } else if (category.equals("dancing")){
+
+        } else if (category.equals("running")) {
+
+        } else if (category.equals("sports")) {
+
+        } else if (category.equals("walking")) {
+
+        } else if (category.equals("water activities")) {
+
+        }
     }
 
     @Override

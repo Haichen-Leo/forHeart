@@ -16,11 +16,12 @@
         android:clickable="true"
         android:focusable="auto"
         android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="4dp">
+        app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/moderate_bt_bg">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -28,13 +29,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.05" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.9" />
 
             <TextView
                 android:id="@+id/textView_exercise"
@@ -46,8 +40,6 @@
                 android:textColor="@android:color/secondary_text_light"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/guideline3"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
