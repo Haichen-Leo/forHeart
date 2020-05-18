@@ -70,6 +70,9 @@ public class FitnessFragment extends BaseFragment {
             float newProgress = ProgressUtil.transVig(userProfile.getWeekVigorousCount()) + userProfile.getWeekModerateCount();
             binding.circleView.setMaxValue(ProgressUtil.getModerate());
             binding.circleView.setValueAnimated(newProgress, 1500);
+
+            // also change task type when changed in profile
+            binding.taskType.setText(newTaskType);
         });
 
         // setup weekly exercise count
