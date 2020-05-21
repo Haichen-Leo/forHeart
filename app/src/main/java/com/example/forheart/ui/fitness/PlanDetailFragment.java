@@ -193,7 +193,7 @@ public class PlanDetailFragment extends BaseFragment {
                     int duration = Integer.valueOf(text);
                     if (duration > 300) {
                         binding.editTextDuration.setText("300");
-                        ToastUtil.centerToast(getContext(),"That is too long!");
+                        ToastUtil.centerToast(getContext(),"That is too long! We recommend taking exercise no longer than 300 min");
                     }
                 }
             }

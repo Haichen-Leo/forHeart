@@ -179,7 +179,7 @@ public class ActionFragment extends BaseFragment {
                 ProgressUtil.init(taskType);
                 int target = ProgressUtil.getModerate();
                 float progress = ProgressUtil.transVig(profile.getWeekVigorousCount()) + profile.getWeekModerateCount();
-                if (progress > target && profile.getTaskFinished() == 0) {
+                if (progress >= target && profile.getTaskFinished() == 0) {
                     profile.putTaskFinished(1);
                     CelebrateFragment fragment = new CelebrateFragment();
                     getNavigationFragment().redirectToFragment(fragment);
