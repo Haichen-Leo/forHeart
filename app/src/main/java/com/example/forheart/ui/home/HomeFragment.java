@@ -15,6 +15,7 @@ import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.ui.drawer.ProfileFragment;
 import com.example.forheart.ui.drawer.TipsFragment;
+import com.example.forheart.ui.food.DailyRecommendFragment;
 import com.example.forheart.ui.food.FoodListFragment;
 import com.example.forheart.util.ProgressUtil;
 import com.navigation.androidx.DrawerFragment;
@@ -65,10 +66,12 @@ public class HomeFragment extends BaseFragment {
 
         // daily recommend - top 20
         binding.cardViewDailyRecommend.setOnClickListener(v -> {
-            FoodListFragment listFragment = new FoodListFragment();
-            Bundle args = FragmentHelper.getArguments(listFragment);
-            args.putInt(String.valueOf(R.string.nav_food_group_id),-1);
-            getNavigationFragment().pushFragment(listFragment);
+//            FoodListFragment listFragment = new FoodListFragment();
+//            Bundle args = FragmentHelper.getArguments(listFragment);
+//            args.putInt(String.valueOf(R.string.nav_food_group_id),-1);
+//            getNavigationFragment().pushFragment(listFragment);
+            DailyRecommendFragment fragment = new DailyRecommendFragment();
+            getNavigationFragment().pushFragment(fragment);
         });
 
         // setup weekly exercise count

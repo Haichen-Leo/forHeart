@@ -16,11 +16,12 @@
         android:clickable="true"
         android:focusable="auto"
         android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="4dp">
+        app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/food_category_bg">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"

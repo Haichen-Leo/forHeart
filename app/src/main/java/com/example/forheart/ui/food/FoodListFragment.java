@@ -58,9 +58,11 @@ public class FoodListFragment extends BaseFragment {
         groupId = getArguments().getInt(String.valueOf(R.string.nav_food_group_id));
         if (groupId == 0) {
             filteredFoods = mViewModel.getAllFoodsLive();
-        } else if (groupId == -1) {
+        }
+        else if (groupId == -1) {
             filteredFoods = mViewModel.findAllBestFoods();
-        } else {
+        }
+        else {
             filteredFoods = mViewModel.findFoodsWithGroup(groupId);
         }
         filteredFoods.observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
