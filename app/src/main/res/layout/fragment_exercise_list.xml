@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fitness.ExerciseListFragment">
+    tools:context=".ui.fitness.ExerciseListFragment"
+    android:background="#EBE7E7" >
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,10 +17,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FFFFFF"/>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_exercise_category_pic"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="180dp"
+                android:background="#FFFFFF">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/back_pink"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
 
                 <ImageView
                     android:id="@+id/imageView_exercise_category"
@@ -37,7 +56,8 @@
                     android:layout_margin="16dp"
                     android:padding="8dp"
                     android:text="Select an activity"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/colorPink"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

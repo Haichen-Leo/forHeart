@@ -50,6 +50,5 @@ public class ContactFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setTitle("Contact Us");
-
     }
 }

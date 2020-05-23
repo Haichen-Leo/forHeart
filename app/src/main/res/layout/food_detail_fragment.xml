@@ -98,7 +98,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/food_score_number"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_question" />
+                    app:srcCompat="@drawable/ic_question"
+                    android:contentDescription="TODO" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline42"
@@ -116,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:fontFamily="casual"
-                android:text="Good for the heart !"
+                android:text="Good for the heart"
                 android:textColor="#75AE33"
                 android:textSize="19sp"
                 android:textStyle="bold" />

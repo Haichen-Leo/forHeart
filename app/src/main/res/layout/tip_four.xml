@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -57,6 +55,7 @@
                         android:text="Besides improving diet, what can forHeart do for my health?"
                         android:textColor="#FFFFFF"
                         android:textSize="28dp"
+                        android:fontFamily="@font/roboto"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@id/guideline1"
@@ -91,6 +90,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/tips_four"
                         android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/roboto"
                         android:textSize="16dp"
                         android:textColor="@android:color/secondary_text_light"/>
 

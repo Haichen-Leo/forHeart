@@ -35,6 +35,7 @@
         android:paddingEnd="36dp"
         android:text="TextView"
         android:textSize="18sp"
+        android:fontFamily="@font/roboto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"

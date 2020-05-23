@@ -19,6 +19,7 @@ import com.example.forheart.R;
 import com.example.forheart.databinding.FragmentExerciseListBinding;
 import com.example.forheart.model.Exercise;
 import com.example.forheart.ui.BaseFragment;
+import com.navigation.androidx.AwesomeToolbar;
 
 import java.util.List;
 
@@ -45,7 +46,6 @@ public class ExerciseListFragment extends BaseFragment {
         super.onViewCreated(root, savedInstanceState);
         String type = getArguments().getString("exercise_type");
         String category = getArguments().getString("exercise_category");
-//        Toasty.info(getContext(), type + category, Toast.LENGTH_SHORT, true).show();
         adapter = new ExerciseListAdapter(getContext(), getNavigationFragment());
         recyclerView = binding.recyclerViewExercise;
         recyclerView.setAdapter(adapter);
@@ -59,6 +59,11 @@ public class ExerciseListFragment extends BaseFragment {
 
         allExercises.observe(getViewLifecycleOwner(), exercises -> {
             adapter.setAllExercise(exercises);
+        });
+
+        // back
+        binding.back.setOnClickListener(v -> {
+            getNavigationFragment().popFragment();
         });
 
         // set header pic
@@ -83,5 +88,11 @@ public class ExerciseListFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setTitle("Recommended Activities");
+    }
+
+    @Nullable
+    @Override
+    protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
+        return null;
     }
 }

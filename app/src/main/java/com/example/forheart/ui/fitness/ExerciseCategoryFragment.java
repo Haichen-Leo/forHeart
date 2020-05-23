@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.forheart.R;
 import com.example.forheart.databinding.FragmentExerciseCategoryBinding;
 import com.example.forheart.ui.BaseFragment;
+import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.FragmentHelper;
 
 import es.dmoral.toasty.Toasty;
@@ -97,14 +98,20 @@ public class ExerciseCategoryFragment extends BaseFragment {
             args.putString("exercise_category", "water activities");
             getNavigationFragment().pushFragment(fragment);
         });
+
     }
-
-
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setTitle("Recommended Activities");
+    }
+
+    // hide toolbar
+    @Nullable
+    @Override
+    protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
+        return null;
     }
 }

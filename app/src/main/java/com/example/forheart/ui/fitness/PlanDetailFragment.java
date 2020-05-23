@@ -31,6 +31,7 @@ import com.example.forheart.model.Plan;
 import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.ToastUtil;
+import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.NavigationFragment;
 
@@ -81,26 +82,13 @@ public class PlanDetailFragment extends BaseFragment {
         viewModel = new ViewModelProvider(this).get(PlanDetailViewModel.class);
 
         type = getArguments().getString(String.valueOf(R.string.activity_type));
-//        // configure theme
-//        if (type.equals("vigorous")) {
-//            int backgroud = R.drawable.vigorous_bt_bg;
-//            binding.buttonSuggest.setBackgroundResource(R.drawable.vigorous_bt_bg);
-//            binding.buttonDate.setBackgroundResource(R.drawable.vigorous_bt_bg);
-//            binding.buttonTime.setBackgroundResource(R.drawable.vigorous_bt_bg);
-//            binding.buttonDuration.setBackgroundResource(R.drawable.vigorous_bt_bg);
-//            binding.buttonSubmit.setBackgroundResource(R.drawable.vigorous_bt_bg);
-//        }
 
         // configure pic
         if (type.equals("moderate")) {
             binding.imageViewTypePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_do_pilates));
         }
 
-        // activity suggest button
-//        binding.buttonSuggest.setOnClickListener(v -> {
-//            SuggestDialog dialog = SuggestDialog.newInstance(type);
-//            showDialog(dialog, REQUEST_CODE_SUGGEST);
-//        });
+
         binding.buttonSuggest.setOnClickListener(v -> {
             NavigationFragment navigationFragment = new NavigationFragment();
             ExerciseCategoryFragment fragment = new ExerciseCategoryFragment();
@@ -205,15 +193,15 @@ public class PlanDetailFragment extends BaseFragment {
         });
 
         // duration suggest button
-        // -- need to be updated from database
         binding.buttonDuration.setOnClickListener(v -> {
-//            if (type == "moderate") {
-//                recommendDuration = 60;
-//            } else {
-//                recommendDuration = 30;
-//            }
+
             binding.editTextDuration.setText(String.valueOf(recommendDuration));
             binding.editTextDuration.clearFocus();
+        });
+
+        // back
+        binding.back.setOnClickListener(v -> {
+            getNavigationFragment().popFragment();
         });
 
         // submit
@@ -235,24 +223,6 @@ public class PlanDetailFragment extends BaseFragment {
                 Plan plan = new Plan(activity,type,year,month,day,hour,minute,duration,description,false);
                 viewModel.insertPlans(plan);
 
-                // set alarm
-//                viewModel.getLastPlan().observe(getViewLifecycleOwner(),lastPlan ->{
-
-//                    calendar.set(Calendar.YEAR,year);
-//                    calendar.set(Calendar.MONTH,month-1);
-//                    calendar.set(Calendar.DATE,day);
-//                    calendar.set(Calendar.HOUR,hour);
-//                    calendar.set(Calendar.MINUTE,minute);
-//                    long startTime = calendar.getTimeInMillis();
-//                    int lastPlanId = viewModel.getLastPlan().getValue().getId();
-//                    Toasty.info(getContext(), String.valueOf(lastPlanId), Toast.LENGTH_SHORT,true).show();
-
-//                    alarmManagerUtils = AlarmManagerUtils.getINSTANCE(getContext());
-//                    alarmManagerUtils.setAlarm(lastPlanId, startTime);
-//                    alarmManagerUtils.setAlarm(0, startTime);
-//                });
-
-//                userProfile = Preference_UserProfile.getInstance(getContext());
 
                 // last index
                 userProfile = Preference_UserProfile.getInstance(getContext());
@@ -347,6 +317,13 @@ public class PlanDetailFragment extends BaseFragment {
         if (imm.isActive()) {
             imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
         }
+    }
+
+    // hide toolbar
+    @Nullable
+    @Override
+    protected AwesomeToolbar onCreateAwesomeToolbar(View parent) {
+        return null;
     }
 
 }

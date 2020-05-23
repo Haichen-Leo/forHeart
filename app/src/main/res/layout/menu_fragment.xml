@@ -34,10 +34,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:text="Nickname"
+                android:fontFamily="@font/roboto"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/divider9"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"/>
 
             <View
                 android:id="@+id/divider9"
@@ -82,7 +84,8 @@
                     android:id="@+id/imageView1"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:src="@drawable/ic_features"
+                    app:srcCompat="@drawable/ic_features"
+                    android:fontFamily="@font/roboto"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline1"
                     app:layout_constraintTop_toTopOf="parent"
@@ -94,10 +97,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="Healthy Profile"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView1"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="#EBE7E7"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -121,7 +132,7 @@
                     android:id="@+id/imageView9"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:src="@drawable/ic_love_letter"
+                    app:srcCompat="@drawable/ic_love_letter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline13"
                     app:layout_constraintTop_toTopOf="parent"
@@ -133,11 +144,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="Tips for Heart"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView9"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="#EBE7E7"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -162,7 +181,7 @@
                     android:id="@+id/imageView8"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    android:src="@drawable/ic_document"
+                    android:src="@drawable/ic_contact"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline12"
                     app:layout_constraintTop_toTopOf="parent"
@@ -174,11 +193,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="Contact Us"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/roboto"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/secondary_text_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView8"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="#EBE7E7"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

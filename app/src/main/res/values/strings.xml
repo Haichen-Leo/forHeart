@@ -15,8 +15,8 @@
     <string name="plan_step_1">Select your prefer style</string>
     <string name="plan_step_2">Exercise details</string>
     <string name="food_type_good">Good for Heart !</string>
-    <string name="food_type_normal">Not bad !</string>
-    <string name="food_type_bad">No help for heart !</string>
+    <string name="food_type_normal">Not bad</string>
+    <string name="food_type_bad">No help for heart</string>
     <string name="food_message_good">This food is very healthy for your cardiovascular system and can be consumed regularly.</string>
     <string name="food_message_normal">This food is good for heart. You may find more healthy food in recommendation below.</string>
     <string name="food_message_bad">This food is not good enough for heart health, find other food in our database.</string>
