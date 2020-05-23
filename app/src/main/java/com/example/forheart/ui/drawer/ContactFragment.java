@@ -40,15 +40,10 @@ public class ContactFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
-        binding.buttonSend.setOnClickListener(v -> {
-            ContactDialog dialog = new ContactDialog();
-            showDialog(dialog,0);
-        });
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setTitle("Contact Us");
     }
 }

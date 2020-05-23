@@ -60,6 +60,12 @@ public class MenuFragment extends AwesomeFragment {
             requireDrawerFragment().closeMenu();
         });
 
+        // nav - to about page
+        binding.layoutAbout.setOnClickListener(v -> {
+            requireNavigationFragment().pushFragment(new AboutFragment());
+            requireDrawerFragment().closeMenu();
+        });
+
         return binding.getRoot();
     }
 
