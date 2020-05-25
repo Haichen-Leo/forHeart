@@ -6,6 +6,9 @@ import androidx.room.RoomDatabase;
 import com.example.forheart.model.Food;
 import com.example.forheart.model.FoodGroup;
 
+/*
+ * Test database for Room unit test
+ */
 @Database(entities = {Food.class, FoodGroup.class}, version = 1, exportSchema = false)
 public abstract class FoodTestDatabase extends RoomDatabase {
 

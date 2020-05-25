@@ -8,6 +8,9 @@ import com.example.forheart.model.Food;
 
 import java.util.List;
 
+/*
+ * Repository class that get food data from database
+ */
 public class FoodRepository {
 
     private LiveData<List<Food>> allFoodsLive;
@@ -52,21 +55,4 @@ public class FoodRepository {
         return foodDao.findAllBestFoods();
     }
 
-//    public void insertFoods(Food...foods) {
-//        new InsertAsyncTaskFood(foodDao).execute(foods);
-//    }
-
-//    static class InsertAsyncTaskFood extends AsyncTask<Food, Void, Void> {
-//        private FoodDao foodDao;
-//
-//        InsertAsyncTaskFood(FoodDao foodDao) {
-//            this.foodDao = foodDao;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(Food... foods) {
-//            foodDao.insertFoods(foods);
-//            return null;
-//        }
-//    }
 }

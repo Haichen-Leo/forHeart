@@ -9,6 +9,9 @@ import com.example.forheart.model.Exercise;
 
 import java.util.List;
 
+/**
+ * Interface class for Room
+ */
 @Dao
 public interface ExerciseDao {
 

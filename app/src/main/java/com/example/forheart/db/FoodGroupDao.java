@@ -11,30 +11,18 @@ import java.util.List;
 
 import com.example.forheart.model.FoodGroup;
 
-@Dao // Database access object
+/**
+ * Interface class for Room
+ */
+@Dao
 public interface FoodGroupDao {
 
     @Insert
     void insertFoodGroups(FoodGroup... foodGroups);
-
-    @Update
-    void updateFoodGroup(FoodGroup... foodGroups);
-
-    @Delete
-    void deleteFoodGroup(FoodGroup... foodGroups);
-
-    @Query("DELETE FROM FoodGroup")
-    void deleteAllFoodGroups();
 
     @Query("SELECT * FROM FoodGroup WHERE food_group_id = :foodGroupId")
     FoodGroup findFoodGroupById(int foodGroupId);
 
     @Query("SELECT * FROM FoodGroup ORDER BY food_group_name")
     LiveData<List<FoodGroup>> getAllFoodGroupsLive();
-
-    @Query("SELECT * FROM FoodGroup ORDER BY food_group_name")
-    List<FoodGroup> getAllFoodGroups();
-
-    @Query("DELETE FROM FoodGroup WHERE food_group_id = 0")
-    void deleteZero();
 }

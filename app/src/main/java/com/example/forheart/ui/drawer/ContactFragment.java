@@ -56,7 +56,7 @@ public class ContactFragment extends BaseFragment {
         binding.buttonSend.setOnClickListener(v -> {
 
             // if feedback empty
-            String feedback = binding.formText.getText().toString();
+            String feedback = binding.formText.getText().toString().trim();
             if (TextUtils.isEmpty(feedback)) {
                 Toasty.info(getContext(),"Feedback is empty!", Toast.LENGTH_SHORT).show();
             } else {
@@ -65,6 +65,7 @@ public class ContactFragment extends BaseFragment {
                 postData.put("feedback", binding.formText.getText().toString());
                 HttpPostAsyncTask task = new HttpPostAsyncTask(postData);
                 task.execute(url);
+                binding.formText.setText("");
                 ContactDialog dialog = new ContactDialog();
                 showDialog(dialog,0);
             }

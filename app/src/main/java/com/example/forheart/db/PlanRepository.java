@@ -9,6 +9,9 @@ import com.example.forheart.model.Plan;
 
 import java.util.List;
 
+/*
+ * Repository class that handle plan data from database
+ */
 public class PlanRepository {
 
     private LiveData<List<Plan>> allPlansLive;

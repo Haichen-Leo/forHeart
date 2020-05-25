@@ -11,6 +11,9 @@ import com.example.forheart.model.Plan;
 
 import java.util.List;
 
+/**
+ * Interface class for Room
+ */
 @Dao
 public interface PlanDao {
 

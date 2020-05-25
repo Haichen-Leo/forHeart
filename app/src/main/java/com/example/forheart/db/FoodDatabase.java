@@ -12,15 +12,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.forheart.model.Food;
 import com.example.forheart.model.FoodGroup;
 
+/**
+ * Class to build food database from pre-defined database
+ */
 @Database(entities = {Food.class, FoodGroup.class}, version = 2, exportSchema = false)
 public abstract class FoodDatabase extends RoomDatabase {
 
     private static FoodDatabase INSTANCE;
     public static synchronized FoodDatabase getINSTANCE(Context context) {
         if (INSTANCE == null) {
-//            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database")
-//                    .addMigrations(MIGRATION_1_2)
-//                    .build();
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FoodDatabase.class, "food_database_3")
                     .createFromAsset("database/food_database_v3")
                     .build();

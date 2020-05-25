@@ -8,20 +8,11 @@ import com.example.forheart.model.Food;
 
 import java.util.List;
 
+/**
+ * Interface class for Room
+ */
 @Dao
 public interface FoodDao {
-
-//    @Insert
-//    void insertFoods(Food... foods);
-//
-//    @Update
-//    void updateFoods(Food... foods);
-//
-//    @Delete
-//    void deleteFoods(Food... foods);
-//
-//    @Query("DELETE FROM Food")
-//    void deleteAllFoods();
 
     @Query("SELECT * FROM Food ORDER BY food_item_name")
     LiveData<List<Food>> getAllFoods();

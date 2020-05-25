@@ -8,6 +8,9 @@ import com.example.forheart.model.FoodGroup;
 
 import java.util.List;
 
+/*
+ * Repository class that get food group data from database
+ */
 public class FoodGroupRepository {
     private LiveData<List<FoodGroup>> allFoodGroupsLive;
     private FoodGroupDao foodGroupDao;
@@ -22,21 +25,4 @@ public class FoodGroupRepository {
         return allFoodGroupsLive;
     }
 
-//    public void deleteFoodGroup(FoodGroup... foodGroups) {
-//        new DeleteAsyncTaskFood(foodGroupDao).execute(foodGroups);
-//    }
-
-//    static class DeleteAsyncTaskFood extends AsyncTask<FoodGroup, Void, Void> {
-//        private FoodGroupDao foodGroupDao;
-//
-//        DeleteAsyncTaskFood(FoodGroupDao foodGroupDao){
-//            this.foodGroupDao = foodGroupDao;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(FoodGroup... foodGroups) {
-//            foodGroupDao.deleteFoodGroup(foodGroups);
-//            return null;
-//        }
-//    }
 }

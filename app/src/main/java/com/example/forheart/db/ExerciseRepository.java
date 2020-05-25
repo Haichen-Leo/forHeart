@@ -9,6 +9,9 @@ import com.example.forheart.model.Exercise;
 
 import java.util.List;
 
+/*
+ * Repository class that retrieve exercise data from database
+*/
 public class ExerciseRepository {
 
     private LiveData<List<Exercise>> allExercises;
