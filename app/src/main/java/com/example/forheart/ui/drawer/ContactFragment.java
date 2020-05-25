@@ -1,20 +1,31 @@
 package com.example.forheart.ui.drawer;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.ContactFragmentBinding;
+import com.example.forheart.network.HttpPostAsyncTask;
 import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.AwesomeToolbar;
-import com.navigation.androidx.Style;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * Fragment Class for Contact Page
@@ -40,10 +51,41 @@ public class ContactFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
+
+        String feedback = binding.formText.getText().toString();
+
+        // send feedback to server
+        binding.buttonSend.setOnClickListener(v -> {
+
+            // if feedback empty
+            if (TextUtils.isEmpty(feedback)) {
+                Toasty.info(getContext(),"Feedback is empty!", Toast.LENGTH_SHORT).show();
+            } else {
+                String url = "http://54.206.117.113/feedback";
+                Map<String, String> postData = new HashMap<>();
+                postData.put("feedback", binding.formText.getText().toString());
+                HttpPostAsyncTask task = new HttpPostAsyncTask(postData);
+                task.execute(url);
+                ContactDialog dialog = new ContactDialog();
+                showDialog(dialog,0);
+            }
+        });
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        // get network permission in sdk > android.M
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
+                // check permission
+                if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.INTERNET)) {
+                } else {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.INTERNET}, 1);
+                }
+            }
+        }
+
     }
 }
