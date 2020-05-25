@@ -44,23 +44,24 @@
                     <ImageView
                         android:id="@+id/daily_logo"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/daily_menu"
+                        android:layout_height="100dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/menu"
                         android:scaleType="fitCenter"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0"
-                        app:layout_constraintBottom_toBottomOf="@id/daily_text"
+                        app:layout_constraintBottom_toTopOf="@id/daily_text"
                         android:contentDescription="TODO"
-                        app:layout_constraintVertical_chainStyle="spread"/>
+                        app:layout_constraintVertical_chainStyle="packed"/>
 
                     <TextView
                         android:id="@+id/daily_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Daily Special"
+                        android:text="Best Ingredients"
                         android:textColor="#FFFFFF"
+                        android:fontFamily="@font/roboto"
                         android:textSize="30dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"

@@ -23,6 +23,5 @@ public class ContactDialog extends AwesomeFragment {
                 .create();
 
         return dialog;
-
     }
 }

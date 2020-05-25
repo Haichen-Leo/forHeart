@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:singleLine="false"
-                        android:text="Daily Special"
+                        android:text="Best Ingredients"
                         android:fontFamily="@font/roboto"
                         android:textColor="#FFFFFF"
                         android:textSize="24sp"

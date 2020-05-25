@@ -52,12 +52,11 @@ public class ContactFragment extends BaseFragment {
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
 
-        String feedback = binding.formText.getText().toString();
-
         // send feedback to server
         binding.buttonSend.setOnClickListener(v -> {
 
             // if feedback empty
+            String feedback = binding.formText.getText().toString();
             if (TextUtils.isEmpty(feedback)) {
                 Toasty.info(getContext(),"Feedback is empty!", Toast.LENGTH_SHORT).show();
             } else {

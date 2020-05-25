@@ -99,11 +99,11 @@ public class FoodDetailFragment extends BaseFragment {
         binding.potassiumNumber.setText(String.valueOf(foodBean.getPotassium()));
 
         // present
-        if(foodBean.getTotalScore() < 2 ) {
+        if(foodBean.getTotalScore() < 1.95 ) {
             binding.foodType.setText(R.string.food_type_bad);
             binding.foodType.setTextColor(getResources().getColor(R.color.colorRed));
             binding.foodTypeMessage.setText(R.string.food_message_bad);
-        } else if (foodBean.getTotalScore() < 3) {
+        } else if (foodBean.getTotalScore() < 2.95) {
             binding.foodType.setText(R.string.food_type_normal);
             binding.foodType.setTextColor(getResources().getColor(R.color.colorPink));
             binding.foodTypeMessage.setText(R.string.food_message_normal);
