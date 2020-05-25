@@ -3,6 +3,9 @@ package com.example.forheart.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * util class to parse datetime
+ */
 public class DateTimeUtils {
 
     public static String parseDateTimeFormat(String input) {

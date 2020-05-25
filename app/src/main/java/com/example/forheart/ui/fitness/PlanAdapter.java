@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forheart.R;
@@ -21,6 +20,9 @@ import com.navigation.androidx.NavigationFragment;
 
 import java.util.List;
 
+/**
+ * Adapter for plan list
+ */
 public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder> {
     private List<Plan> allPlans;
     private final LayoutInflater layoutInflater;
@@ -38,7 +40,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     public PlanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.cell_card_plan, parent, false);
         PlanViewHolder holder = new PlanViewHolder(itemView);
-
+        // listener on plan card, navigate to action page
         holder.cardView.setOnClickListener(v -> {
             int planId = (int) holder.itemView.getTag(R.id.plan_in_view_holder);
             ActionFragment fragment = new ActionFragment();
@@ -58,6 +60,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             holder.setData(plan.getActivity(),duration, DateTimeUtils.parseDateTimeFormat(datetime), position);
             holder.itemView.setTag(R.id.plan_in_view_holder, plan.getId());
 
+            // check status to change card style
             if(plan.isDone()) {
                 holder.setDone();
             }
@@ -84,6 +87,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
         private TextView dateTimeView;
         private int mPosition;
 
+        // demonstration of viewholder in recycler view
         PlanViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardView_plan);
@@ -97,14 +101,14 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             dateTimeView.setText(datetime);
             mPosition = position;
         }
-
+        // set card background to grey when plan is done
         void setDone() {
             cardView.setBackgroundColor(Color.parseColor("#e0e0e0"));
             activityView.setTextColor(Color.parseColor("#7A7A7A"));
             dateTimeView.setTextColor(Color.parseColor("#7A7A7A"));
             durationView.setTextColor(Color.parseColor("#7A7A7A"));
         }
-
+        // set card background to white if not done
         void setNotDone() {
             cardView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
             activityView.setTextColor(Color.parseColor("#000000"));

@@ -60,6 +60,7 @@ public class ContactFragment extends BaseFragment {
             if (TextUtils.isEmpty(feedback)) {
                 Toasty.info(getContext(),"Feedback is empty!", Toast.LENGTH_SHORT).show();
             } else {
+                // connect to server
                 String url = "http://54.206.117.113/feedback";
                 Map<String, String> postData = new HashMap<>();
                 postData.put("feedback", binding.formText.getText().toString());

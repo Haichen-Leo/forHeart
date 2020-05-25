@@ -17,6 +17,9 @@ import com.navigation.androidx.Style;
 import com.navigation.androidx.TabBarFragment;
 import com.navigation.androidx.TabBarItem;
 
+/**
+ * Main activity class that set base fragment navigation
+ */
 public class MainActivity extends AwesomeActivity {
 
     // This activity base on Androidx and AwesomeNavigation library for navigation configures

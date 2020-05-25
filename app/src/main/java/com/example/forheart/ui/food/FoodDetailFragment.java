@@ -3,7 +3,6 @@ package com.example.forheart.ui.food;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.FoodDetailFragmentBinding;
@@ -25,7 +23,9 @@ import java.text.DecimalFormat;
 
 import es.dmoral.toasty.Toasty;
 
-
+/**
+ * Fragment class to show food details page
+ */
 public class FoodDetailFragment extends BaseFragment {
 
     private FoodDetailFragmentBinding binding;
@@ -73,6 +73,7 @@ public class FoodDetailFragment extends BaseFragment {
         foodBean = getArguments().getParcelable(String.valueOf(R.string.nav_food_id));
         int groupId = foodBean.getFoodGroupId();
         setPhoto(groupId);
+        // set question mark
         binding.imageViewQuestion.setOnClickListener(v -> {
             String answer = "Scoring is purely based on our formula. Find more details in Tips for Heart.\nFor further assistance, please see a medical practitioner";
             Toasty.info(getContext(), answer, Toast.LENGTH_SHORT, true).show();
@@ -85,7 +86,7 @@ public class FoodDetailFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         assert getArguments() != null;
 
-//        String foodId = foodBean.getFoodId();
+        // set nutrition list
         String foodScore = df.format(foodBean.getTotalScore());
         binding.foodName.setText(foodBean.getFoodName());
         binding.foodScoreNumber.setText(" " + foodScore + "/5");
@@ -98,7 +99,7 @@ public class FoodDetailFragment extends BaseFragment {
         binding.totalFolatesNumber.setText(String.valueOf(foodBean.getTotalFolates()));
         binding.potassiumNumber.setText(String.valueOf(foodBean.getPotassium()));
 
-        // present
+        // change content based on marks
         if(foodBean.getTotalScore() < 1.95 ) {
             binding.foodType.setText(R.string.food_type_bad);
             binding.foodType.setTextColor(getResources().getColor(R.color.colorRed));
@@ -108,7 +109,8 @@ public class FoodDetailFragment extends BaseFragment {
             binding.foodType.setTextColor(getResources().getColor(R.color.colorPink));
             binding.foodTypeMessage.setText(R.string.food_message_normal);
         }
-        
+
+        // get recommended food
         binding.buttonRecommend.setOnClickListener(v -> {
             int groupId = foodBean.getFoodGroupId();
             RecommandFragment dialog = RecommandFragment.newInstance(groupId);
@@ -137,7 +139,8 @@ public class FoodDetailFragment extends BaseFragment {
         }
     }
 
-    public void setPhoto(int groupId) {
+    // set theme image for each food category
+    private void setPhoto(int groupId) {
         if (groupId == 11){
             binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_11));
         } else if (groupId == 12) {

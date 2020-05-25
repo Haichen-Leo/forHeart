@@ -41,6 +41,9 @@ import java.util.Calendar;
 
 import es.dmoral.toasty.Toasty;
 
+/**
+ * Fragment to set details of new plans
+ */
 public class PlanDetailFragment extends BaseFragment {
 
     private PlanDetailFragmentBinding binding;
@@ -80,7 +83,7 @@ public class PlanDetailFragment extends BaseFragment {
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
         viewModel = new ViewModelProvider(this).get(PlanDetailViewModel.class);
-
+        // get argument from previous setting page
         type = getArguments().getString(String.valueOf(R.string.activity_type));
 
         // configure pic
@@ -88,7 +91,7 @@ public class PlanDetailFragment extends BaseFragment {
             binding.imageViewTypePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_do_pilates));
         }
 
-
+        // go to suggestion page
         binding.buttonSuggest.setOnClickListener(v -> {
             NavigationFragment navigationFragment = new NavigationFragment();
             ExerciseCategoryFragment fragment = new ExerciseCategoryFragment();
@@ -96,7 +99,6 @@ public class PlanDetailFragment extends BaseFragment {
             Bundle args = FragmentHelper.getArguments(fragment);
             args.putString("exercise_type", type);
             presentFragment(navigationFragment, REQUEST_CODE_SUGGEST_NEW);
-
         });
 
         // set current date
@@ -106,7 +108,6 @@ public class PlanDetailFragment extends BaseFragment {
         day = calendar.get(Calendar.DATE);
         hour = 19;
         minute = 0;
-
         theDay = year + "-" + month + "-" + day;
         theTime = hour + ":" + minute;
         binding.editTextDate.setText(parseDateFormat(theDay));
@@ -146,6 +147,7 @@ public class PlanDetailFragment extends BaseFragment {
                         planCalendar.set(Calendar.MINUTE,minute);
                         long startTime = planCalendar.getTimeInMillis();
 
+                        // if select a time before the current, pop up toast
                         if (startTime < System.currentTimeMillis()) {
                             Toasty.info(getContext(), "Oops, you select a time before the current.\nPlease choose a valid time again", Toast.LENGTH_SHORT, true).show();
                             hour = 19;
@@ -237,6 +239,7 @@ public class PlanDetailFragment extends BaseFragment {
                 calendar.set(Calendar.MINUTE,minute);
                 calendar.set(Calendar.SECOND,0);
 
+                // set notification alarm when start a new plan
                 Intent intent = new Intent(requireContext(), MainActivity.class);
                 intent.putExtra("planId", index);
                 NotifyMe notifyMe = new NotifyMe.Builder(getContext())
@@ -263,9 +266,11 @@ public class PlanDetailFragment extends BaseFragment {
         setTitle("New Plan");
     }
 
+    // method to handle result from suggestion page
     @Override
     public void onFragmentResult(int requestCode, int resultCode, @Nullable Bundle data) {
         super.onFragmentResult(requestCode, resultCode, data);
+
         if (requestCode == REQUEST_CODE_SUGGEST) {
             if (resultCode == Activity.RESULT_OK && data != null) {
                 binding.editTextWhat.setText(data.getString(KEY_TYPE));
@@ -273,9 +278,10 @@ public class PlanDetailFragment extends BaseFragment {
                 hideKeyboard(getView());
             }
         }
+
+        // set duration recommendation
         if (requestCode == REQUEST_CODE_SUGGEST_NEW) {
             if (resultCode == Activity.RESULT_OK && data != null) {
-//                Toasty.info(getContext(),"ok", Toast.LENGTH_SHORT, true).show();
                 ExerciseBean bean = data.getParcelable("suggest_food");
                 binding.editTextWhat.setText(bean.getName());
                 recommendDuration = bean.getDuration();

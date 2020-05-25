@@ -1,15 +1,12 @@
 package com.example.forheart.ui.drawer;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.TipsFaqBinding;
@@ -17,7 +14,7 @@ import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.AwesomeToolbar;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment class to show FAQ messages
  */
 public class FaqFragment extends BaseFragment {
 

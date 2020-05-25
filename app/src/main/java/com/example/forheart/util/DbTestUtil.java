@@ -6,7 +6,8 @@ import com.example.forheart.model.FoodGroup;
 import java.util.ArrayList;
 
 /**
- * Util class for room database testing
+ * Util class only used for room database testing
+ * This class will never be called in app
  */
 public class DbTestUtil {
 

@@ -1,5 +1,8 @@
 package com.example.forheart.util;
 
+/**
+ * util class to handle workout progress
+ */
 public class ProgressUtil {
 
     public static int moderate = 300;

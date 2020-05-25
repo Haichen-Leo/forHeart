@@ -19,32 +19,14 @@ import com.navigation.androidx.NavigationFragment;
 
 import java.util.List;
 
+/**
+ * Food list adapter class to present food cards
+ */
 public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodViewHolder> {
     private List<Food> allFoods;
     private final LayoutInflater layoutInflater;
     private Context mContext;
     private NavigationFragment navigationFragment;
-
-//    public FoodListAdapter(Context context, NavigationFragment navigationFragment) {
-
-//        super(new DiffUtil.ItemCallback<Food>() {
-//            @Override
-//            public boolean areItemsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
-//                return oldItem.getFoodId() == newItem.getFoodId();
-//            }
-//
-//            @Override
-//            public boolean areContentsTheSame(@NonNull Food oldItem, @NonNull Food newItem) {
-//                return (oldItem.getFoodName().equals(newItem.getFoodName())
-//                        && oldItem.getFolicAcid() == (newItem.getFolicAcid())
-//                        && oldItem.getLycopene() == newItem.getLycopene());
-//            }
-//        });
-
-//        layoutInflater = LayoutInflater.from(context);
-//        mContext = context;
-//        this.navigationFragment = navigationFragment;
-//    }
 
     FoodListAdapter(Context context, NavigationFragment fragment) {
         layoutInflater = LayoutInflater.from(context);
@@ -60,11 +42,9 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         FoodViewHolder holder = new FoodViewHolder(itemView);
         holder.constraintLayout.setOnClickListener(v -> {
             FoodDetailFragment fragment = new FoodDetailFragment();
-//            String foodId = (String) holder.itemView.getTag(R.id.food_in_view_holder);
             FoodBean foodBean = (FoodBean) holder.itemView.getTag(R.id.food_in_view_holder);
             Bundle args = FragmentHelper.getArguments(fragment);
             args.putParcelable(String.valueOf(R.string.nav_food_id), foodBean);
-//            args.putString(String.valueOf(R.string.nav_food_id), foodId);
             navigationFragment.pushFragment(fragment);
         });
         return holder;
@@ -75,8 +55,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         if (allFoods!=null) {
             Food food = allFoods.get(position);
             holder.setData(food.getFoodName(),position);
-//            holder.textView.setText(food.getFoodName());
-//            holder.itemView.setTag(R.id.food_in_view_holder,food.getFoodId());\
             FoodBean foodBean = new FoodBean();
             foodBean.createFoodBean(food);
             holder.itemView.setTag(R.id.food_in_view_holder, foodBean);
@@ -99,6 +77,9 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         notifyDataSetChanged();
     }
 
+    /**
+     * class define view holder in recycler view
+     */
     static class FoodViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
         private ConstraintLayout constraintLayout;

@@ -19,6 +19,9 @@ import com.navigation.androidx.NavigationFragment;
 
 import java.util.List;
 
+/**
+ * Adapter that sends data to the recycler view in exercise list page
+ */
 public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapter.ExerciseViewHolder>{
 
     private List<Exercise> allExercises;
@@ -37,6 +40,7 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
     public ExerciseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = layoutInflater.inflate(R.layout.cell_card_exercise, parent, false);
         ExerciseViewHolder holder = new ExerciseViewHolder(itemView);
+        // go back to plan detail page with selected exercise bean
         holder.cardView.setOnClickListener(v -> {
             ExerciseBean bean = (ExerciseBean) holder.itemView.getTag(R.id.exercise_in_view_holder);
             Bundle result = new Bundle();
@@ -49,6 +53,7 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ExerciseViewHolder holder, int position) {
+        // set exercise card content
         if (allExercises != null) {
             Exercise exercise = allExercises.get(position);
             holder.setData(exercise.getName(), position);
@@ -74,6 +79,7 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
         notifyDataSetChanged();
     }
 
+    // inner class to demonstrate view holder used in recycler view
     static class ExerciseViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
         private CardView cardView;

@@ -11,6 +11,9 @@ import com.example.forheart.model.FoodGroup;
 
 import java.util.List;
 
+/**
+ * ViewModel for food page
+ */
 public class FoodViewModel extends AndroidViewModel {
     private FoodGroupRepository foodGroupRepository;
 

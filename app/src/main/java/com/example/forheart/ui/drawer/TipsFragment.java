@@ -1,29 +1,22 @@
 package com.example.forheart.ui.drawer;
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import com.example.forheart.R;
-import com.example.forheart.databinding.ContactFragmentBinding;
 import com.example.forheart.databinding.TipsBinding;
 import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.FragmentHelper;
-import com.navigation.androidx.Style;
-
-import java.security.PrivateKey;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment class to show tips
  */
 public class TipsFragment extends BaseFragment {
 
@@ -45,6 +38,7 @@ public class TipsFragment extends BaseFragment {
             getNavigationFragment().redirectToFragment(fragment,false);
         });
 
+        // go to different tip content
         tipsBinding.tipsOne.setOnClickListener(v -> {
             TipsContent fragment = new TipsContent();
             Bundle args = FragmentHelper.getArguments(fragment);

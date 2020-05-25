@@ -9,6 +9,9 @@ import androidx.lifecycle.LiveData;
 import com.example.forheart.db.PlanRepository;
 import com.example.forheart.model.Plan;
 
+/**
+ * ViewModel for Action fragment
+ */
 public class ActionViewModel extends AndroidViewModel {
     private PlanRepository planRepository;
 

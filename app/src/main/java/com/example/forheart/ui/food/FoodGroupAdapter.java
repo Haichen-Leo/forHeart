@@ -18,6 +18,9 @@ import com.navigation.androidx.NavigationFragment;
 
 import java.util.List;
 
+/**
+ * Adapter for food group
+ */
 public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.GroupViewHolder> {
     private List<FoodGroup> allFoodGroups;
     private final LayoutInflater layoutInflater;
@@ -41,7 +44,7 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
     @NonNull
     @Override
     public GroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+
         View itemView = layoutInflater.inflate(R.layout.cell_card_foodgroup, parent, false);
         GroupViewHolder holder = new GroupViewHolder(itemView);
         holder.cardView.setOnClickListener(v -> {
@@ -60,7 +63,6 @@ public class FoodGroupAdapter extends RecyclerView.Adapter<FoodGroupAdapter.Grou
             FoodGroup foodGroup = allFoodGroups.get(position);
             holder.setData(foodGroup.getFoodGroupName(), position);
             holder.itemView.setTag(R.id.food_group_in_view_holder,foodGroup.getFoodGroupId());
-//            holder.textView.setText(foodGroup.getFoodGroupName());
         } else {
             holder.textView.setText("loading");
         }

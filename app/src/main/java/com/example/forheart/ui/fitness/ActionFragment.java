@@ -2,7 +2,6 @@ package com.example.forheart.ui.fitness;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +22,14 @@ import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 import com.example.forheart.util.DateTimeUtils;
 import com.example.forheart.util.ProgressUtil;
-import com.example.forheart.util.ToastUtil;
 
 import java.util.Calendar;
 
 import es.dmoral.toasty.Toasty;
 
+/**
+ * Fragment class to show action page
+ */
 public class ActionFragment extends BaseFragment {
 
     private ActionViewModel mViewModel;
@@ -38,7 +39,6 @@ public class ActionFragment extends BaseFragment {
     private static final int REQUEST_CODE_START = 1;
     private static final int REQUEST_CODE_DONE = 2;
     private static final int REQUEST_CODE_DELETE = 3;
-    private static final String ACTION_TYPE = "action_type";
     static final String ACTION_START = "action_start";
     static final String ACTION_DONE = "action_done";
     static final String ACTION_DELETE = "action_delete";
@@ -126,14 +126,14 @@ public class ActionFragment extends BaseFragment {
         super.onFragmentResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_START) {
             if (resultCode == Activity.RESULT_OK) {
-                // Remove notification
+                // Remove notification task when canceled
                 NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
                 // set new alarm
                 Calendar alarm = Calendar.getInstance();
                 long current = alarm.getTimeInMillis();
                 long notifyTime = current + aPlan.getDuration() * 60 * 1000;
                 alarm.setTimeInMillis(notifyTime);
-                // NotifyMe
+                // Send notification when the plan is counted to be finished
                 Intent intent = new Intent(requireContext(), MainActivity.class);
                 intent.putExtra("planId", aPlan.getId());
                 NotifyMe notifyMe = new NotifyMe.Builder(getContext())
@@ -174,7 +174,7 @@ public class ActionFragment extends BaseFragment {
                 NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
                 Toasty.success(getContext(),"Well Done!", Toast.LENGTH_SHORT, true).show();
 
-                // celebrating
+                // celebrating page when the weekly workout progress is done
                 String taskType = profile.getTaskType();
                 ProgressUtil.init(taskType);
                 int target = ProgressUtil.getModerate();
@@ -192,7 +192,7 @@ public class ActionFragment extends BaseFragment {
             if (resultCode == Activity.RESULT_OK) {
                 mViewModel.deletePlans(aPlan);
                 getNavigationFragment().popToRootFragment();
-                // Remove notification
+                // Remove notification when delete an plan before it is done
                 NotifyMe.cancel(getContext(), String.valueOf(aPlan.getId()));
                 Toasty.info(getContext(),"Activity Removed", Toast.LENGTH_SHORT, true).show();
             }

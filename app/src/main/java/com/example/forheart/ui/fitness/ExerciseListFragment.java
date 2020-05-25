@@ -1,19 +1,16 @@
 package com.example.forheart.ui.fitness;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.FragmentExerciseListBinding;
@@ -23,8 +20,9 @@ import com.navigation.androidx.AwesomeToolbar;
 
 import java.util.List;
 
-import es.dmoral.toasty.Toasty;
-
+/**
+ * Fragment class that show the exercise list
+ */
 public class ExerciseListFragment extends BaseFragment {
 
     private FragmentExerciseListBinding binding;
@@ -56,7 +54,7 @@ public class ExerciseListFragment extends BaseFragment {
         } else {
             allExercises = mViewModel.getVigorousCategory(category);
         }
-
+        // set adapter
         allExercises.observe(getViewLifecycleOwner(), exercises -> {
             adapter.setAllExercise(exercises);
         });

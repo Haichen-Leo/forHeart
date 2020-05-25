@@ -1,20 +1,23 @@
 package com.example.forheart;
 
+/**
+ * Class set items on welcome page
+ */
 public class OnBoardingItem {
 
     private int image;
     private String title;
     private String description;
 
-    public int getImage() {
+    int getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    void setImage(int image) {
         this.image = image;
     }
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
@@ -22,11 +25,11 @@ public class OnBoardingItem {
         this.title = title;
     }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
     }
 }

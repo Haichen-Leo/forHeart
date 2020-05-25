@@ -11,6 +11,9 @@ import com.example.forheart.model.Exercise;
 
 import java.util.List;
 
+/**
+ * ViewModel for exercise list
+ */
 public class ExerciseListViewModel extends AndroidViewModel {
 
     private ExerciseRepository exerciseRepository;

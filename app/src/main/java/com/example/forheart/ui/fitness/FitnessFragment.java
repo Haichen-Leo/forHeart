@@ -26,6 +26,9 @@ import java.util.List;
 
 import es.dmoral.toasty.Toasty;
 
+/**
+ * Fragment class for workout page
+ */
 public class FitnessFragment extends BaseFragment {
 
     private PlanViewModel mViewModel;
@@ -39,7 +42,6 @@ public class FitnessFragment extends BaseFragment {
         return new String(codePoints, 0, codePoints.length);
     }
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class FitnessFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
+        // read plan list from database
         userProfile = Preference_UserProfile.getInstance(getContext());
         adapter = new PlanAdapter(getContext(), getNavigationFragment());
         recyclerView = binding.recyclerViewPlan;
@@ -90,7 +93,7 @@ public class FitnessFragment extends BaseFragment {
         // set task type
         binding.taskType.setText(userProfile.getTaskType());
 
-        // view
+        // change text and question hint based on workout plan preference
         binding.question.setOnClickListener(v -> {
             String message = "Normal task includes\n   300 mins moderate exercises or\n   175 mins vigorous exercises\nYou can change the task type in Healthy Profile";
             if (userProfile.getTaskType().equals("Heavy")) {
@@ -98,7 +101,6 @@ public class FitnessFragment extends BaseFragment {
             } else if (userProfile.getTaskType().equals("Light")) {
                 message = "Light task includes\n   180 mins moderate exercises or\n   100 mins vigorous exercises\nYou can change the task type in Healthy Profile";
             }
-
 
              Toast info = Toasty.info(getContext(),message, Toast.LENGTH_LONG, true);
              info.setGravity(Gravity.CENTER, 0, 0);
@@ -122,6 +124,7 @@ public class FitnessFragment extends BaseFragment {
             });
             setLeftBarButtonItem(builder.build());
         }
+        // create new plan
         binding.buttonNewPlan.setOnClickListener(v -> {
             PlanSetFragment fragment = new PlanSetFragment();
             getNavigationFragment().pushFragment(fragment);

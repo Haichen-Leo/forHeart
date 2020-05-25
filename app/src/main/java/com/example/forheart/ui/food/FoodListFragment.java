@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -31,6 +30,9 @@ import com.navigation.androidx.ToolbarButtonItem;
 
 import java.util.List;
 
+/**
+ * Fragment class to show food list page
+ */
 public class FoodListFragment extends BaseFragment {
 
     private FoodListFragmentBinding binding;
@@ -57,12 +59,15 @@ public class FoodListFragment extends BaseFragment {
         mViewModel = new ViewModelProvider(this).get(FoodListViewModel.class);
         groupId = getArguments().getInt(String.valueOf(R.string.nav_food_group_id));
         if (groupId == 0) {
+            // show all foods
             filteredFoods = mViewModel.getAllFoodsLive();
         }
         else if (groupId == -1) {
+            // show all best foods
             filteredFoods = mViewModel.findAllBestFoods();
         }
         else {
+            // show all foods within a group
             filteredFoods = mViewModel.findFoodsWithGroup(groupId);
         }
         filteredFoods.observe(getViewLifecycleOwner(), foods -> foodListAdapter.setAllFoods(foods));
@@ -92,11 +97,12 @@ public class FoodListFragment extends BaseFragment {
             @Override
             public void afterTextChanged(Editable s) {
                 String pattern = s.toString().trim();
-//                Toast.makeText(getActivity(), pattern, Toast.LENGTH_SHORT).show();
                 filteredFoods.removeObservers(getViewLifecycleOwner());
+                // search in all food
                 if (groupId == 0) {
                     filteredFoods = mViewModel.findFoodsWithPattern(pattern);
                 } else {
+                    // search in that category
                     filteredFoods = mViewModel.findFoodsWithGroup(groupId, pattern);
                 }
                 filteredFoods.observe(getViewLifecycleOwner(), foods -> {

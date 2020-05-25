@@ -1,12 +1,12 @@
 package com.example.forheart.model;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Objects;
-
+/**
+ * Entity class for food category persistence
+ */
 @Entity
 public class FoodGroup {
 

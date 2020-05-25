@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Food bean class used to present nutrition page
+ */
 public class FoodBean implements Parcelable {
     private String foodId;
     private String foodName;

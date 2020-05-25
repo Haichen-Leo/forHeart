@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.Gravity;
 import android.widget.Toast;
 
+/**
+ * Util class to make toast
+ */
 public class ToastUtil {
 
     public static void centerToast(Context context, String str) {
@@ -16,5 +19,4 @@ public class ToastUtil {
         Toast toast = Toast.makeText(context,str, Toast.LENGTH_SHORT);
         toast.show();
     }
-
 }

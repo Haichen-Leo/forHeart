@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 
 import com.navigation.androidx.AwesomeFragment;
 
+/**
+ * Dialog class. Show when user press submit feedback button
+ */
 public class ContactDialog extends AwesomeFragment {
 
     @NonNull

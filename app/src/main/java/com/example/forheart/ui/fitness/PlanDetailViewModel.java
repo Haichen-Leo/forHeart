@@ -9,6 +9,9 @@ import androidx.lifecycle.LiveData;
 import com.example.forheart.db.PlanRepository;
 import com.example.forheart.model.Plan;
 
+/**
+ * ViewModel for plan detail page, used to insert new plan to database
+ */
 public class PlanDetailViewModel extends AndroidViewModel {
     private PlanRepository repository;
 

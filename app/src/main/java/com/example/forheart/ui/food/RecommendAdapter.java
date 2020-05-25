@@ -19,6 +19,9 @@ import com.example.forheart.model.FoodBean;
 
 import java.util.List;
 
+/**
+ * Adapter for food recommendation
+ */
 public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.RecommendViewHolder>{
     private List<Food> recommendFoods;
     private final LayoutInflater layoutInflater;

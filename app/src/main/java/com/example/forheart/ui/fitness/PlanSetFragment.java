@@ -14,9 +14,11 @@ import com.example.forheart.ui.BaseFragment;
 import com.navigation.androidx.AwesomeToolbar;
 import com.navigation.androidx.FragmentHelper;
 
+/**
+ * Fragment class to choose a type for new plan
+ */
 public class PlanSetFragment extends BaseFragment {
 
-    private AwesomeToolbar toolbar;
     private PlanSetFragmentBinding binding;
 
     @Override
@@ -29,6 +31,7 @@ public class PlanSetFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
+        // go to detail page with a type
         binding.buttonModerate.setOnClickListener(v -> {
             PlanDetailFragment fragment = new PlanDetailFragment();
             Bundle args = FragmentHelper.getArguments(fragment);

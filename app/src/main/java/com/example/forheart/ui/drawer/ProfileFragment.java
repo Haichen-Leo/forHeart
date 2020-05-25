@@ -2,18 +2,15 @@ package com.example.forheart.ui.drawer;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.forheart.R;
 import com.example.forheart.databinding.FragmentProfileBinding;
@@ -21,6 +18,7 @@ import com.example.forheart.model.Preference_UserProfile;
 import com.example.forheart.ui.BaseFragment;
 
 import es.dmoral.toasty.Toasty;
+
 
 public class ProfileFragment extends BaseFragment {
 

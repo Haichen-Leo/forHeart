@@ -11,6 +11,9 @@ import com.example.forheart.model.Plan;
 
 import java.util.List;
 
+/**
+ * View Model for workout page
+ */
 public class PlanViewModel extends AndroidViewModel {
 
     private PlanRepository planRepository;

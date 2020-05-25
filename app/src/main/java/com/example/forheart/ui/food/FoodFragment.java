@@ -18,7 +18,9 @@ import com.navigation.androidx.DrawerFragment;
 import com.navigation.androidx.FragmentHelper;
 import com.navigation.androidx.ToolbarButtonItem;
 
-
+/**
+ * Fragment class to present nutrition page
+ */
 public class FoodFragment extends BaseFragment {
 
     private FoodGroupFragmentBinding binding;
@@ -63,6 +65,7 @@ public class FoodFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setTitle("Nutrition");
+        // set up toolbar and drawer
         if (isNavigationRoot()) {
             String iconUri = "font://FontAwesome/" + fromCharCode(61641) + "/24";
             ToolbarButtonItem.Builder builder = new ToolbarButtonItem.Builder();
@@ -75,5 +78,4 @@ public class FoodFragment extends BaseFragment {
             setLeftBarButtonItem(builder.build());
         }
     }
-
 }

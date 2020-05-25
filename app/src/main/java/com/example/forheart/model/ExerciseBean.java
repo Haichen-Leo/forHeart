@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * Bean class to show exercise suggestion
+ */
 public class ExerciseBean implements Parcelable {
     private String name;
     private int duration;

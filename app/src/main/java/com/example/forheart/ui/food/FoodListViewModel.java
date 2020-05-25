@@ -11,6 +11,9 @@ import com.example.forheart.model.Food;
 
 import java.util.List;
 
+/**
+ * ViewModel for food list fragment
+ */
 public class FoodListViewModel extends AndroidViewModel {
     private FoodRepository foodRepository;
 

@@ -7,6 +7,9 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+/**
+ * Food entity class
+ */
 @Entity(foreignKeys = @ForeignKey(entity = FoodGroup.class,
         parentColumns = "food_group_id",
         childColumns = "food_group_id"),

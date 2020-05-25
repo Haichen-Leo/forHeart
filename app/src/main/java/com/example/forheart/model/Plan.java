@@ -5,6 +5,9 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+/**
+ * Entity class for exercise plan persistence
+ */
 @Entity
 public class Plan {
 

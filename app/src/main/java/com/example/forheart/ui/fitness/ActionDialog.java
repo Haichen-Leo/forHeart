@@ -11,10 +11,14 @@ import androidx.annotation.Nullable;
 import com.navigation.androidx.AwesomeFragment;
 import com.navigation.androidx.FragmentHelper;
 
+/**
+ * Class to show dialogs in plan action page
+ */
 public class ActionDialog extends AwesomeFragment {
 
     static final String ACTION_TYPE = "action_type";
 
+    // constructor
     static ActionDialog newInstance(String type) {
         ActionDialog dialog = new ActionDialog();
         Bundle bundle = FragmentHelper.getArguments(dialog);
@@ -25,8 +29,11 @@ public class ActionDialog extends AwesomeFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
+        // show different dialog based on the argument
         String type = getArguments().getString(ACTION_TYPE);
         Bundle result = new Bundle();
+        // start dialog
         if (type.equals(ActionFragment.ACTION_START)) {
             AlertDialog dialog = new AlertDialog.Builder(requireContext())
                     .setTitle("Start")
@@ -40,6 +47,7 @@ public class ActionDialog extends AwesomeFragment {
                     .create();
             return dialog;
         }
+        // done dialog
         if (type.equals(ActionFragment.ACTION_DONE)) {
             AlertDialog dialog = new AlertDialog.Builder(requireContext())
                     .setTitle("Done")
@@ -53,6 +61,7 @@ public class ActionDialog extends AwesomeFragment {
                     .create();
             return dialog;
         }
+        // delete dialog
         if (type.equals(ActionFragment.ACTION_DELETE)) {
             AlertDialog dialog = new AlertDialog.Builder(requireContext())
                     .setTitle("Remove")
