@@ -83,14 +83,206 @@
                     app:layout_constraintTop_toBottomOf="@id/constraint1"
                     android:layout_margin="20dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/tips_one"
-                        android:layout_marginBottom="20dp"
-                        android:textSize="16dp"
-                        android:textColor="@android:color/secondary_text_light"/>
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Dietary Fibre:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_dietary_fibre"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Total Omega3:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_total_omega3"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Folic Acid:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_folic_acid"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Monounsaturated Fat:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_monounsaturated"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Lycopene:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_lycopene"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Magnesium:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_magnesium"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Total Folates:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_total_Folates"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="Potassium:"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:textSize="16dp"
+                            android:text="@string/tips_one_Potassium"
+                            android:textColor="@android:color/secondary_text_light"/>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

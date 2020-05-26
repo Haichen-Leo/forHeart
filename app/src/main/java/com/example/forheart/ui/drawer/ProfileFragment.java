@@ -47,7 +47,7 @@ public class ProfileFragment extends BaseFragment {
                 userProfile.putNickname(newName);
                 binding.editTextNickname.clearFocus();
                 hideKeyboard(getView());
-                Toasty.success(getContext(),"Succeed", Toast.LENGTH_SHORT, true).show();
+                Toasty.success(getContext(),"Success", Toast.LENGTH_SHORT, true).show();
             }
 
         });

@@ -113,7 +113,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Click to explore the best food picked for your heart health"
+                        android:text="Click to explore the best ingredients picked for your heart health"
                         android:textColor="#FFFFFF"
                         android:fontFamily="@font/roboto"
                         android:textSize="18sp"

@@ -147,6 +147,11 @@ public class ActionFragment extends BaseFragment {
                         .addAction(new Intent(), "Dismiss")
                         .large_icon(R.mipmap.ic_launcher_round)
                         .build();
+
+                // after press, change start button
+                binding.imageButtonStart.setBackgroundResource(R.drawable.action_bt_disable_bg);
+                binding.imageButtonStart.setText("Doing");
+                binding.imageButtonStart.setOnClickListener(v ->{});
             }
         }
         if (requestCode == REQUEST_CODE_DONE) {
