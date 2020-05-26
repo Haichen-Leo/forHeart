@@ -111,11 +111,19 @@ public class FoodDetailFragment extends BaseFragment {
         }
 
         // get recommended food
-        binding.buttonRecommend.setOnClickListener(v -> {
-            int groupId = foodBean.getFoodGroupId();
-            RecommandFragment dialog = RecommandFragment.newInstance(groupId);
-            showDialog(dialog,0);
-        });
+        if (foodBean.getTotalScore() > 2.95) {
+            binding.buttonRecommend.setText("Explore the best ingredients");
+            binding.buttonRecommend.setOnClickListener(v -> {
+                DailyRecommendFragment fragment = new DailyRecommendFragment();
+                getNavigationFragment().redirectToFragment(fragment);
+            });
+        } else {
+            binding.buttonRecommend.setOnClickListener(v -> {
+                int groupId = foodBean.getFoodGroupId();
+                RecommandFragment dialog = RecommandFragment.newInstance(groupId);
+                showDialog(dialog,0);
+            });
+        }
     }
 
     // handle result from recommend dialog, redirect to recommended food detail page
@@ -186,7 +194,6 @@ public class FoodDetailFragment extends BaseFragment {
         } else if (groupId == 34) {
             binding.imageViewType.setImageDrawable(getResources().getDrawable(R.drawable.food_34));
         }
-
 
 
     }

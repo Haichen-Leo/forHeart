@@ -26,9 +26,11 @@ public interface FoodDao {
     @Query("SELECT * FROM Food WHERE food_group_id = :groupId AND food_item_name LIKE :pattern ORDER BY food_item_name")
     LiveData<List<Food>> findFoodsWithPattern(int groupId, String pattern);
 
-    @Query("SELECT * FROM Food ORDER BY total_score DESC LIMIT 3")
+    // find best 3 food from all category
+    @Query("SELECT * FROM Food WHERE food_item_id IN (SELECT food_item_id FROM Food WHERE total_score > 3) ORDER BY random() LIMIT 3")
     LiveData<List<Food>> findBestFoods();
 
+    // find best 3 food within that category
     @Query("SELECT * FROM Food WHERE food_group_id = :groupId ORDER BY total_score DESC LIMIT 3")
     LiveData<List<Food>> findBestFoodsWithGroup(int groupId);
 

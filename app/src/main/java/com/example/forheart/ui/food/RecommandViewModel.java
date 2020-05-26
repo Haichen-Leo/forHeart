@@ -22,27 +22,28 @@ public class RecommandViewModel extends AndroidViewModel {
     /**
      * Get recommended food in a live-data list
      * @param groupId id of current food group
-     * @return recommended food from all categories if the group is empty
+     * @return recommended food from all categories if no more than 3 good food within this group
      */
     LiveData<List<Food>> getRecommend(int groupId) {
-        if (isEmpty(groupId)) {
+        if (!goodCategory(groupId)) {
             return foodRepository.findBestFoods();
         } else {
             return foodRepository.findBestFoodsWithGroup(groupId);
         }
     }
 
+
     /**
-     * Hard coded food groups that have empty non-zero foods
-     * To be modified if the database updates
+     * Check if there are more than 3 good food
+     * @param groupId within this group
      */
-    boolean isEmpty(int groupId) {
-        int[] empty = {0, 17, 19, 20, 21, 27, 29, 32, 34};
-        for (int i = 0; i<empty.length; i++) {
-            if (empty[i] == groupId){
+    boolean goodCategory(int groupId) {
+        int[] group = {12, 15, 22, 25, 31};
+        for (int i=0; i<group.length; i++) {
+            if (group[i] == groupId) {
                 return true;
             }
         }
-        return  false;
+        return false;
     }
 }
