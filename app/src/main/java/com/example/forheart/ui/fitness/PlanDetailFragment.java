@@ -222,7 +222,7 @@ public class PlanDetailFragment extends BaseFragment {
                 // insert plan
                 duration = Integer.parseInt(durationStr);
                 description = binding.editTextDes.getText().toString();
-                Plan plan = new Plan(activity,type,year,month,day,hour,minute,duration,description,false);
+                Plan plan = new Plan(activity,type,year,month,day,hour,minute,duration,description,false, false);
                 viewModel.insertPlans(plan);
 
 

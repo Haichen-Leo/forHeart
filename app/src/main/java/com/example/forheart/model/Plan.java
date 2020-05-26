@@ -34,11 +34,13 @@ public class Plan {
     private String description;
     @ColumnInfo(name = "plan_is_done")
     private boolean isDone;
+    @ColumnInfo(name = "plan_is_doing")
+    private boolean isDoing;
 
     public Plan(){}
 
     @Ignore
-    public Plan(String activity, String type, int year, int month, int day, int hour, int minute, int duration, String description, boolean isDone) {
+    public Plan(String activity, String type, int year, int month, int day, int hour, int minute, int duration, String description, boolean isDone, boolean isDoing) {
         this.activity = activity;
         this.type = type;
         this.year = year;
@@ -49,6 +51,7 @@ public class Plan {
         this.duration = duration;
         this.description = description;
         this.isDone = isDone;
+        this.isDoing = isDoing;
     }
 
     public int getId() {
@@ -137,5 +140,13 @@ public class Plan {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isDoing() {
+        return isDoing;
+    }
+
+    public void setDoing(boolean doing) {
+        isDoing = doing;
     }
 }

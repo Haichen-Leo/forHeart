@@ -94,10 +94,17 @@ public class ActionFragment extends BaseFragment {
                     binding.imageButtonStart.setText("Finished");
                 } else {
                     // start button
-                    binding.imageButtonStart.setOnClickListener(v -> {
-                        ActionDialog dialog = ActionDialog.newInstance(ACTION_START);
-                        showDialog(dialog,REQUEST_CODE_START);
-                    });
+                    if (plan.isDoing() == true) {
+                        binding.imageButtonStart.setBackgroundResource(R.drawable.action_bt_doing_bg);
+                        binding.imageButtonStart.setText("Started");
+                        binding.imageButtonStart.setOnClickListener(v ->{ });
+                    } else {
+                        binding.imageButtonStart.setOnClickListener(v -> {
+                            ActionDialog dialog = ActionDialog.newInstance(ACTION_START);
+                            showDialog(dialog,REQUEST_CODE_START);
+                        });
+                    }
+
 
                     // done button
                     binding.imageButtonDone.setOnClickListener(v -> {
@@ -148,10 +155,12 @@ public class ActionFragment extends BaseFragment {
                         .large_icon(R.mipmap.ic_launcher_round)
                         .build();
 
-                // after press, change start button
+                // after press, change start button to cancel
+                aPlan.setDoing(true);
+                mViewModel.updatePlans(aPlan);
                 binding.imageButtonStart.setBackgroundResource(R.drawable.action_bt_disable_bg);
-                binding.imageButtonStart.setText("Doing");
-                binding.imageButtonStart.setOnClickListener(v ->{});
+                binding.imageButtonStart.setText("Started");
+                binding.imageButtonStart.setOnClickListener(v ->{ });
             }
         }
         if (requestCode == REQUEST_CODE_DONE) {
