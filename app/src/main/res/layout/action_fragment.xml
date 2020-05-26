@@ -58,7 +58,7 @@
                         android:id="@+id/imageButton_start"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="#F5A391"
+                        android:background="@color/colorPrimary"
                         android:elevation="4dp"
                         android:text="Start workout"
                         android:textColor="#FFFFFF"
