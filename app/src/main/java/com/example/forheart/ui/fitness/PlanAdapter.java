@@ -122,7 +122,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
 
         // set card background to green if doing
         void setDoing() {
-            cardView.setBackgroundColor(Color.parseColor("#F5A391"));
+            cardView.setBackgroundColor(Color.parseColor("#FFF1F0"));
             activityView.setTextColor(Color.parseColor("#000000"));
             dateTimeView.setTextColor(Color.parseColor("#000000"));
             durationView.setTextColor(Color.parseColor("#000000"));
