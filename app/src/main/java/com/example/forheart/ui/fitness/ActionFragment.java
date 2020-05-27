@@ -105,7 +105,6 @@ public class ActionFragment extends BaseFragment {
                         });
                     }
 
-
                     // done button
                     binding.imageButtonDone.setOnClickListener(v -> {
                         ActionDialog dialog = ActionDialog.newInstance(ACTION_DONE);
@@ -166,6 +165,7 @@ public class ActionFragment extends BaseFragment {
         if (requestCode == REQUEST_CODE_DONE) {
             if (resultCode == Activity.RESULT_OK) {
                 aPlan.setDone(true);
+                aPlan.setDoing(false);
                 mViewModel.updatePlans(aPlan);
 
                 // count exercise time

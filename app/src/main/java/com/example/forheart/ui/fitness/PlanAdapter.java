@@ -61,13 +61,12 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             holder.itemView.setTag(R.id.plan_in_view_holder, plan.getId());
 
             // check status to change card style
-            if (plan.isDoing()) {
-                holder.setDoing();
+            if (plan.isDone()) {
+                holder.setDone();
             } else {
-                if(plan.isDone()) {
-                    holder.setDone();
-                }
-                else {
+                if (plan.isDoing()) {
+                    holder.setDoing();
+                } else {
                     holder.setNotDone();
                 }
             }
@@ -111,6 +110,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
             activityView.setTextColor(Color.parseColor("#7A7A7A"));
             dateTimeView.setTextColor(Color.parseColor("#7A7A7A"));
             durationView.setTextColor(Color.parseColor("#7A7A7A"));
+            dateTimeView.setText("Well Done");
         }
         // set card background to white if not done
         void setNotDone() {
